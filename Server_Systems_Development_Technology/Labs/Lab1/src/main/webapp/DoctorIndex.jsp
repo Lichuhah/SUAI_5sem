@@ -9,9 +9,9 @@
 <center>
     <h1>Doctors Management</h1>
     <h2>
-        <a href="add">Add New Doctor</a>
+        <a href="NewDoctorFormServlet">Add New Doctor</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="all">List All Doctor</a>
+        <a href="AddDoctorServlet">List All Doctor</a>
 
     </h2>
 </center>
@@ -31,9 +31,9 @@
                 <td><c:out value="${doctor.cabinet}" /></td>
                 <td><c:out value="${doctor.speciality}" /></td>
                 <td>
-                    <a href="edit?id=<c:out value='${doctor.id}' />">Edit</a>
+                    <a href="EditDoctorFormServlet?id=<c:out value='${doctor.id}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="delete?id=<c:out value='${doctor.id}' />">Delete</a>
+                    <a href="DeleteDoctorServlet?id=<c:out value='${doctor.id}' />">Delete</a>
                 </td>
             </tr>
         </c:forEach>

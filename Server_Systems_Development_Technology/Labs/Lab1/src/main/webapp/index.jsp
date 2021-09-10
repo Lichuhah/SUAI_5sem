@@ -8,8 +8,8 @@
 <h1><%= "Поликлиника имени плохого кода" %>
 </h1>
 <br/>
-<a href="AppointmentServlet">Записи к врачу</a>
-<a href="DoctorsServlet/list">Врачи</a>
-<a href="PatientsServlet/list">Пациенты</a>
+<a href="AllAppointmentServlet">Записи к врачу</a>
+<a href="AllDoctorsServlet">Врачи</a>
+<a href="AllPatientServlet">Пациенты</a>
 </body>
 </html>

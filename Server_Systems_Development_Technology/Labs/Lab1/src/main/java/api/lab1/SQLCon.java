@@ -148,31 +148,4 @@ public class SQLCon {
         return doctor;
     }
 
-    public List<Doctor_Patient> getDocPat(){
-        List<Doctor_Patient> list = new ArrayList<>();
-        ResultSet resultSet = null;
-        try (Connection connection = DriverManager.getConnection(connectionString);
-             Statement statement = connection.createStatement();) {
-
-            // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT * FROM [Doctor_Patient]";
-            resultSet = statement.executeQuery(selectSql);
-
-            // Print results from select statement
-            while (resultSet.next()) {
-                Doctor_Patient doctor_patient = new Doctor_Patient();
-                doctor_patient.doc=getDoctor(resultSet.getInt("Id_Doctor"));
-                doctor_patient.pat=getPatient(resultSet.getInt("Id_Patient"));
-                doctor_patient.reason=resultSet.getString("Reason");
-                doctor_patient.time=resultSet.getDate("Time");
-
-                list.add(doctor_patient);
-            }
-
-        }
-        catch (SQLException e) {
-            throw new RuntimeException("Не удалось загрузить FabricMySQLDriver ", e);
-        }
-        return list;
-    }
 }

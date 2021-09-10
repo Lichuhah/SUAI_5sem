@@ -3,10 +3,18 @@ package api.lab.Models;
 import java.util.Date;
 
 public class Doctor_Patient {
+    public Integer id;
     public Doctor doc;
     public Patient pat;
-    public Date time;
-    public String reason;
+    public String info;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Doctor getDoc() {
         return doc;
@@ -16,11 +24,19 @@ public class Doctor_Patient {
         return pat;
     }
 
-    public Date getTime() {
-        return time;
+    public String getInfo() {
+        return info;
     }
 
-    public String getReason() {
-        return reason;
+    public void setDoc(Doctor doc) {
+        this.doc = doc;
+    }
+
+    public void setPat(Patient pat) {
+        this.pat = pat;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }

@@ -9,18 +9,18 @@
 <center>
     <h1>Patient Management</h1>
     <h2>
-        <a href="PatientsServlet/add">Add New Book</a>
+        <a href="NewFormServlet">Add New Book</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="PatientsServlet/all">List All Books</a>
+        <a href="AllPatientServlet">List All Books</a>
 
     </h2>
 </center>
 <div align="center">
     <c:if test="${patient != null}">
-    <form action="update" method="post">
+    <form action="UpdatePatientServlet" method="post">
         </c:if>
         <c:if test="${patient == null}">
-        <form action="insert" method="post">
+        <form action="AddPatientServlet" method="post">
             </c:if>
             <table border="1" cellpadding="5">
                 <caption>
