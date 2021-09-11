@@ -5,7 +5,8 @@ import java.util.Date;
 public class Patient {
     public int id;
     public String name;
-    public Date birthday;
+    public String surname;
+    public String midname;
 
     public Integer getId(){
         return id;
@@ -13,10 +14,6 @@ public class Patient {
 
     public String getName(){
         return name;
-    }
-
-    public Date getBirthday() {
-        return birthday;
     }
 
     public void setId(int id) {
@@ -27,7 +24,19 @@ public class Patient {
         this.name = name;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getMidname() {
+        return midname;
+    }
+
+    public void setMidname(String midname) {
+        this.midname = midname;
     }
 }

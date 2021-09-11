@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public class AddPatientServlet extends PatientServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         try {
             insertPatient(request, response);
         } catch (SQLException e) {
@@ -22,11 +23,13 @@ public class AddPatientServlet extends PatientServlet {
 
     private void insertPatient(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
         String name = request.getParameter("name");
-        //Date birthday = new Date(request.getParameter("birthday"));
+        String surname = request.getParameter("surname");
+        String midname = request.getParameter("midname");
 
         Patient pat = new Patient();
         pat.name=name;
-        //pat.birthday=birthday;
+        pat.surname=surname;
+        pat.midname=midname;
         patientDAO.Add(pat);
         response.sendRedirect("AllPatientServlet");
 

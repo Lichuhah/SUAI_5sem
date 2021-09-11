@@ -17,6 +17,7 @@ import java.sql.SQLException;
 public class AddAppointmentServlet extends AppointmentServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         try {
             insertAppointment(request,response);
         } catch (SQLException e) {

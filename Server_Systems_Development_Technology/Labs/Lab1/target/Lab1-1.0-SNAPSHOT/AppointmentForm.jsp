@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Books Store Application</title>
+    <title>Pharmacy Application</title>
 </head>
 <body>
 <center>
@@ -12,42 +12,32 @@
         <a href="NewAppointmentFormServlet">Add New Book</a>
         &nbsp;&nbsp;&nbsp;
         <a href="AllAppointmentServlet">List All Books</a>
-
+        &nbsp;
+        <a href="index.jsp">Main menu</a>
     </h2>
 </center>
 <div align="center">
-    <select size=1 name="category" id="listdoc" style="display: grid">
-        <c:forEach items="${listdocs}" var="category">
-            <option value="${category.name}">${category.id} onclick="changeDoc(${category.id})"/>
-        </c:forEach>
-    </select>
-    <select size=1 name="category" id="listpat" style="width: 50;">
-        <c:forEach items="${listpats}" var="category">
-            <option value="${category.id}">${category.name} onclick="changePat(${category.id})"/>
-        </c:forEach>
-    </select>
+
 
         <form action="AddAppointmentServlet" method="post">
+            <th>Врач:</th>
+            <select size=1 name="id_doctor" id="iddoc" required="required">
+                <c:forEach items="${listdocs}" var="category">
+                    <option onclick="changeDoc(${category.id})" value="${category.id}">${category.name}</option>
+                </c:forEach>
+            </select>
+            <th>Пациент:</th>
+            <select size=1 name="id_patient" id="idpat" required="required">
+                <c:forEach items="${listpats}" var="category">
+                    <option  onclick="changePat(${category.id})" value="${category.id}">${category.name}</option>
+                </c:forEach>
+            </select>
             <table border="1" cellpadding="5">
                 <caption>
                     <h2>
                             Add New Appointment
                     </h2>
                 </caption>
-                <tr>
-                    <th>Id Doctor: </th>
-                    <td>
-                        <input type="number" name="id_doctor" size="45" id="iddoc"
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <th>Id Patient: </th>
-                    <td>
-                        <input type="number" name="id_patient" size="45" id="idpat"
-                        />
-                    </td>
-                </tr>
                 <tr>
                     <th>Info: </th>
                     <td>
@@ -57,7 +47,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" value="Save" />
+                        <input type="submit" value="Save"/>
                     </td>
                 </tr>
             </table>
@@ -67,6 +57,9 @@
 </html>
 
 <script>
+        document.getElementById("iddoc").value = null;
+        document.getElementById("idpat").value = null;
+
     function changeDoc(data){
         document.getElementById("iddoc").value = data;
     }

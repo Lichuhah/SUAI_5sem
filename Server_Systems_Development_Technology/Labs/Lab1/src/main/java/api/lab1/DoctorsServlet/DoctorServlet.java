@@ -10,7 +10,6 @@ import java.io.IOException;
 @WebServlet(name = "DoctorServlet", value = "/DoctorServlet")
 public class DoctorServlet extends HttpServlet {
     protected DoctorDAO doctorDAO;
-
     public void init(){
         doctorDAO = new DoctorDAO();
     }

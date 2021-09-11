@@ -23,11 +23,9 @@ public class DeleteAppointmentServlet extends AppointmentServlet {
     }
 
     private void deleteAppointment(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
-        Integer id_Patient = Integer.valueOf(request.getParameter("id_patient"));
-        Integer id_Doctor = Integer.valueOf(request.getParameter("id_doctor"));
+        Integer id = Integer.valueOf(request.getParameter("id"));
         Doctor_Patient doctor_patient = new Doctor_Patient();
-        doctor_patient.pat = new PatientDAO().Get(id_Patient);
-        doctor_patient.doc = new DoctorDAO().Get(id_Doctor);
+        doctor_patient.id = id;
         appointmentDAO.Delete(doctor_patient);
         response.sendRedirect("AllAppointmentServlet");
     }

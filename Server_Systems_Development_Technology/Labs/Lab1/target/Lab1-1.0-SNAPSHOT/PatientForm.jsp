@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Books Store Application</title>
+    <title>Pharmacy Application</title>
 </head>
 <body>
 <center>
@@ -12,7 +12,8 @@
         <a href="NewFormServlet">Add New Book</a>
         &nbsp;&nbsp;&nbsp;
         <a href="AllPatientServlet">List All Books</a>
-
+        &nbsp;
+        <a href="index.jsp">Main menu</a>
     </h2>
 </center>
 <div align="center">
@@ -26,10 +27,10 @@
                 <caption>
                     <h2>
                         <c:if test="${patient != null}">
-                            Edit Book
+                            Edit Patient
                         </c:if>
                         <c:if test="${patient == null}">
-                            Add New Book
+                            Add New Patient
                         </c:if>
                     </h2>
                 </caption>
@@ -45,10 +46,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Birthday: </th>
+                    <th>Surname: </th>
                     <td>
-                        <input type="date" name="date" size="45"
-                               value="<c:out value='${patient.birthday}' />"
+                        <input type="text" name="surname" size="45"
+                               value="<c:out value='${patient.surname}' />"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Middle name: </th>
+                    <td>
+                        <input type="text" name="midname" size="45"
+                               value="<c:out value='${patient.midname}' />"
                         />
                     </td>
                 </tr>

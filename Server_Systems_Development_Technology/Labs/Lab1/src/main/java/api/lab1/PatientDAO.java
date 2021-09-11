@@ -14,10 +14,7 @@ public class PatientDAO {
         ResultSet resultSet = statement.executeQuery(command);
 
         if(resultSet.next()){
-            Patient newPatient = new Patient();
-            newPatient.id=resultSet.getInt("Id");
-            newPatient.name=resultSet.getString("Name");
-            newPatient.birthday=resultSet.getDate("Birthday");
+            Patient newPatient = getPatientFromResultSet(resultSet);
             result = newPatient;
         }
 
@@ -31,10 +28,7 @@ public class PatientDAO {
         ResultSet resultSet = statement.executeQuery(command);
 
         while(resultSet.next()){
-            Patient newPatient = new Patient();
-            newPatient.id=resultSet.getInt("Id");
-            newPatient.name=resultSet.getString("Name");
-            newPatient.birthday=resultSet.getDate("Birthday");
+            Patient newPatient = getPatientFromResultSet(resultSet);
             result.add(newPatient);
         }
 
@@ -42,22 +36,17 @@ public class PatientDAO {
     };
 
     public boolean Add(Patient patient) throws SQLException {
-        String command = "INSERT INTO Patient (Name, Birthday) VALUES (?,?)";
-        PreparedStatement statement = SQLCon.getSqlConnection().prepareStatement(command);
-        statement.setString(1, patient.name);
-        statement.setDate(2, null);
+        String command = "INSERT INTO Patient (Name, Surname, Midname) VALUES (?,?,?)";
+        PreparedStatement statement = getStatFromPatient(patient, command);
 
         boolean result = statement.executeUpdate()>0;
         return result;
     };
 
     public boolean Edit(Patient patient) throws SQLException {
-        String command = "UPDATE Patient SET Name=?, Birthday=? WHERE Id=?";
-        PreparedStatement statement = SQLCon.getSqlConnection().prepareStatement(command);
-        statement.setString(1, patient.name);
-        statement.setDate(2, null);
-        statement.setInt(3,patient.id);
-
+        String command = "UPDATE Patient SET Name=?, Surname=?, Midname=? WHERE Id=?";
+        PreparedStatement statement = getStatFromPatient(patient, command);
+        statement.setInt(4, patient.id);
         boolean result = statement.executeUpdate()>0;
         return  result;
     };
@@ -70,4 +59,21 @@ public class PatientDAO {
         boolean result = statement.executeUpdate()>0;
         return  result;
     };
+
+    public Patient getPatientFromResultSet(ResultSet resultSet) throws SQLException {
+        Patient patient = new Patient();
+        patient.id=resultSet.getInt("Id");
+        patient.name=resultSet.getString("Name");
+        patient.midname=resultSet.getString("Midname");
+        patient.surname=resultSet.getString("Surname");
+        return patient;
+    }
+
+    public PreparedStatement getStatFromPatient(Patient patient, String command) throws SQLException {
+        PreparedStatement statement = SQLCon.getSqlConnection().prepareStatement(command);
+        statement.setString(1, patient.name);
+        statement.setString(2, patient.surname);
+        statement.setString(3, patient.midname);
+        return statement;
+    }
 }

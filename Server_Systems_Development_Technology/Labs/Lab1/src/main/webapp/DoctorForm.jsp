@@ -3,16 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Books Store Application</title>
+    <title>Pharmacy Application</title>
 </head>
 <body>
 <center>
     <h1>Doctor Management</h1>
     <h2>
-        <a href="NewDoctorFormServlet">Add New Book</a>
+        <a href="NewDoctorFormServlet">Add New Doctor</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="AllDoctorServlet">List All Books</a>
-
+        <a href="AllDoctorServlet">List All Doctors</a>
+        &nbsp;
+        <a href="index.jsp">Main menu</a>
     </h2>
 </center>
 <div align="center">
@@ -41,6 +42,22 @@
                     <td>
                         <input type="text" name="name" size="45"
                                value="<c:out value='${doctor.name}' />"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Surname: </th>
+                    <td>
+                        <input type="text" name="surname" size="45"
+                               value="<c:out value='${doctor.surname}' />"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Middle Name: </th>
+                    <td>
+                        <input type="text" name="midname" size="45"
+                               value="<c:out value='${doctor.midname}' />"
                         />
                     </td>
                 </tr>

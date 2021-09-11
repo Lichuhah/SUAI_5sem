@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 @WebServlet(name = "DeleteDoctorServlet", value = "/DeleteDoctorServlet")
@@ -24,8 +25,16 @@ public class DeleteDoctorServlet extends DoctorServlet {
 
         Doctor doc = new Doctor();
         doc.id=id;
-        doctorDAO.Delete(doc);
-        response.sendRedirect("AllDoctorServlet");
+        try {
+            doctorDAO.Delete(doc);
+            response.sendRedirect("AllDoctorServlet");
+        } catch (SQLException ex){
+            PrintWriter pw = response.getWriter();
+            pw.println("<html><body>");
+            pw.println("<h1>" + ex + "</h1>");
+            pw.println("</body></html>");
+        }
+
 
     }
 }
