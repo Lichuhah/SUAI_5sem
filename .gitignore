@@ -348,3 +348,23 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+
+CourseProjectOOP
+Архитектура ЭВМ/*
+*.out
+*.lkf
+*.lkv
+*.mem
+*.arg
+*.paf
+*.paf2
+*.pjt
+*.prj
+*.rcp
+*.rcq
+*.sbl
+*.str
+
+Computer_architecture_and_systems/Lectures/winhlp32-and-search-win10.zip
+Database_design/task1-8.png
