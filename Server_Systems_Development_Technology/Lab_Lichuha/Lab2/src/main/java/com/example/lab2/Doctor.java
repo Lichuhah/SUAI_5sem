@@ -1,4 +1,4 @@
-package api.lab.Models;
+package com.example.lab2;
 
 public class Doctor {
     public Integer id;

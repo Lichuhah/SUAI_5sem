@@ -1,9 +1,9 @@
-package api.lab.Models;
+package com.example.lab2;
 
 import java.util.Date;
 
 public class Patient {
-    public int id;
+    public Integer id;
     public String name;
     public String surname;
     public String midname;

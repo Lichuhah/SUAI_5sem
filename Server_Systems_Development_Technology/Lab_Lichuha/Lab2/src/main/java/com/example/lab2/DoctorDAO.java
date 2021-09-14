@@ -1,7 +1,5 @@
-package api.lab1;
+package com.example.lab2;
 
-import api.lab.Models.Doctor;
-import api.lab.Models.Patient;
 
 import javax.print.Doc;
 import java.sql.*;

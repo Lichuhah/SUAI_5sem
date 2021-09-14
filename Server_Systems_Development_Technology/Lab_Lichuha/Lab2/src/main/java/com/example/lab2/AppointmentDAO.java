@@ -1,7 +1,4 @@
-package api.lab1;
-
-import api.lab.Models.Doctor;
-import api.lab.Models.Doctor_Patient;
+package com.example.lab2;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

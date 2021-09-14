@@ -1,12 +1,30 @@
-package api.lab.Models;
+package com.example.lab2;
 
 import java.util.Date;
 
 public class Doctor_Patient {
     public Integer id;
+    public Integer iddoc;
+    public Integer idpat;
     public Doctor doc;
     public Patient pat;
     public String info;
+
+    public Integer getIddoc() {
+        return iddoc;
+    }
+
+    public void setIddoc(Integer iddoc) {
+        this.iddoc = iddoc;
+    }
+
+    public Integer getIdpat() {
+        return idpat;
+    }
+
+    public void setIdpat(Integer idpat) {
+        this.idpat = idpat;
+    }
 
     public Integer getId() {
         return id;

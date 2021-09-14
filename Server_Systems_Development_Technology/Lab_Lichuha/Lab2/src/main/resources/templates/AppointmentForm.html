@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Pharmacy Application</title>
+</head>
+<body>
+<center>
+    <h1>Appointment Management</h1>
+    <h2>&nbsp;&nbsp;&nbsp;
+        <a th:href="@{/appointments}">List All Appointments</a>
+        &nbsp;
+        <a th:href="@{/}">Main menu</a>
+    </h2>
+</center>
+<div align="center">
+        <form action="#" th:action="@{post}" method="post">
+            <th>Врач:</th>
+            <select size=1 name="iddoc" id="iddoc" required="required">
+                    <option th:each="category: ${listdocs}" th:value="${category.id}" th:text="${category.name}"</option>
+            </select>
+            <th>Пациент:</th>
+            <select size=1 name="idpat" id="idpat" required="required">
+                    <option th:each="category:${listpats}"  th:value="${category.id}" th:text="${category.name}"</option>
+            </select>
+            <table border="1" cellpadding="5">
+                <caption>
+                    <h2>
+                            Add New Appointment
+                    </h2>
+                </caption>
+                <tr>
+                    <th>Info: </th>
+                    <td>
+                        <input type="text" name="info" size="45"
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Save"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+</div>
+</body>
+</html>
+
+<script>
+        document.getElementById("iddoc").value = null;
+        document.getElementById("idpat").value = null;
+
+    function changeDoc(data){
+        document.getElementById("iddoc").value = data;
+    }
+
+    function changePat(data){
+        document.getElementById("idpat").value = data;
+    }
+
+</script>

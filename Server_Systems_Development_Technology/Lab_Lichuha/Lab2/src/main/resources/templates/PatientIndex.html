@@ -6,14 +6,13 @@
 <center>
     <h1>Patients Management</h1>
     <h2>
-        <a href="NewPatientFormServlet">Add New Patient</a>
+        <a th:href="@{/patients/get-1}">Add New Patient</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="AllPatientServlet">List All Patient</a>
-        &nbsp;
-        <a href="index.jsp">Main menu</a>
+        <a th:href="@{/}">Main menu</a>
     </h2>
 </center>
 <div align="center">
+    <form>
     <table border="1" cellpadding="5">
         <thead>
         <caption><h2>List of Patient</h2></caption>
@@ -28,14 +27,15 @@
                 <td th:text="${patient.name}"></td>
                 <td th:text="${patient.surname}"></td>
                 <td th:text="${patient.midname}"></td>
-                <td>
-                    <a href="EditPatientFormServlet?id=<c:out value='${patient.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="DeletePatientServlet?id=<c:out value='${patient.id}' />">Delete</a>
-                </td>
+            <td>
+                <button th:formaction="@{/patients/get{id}(id=${patient.id})}">Edit</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button th:formaction="@{/patients/delete{id}(id=${patient.id})}" th:method="delete">Delete</button>
+            </td>
         </tr>
         </tbody>
     </table>
+    </form>
 </div>
 </body>
 </html>

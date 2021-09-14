@@ -1,4 +1,4 @@
-package api.lab1;
+package com.example.lab2;
 
 import java.sql.*;
 

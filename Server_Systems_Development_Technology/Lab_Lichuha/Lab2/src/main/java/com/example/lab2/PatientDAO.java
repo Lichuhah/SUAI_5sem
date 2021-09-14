@@ -1,6 +1,5 @@
-package api.lab1;
+package com.example.lab2;
 
-import api.lab.Models.Patient;
 
 import java.sql.*;
 import java.util.ArrayList;
