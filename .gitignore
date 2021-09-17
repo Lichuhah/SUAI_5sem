@@ -352,6 +352,9 @@ MigrationBackup/
 
 CourseProjectOOP
 Архитектура ЭВМ/*
+target
+.idea
+
 *.out
 *.lkf
 *.lkv
