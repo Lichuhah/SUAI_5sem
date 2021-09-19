@@ -30,7 +30,7 @@ public class TableRemoveDataServlet extends HttpServlet {
 
                 + "<form name=\"RemoveForm\" method=\"post\" action=\"table-remove-data-servlet\">"
                 + "    Name: <input type=\"text\" name=\"name\"/> <br/>"
-                + "    <input type=\"submit\" value=\"Add\" />"
+                + "    <input type=\"submit\" value=\"Remove\" />"
                 + "</form>"
 
                 + ""
