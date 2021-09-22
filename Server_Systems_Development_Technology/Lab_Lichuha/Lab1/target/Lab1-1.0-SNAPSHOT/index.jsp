@@ -26,5 +26,6 @@
                 <a href="AllPatientServlet">Пациенты</a>
             </td>
         </tr>
+    </table>
 </center>
 </body>
