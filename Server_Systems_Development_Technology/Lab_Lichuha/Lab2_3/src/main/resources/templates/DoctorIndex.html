@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        refresh();
+    })
+
+    function getDoc(idGet){
+        window.location.href='/doctors/view'+idGet;
+    }
+
+    function refresh(){
+        $.get('doctors/all',function (data){
+            console.log(data);
+            let table = "<table border='1'>";
+            table = table+"<caption><h2>List of Doctors</h2></caption>\n" +
+                "        <tr>\n" +
+                "            <th>Name</th>\n" +
+                "            <th>Surname</th>\n" +
+                "            <th>Middle Name</th>\n" +
+                "            <th>Cabinet</th>\n" +
+                "            <th>Speciality</th>\n" +
+                "        </tr>";
+            for(i=0; i<data.length; i++){
+                //table=table+"<tr><td>"+data[i].name+"</td><td>"+data[i].surname+"</td><td><button onclick='deleteDoc("+data[i].id+")'>DELETE</button></td></tr>";
+                table = table +"<tr>\n" +
+                    "                <td>"+data[i].name+"</td>\n" +
+                    "                <td>"+data[i].surname+"</td>\n" +
+                    "                <td>"+data[i].midname+"</td>\n" +
+                    "                <td>"+data[i].cabinet+"</td>\n" +
+                    "                <td>"+data[i].speciality+"</td>\n" +
+                    "                <td>\n" +
+                    "                    <button onclick='getDoc("+data[i].id+")'>Edit</button>\n"+
+                    // "                    <button th:formaction=\"@{/doctors/get{id}(id=${doctor.id})}\">Edit</button>\n" +
+                    "                    &nbsp;&nbsp;&nbsp;&nbsp;\n" +
+                    "                    <button onclick='deleteDoc("+data[i].id+")'>Delete</button>\n" +
+                    "                </td>\n" +
+                    "        </tr>";
+            }
+
+            table = table + "</table>";
+
+            $("#test_doctor").html(table);
+    })
+    }
+
+    function deleteDoc(idDel){
+        $.ajax({
+            url:'doctors/delete'+idDel,
+            type: "DELETE",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (){
+                refresh();
+            },
+            error: function (){
+                console.log("fuck");
+            }
+        })
+    }
+</script>
+
+<body>
+<center>
+    <h1>Doctors Management</h1>
+    <h2>
+        <a th:href="@{/doctors/view-1}">Add New Doctor</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{/doctors}"></a>
+        &nbsp;
+        <a th:href="@{/}">Main menu</a>
+    </h2>
+</center>
+<div align="center" id="test_doctor">
+<form>
+    <input type="">
+</form>
+</div>
+</body>
+</html>
