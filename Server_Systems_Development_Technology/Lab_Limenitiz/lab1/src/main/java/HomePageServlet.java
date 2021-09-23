@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 @WebServlet(name = "homePageServlet", value = "/")
 public class HomePageServlet extends HttpServlet {
@@ -18,18 +21,12 @@ public class HomePageServlet extends HttpServlet {
 
         PrintWriter out = resp.getWriter();
 
-        out.write(""
-            + "<html><body>"
-            +   "<label>Family budget</label>"
-            +   "<br>"
-            +   "<a href=\"table-view-servlet\">Open table</a>"
-            +   "<br>"
-            +   "<a href=\"table-add-data-servlet\">Add data to table</a>"
-            +   "<br>"
-            +   "<a href=\"table-remove-data-servlet\">Remove data to table</a>"
-            +   ""
-            + "</body></html>"
-        );
+        Path path = Path.of("D:\\Programming\\Projects\\SUAI\\" +
+                "Server_Systems_Development_Technology\\Lab_Limenitiz\\lab1\\src\\main\\resources\\" +
+                "home-page.html");
+        String html =  Files.readString(path, StandardCharsets.UTF_8);
+
+        out.write(html);
         out.close();
 
         resp.setStatus(200);
