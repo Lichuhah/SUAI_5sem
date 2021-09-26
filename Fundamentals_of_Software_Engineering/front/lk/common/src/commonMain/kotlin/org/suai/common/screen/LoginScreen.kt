@@ -133,7 +133,7 @@ fun LoginScreen() {
                             val response = LoginManager.sendToServer( loginModel(login, password) )
                             when ( response.role ) {
                                 Role.NONE -> {
-                                    KotlinLogging.logger{}.info { "login" }
+                                    KotlinLogging.logger{}.info { "error ${response.message}" }
                                     errorText = response.message
                                 }
                                     else  -> KotlinLogging.logger{}.info { "login" }
