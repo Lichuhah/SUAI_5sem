@@ -374,9 +374,10 @@ Database_design/task1-8.png
 /Server_Systems_Development_Technology/Lab_Limenitiz/TestNetbeansWebApp/nbproject/private/
 /Server_Systems_Development_Technology/Lab_Limenitiz/TestNetbeansWebApp/build/
 
-# Grable
 .grable
-/Fundamentals_of_Software_Engineering/front/lk/desktop/build
+Fundamentals_of_Software_Engineering/front/lk/desktop/build/*
+Fundamentals_of_Software_Engineering/front/lk/android/build/*
 Fundamentals_of_Software_Engineering/front/lk/common/build/*
-Fundamentals_of_Software_Engineering/front/lk/gradle*
-/Fundamentals_of_Software_Engineering/front/lk/.gradle/
+Fundamentals_of_Software_Engineering/front/lk/gradl*
+Fundamentals_of_Software_Engineering/front/lk/.gradle/
+Fundamentals_of_Software_Engineering/front/lk/local.properties
