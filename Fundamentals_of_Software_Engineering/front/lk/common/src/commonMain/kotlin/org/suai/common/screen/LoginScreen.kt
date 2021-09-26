@@ -14,10 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.suai.common.LoginManager.sendToServer
 import org.suai.common.model.loginModel
 import org.suai.common.Role
 import mu.KotlinLogging
+import org.suai.common.LoginManager
 
 @Composable
 fun LoginScreen() {
@@ -135,7 +135,8 @@ fun LoginScreen() {
 
                         } else {
                             KotlinLogging.logger {}.info { "login login=$login pas=$password" }
-                            val response = sendToServer( loginModel(login, password) )
+                            val lm = LoginManager();
+                            val response = lm.sendToServer( loginModel(login, password) )
                             when ( response.role ) {
                                 Role.NONE -> {
                                     KotlinLogging.logger{}.info { "error ${response.message}" }
