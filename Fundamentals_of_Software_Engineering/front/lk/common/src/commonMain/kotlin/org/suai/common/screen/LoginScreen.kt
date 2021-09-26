@@ -1,24 +1,23 @@
 package org.suai.common.screen
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Button
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import mu.KLogger
-import mu.KotlinLogging
-import mu.toKLogger
-import org.suai.common.LoginManager
-import org.suai.common.Role
+import org.suai.common.LoginManager.sendToServer
 import org.suai.common.model.loginModel
+import org.suai.common.Role
+import mu.KotlinLogging
 
 @Composable
 fun LoginScreen() {
@@ -46,7 +45,8 @@ fun LoginScreen() {
             item {
                 Text(
                     text     = errorText,
-                    fontSize = 16.sp
+                    fontSize = 16.sp,
+                    color = Color.Red
                 )
             }
         item {
@@ -62,33 +62,34 @@ fun LoginScreen() {
                 label         = { Text("Логин") }
             )
             OutlinedTextField(
-                value         = password,
-                onValueChange = { password = it },
-                label         = { Text("Пароль") },
+                value                = password,
+                onValueChange        = { password = it },
+                label                = { Text("Пароль") },
                 visualTransformation = PasswordVisualTransformation(),
                 )
         }
         item {
             Box (
-                Modifier.padding(top = 3.dp)
-            ) {
-                Button(
-                    onClick = {
-                        registerOn = !registerOn
-                        if ( registerOn ) {
-                            buttonText = "Регистрация"
-                        }
-                        else {
-                            buttonText = "Вход"
-                        }
-                    },
-                    content = {
-                        Box {
-                            Text(registerButtonText,
-                                fontSize = 10.sp)
-                        }
+                Modifier
+                    .fillMaxWidth(0.25f)
+                    .padding(top = 3.dp)
+                    .clickable {
+                    registerOn = !registerOn
+                    if ( registerOn ) {
+                        buttonText = "Регистрация"
+                        registerButtonText = "^"
                     }
-                )
+                    else {
+                        buttonText = "Вход"
+                        registerButtonText = "v"
+                    }
+                }
+            ) {
+                    Text(
+                        registerButtonText,
+                        fontSize = 16.sp,
+                        textAlign = TextAlign.End
+                    )
             }
         }
         if ( registerOn )
@@ -128,18 +129,18 @@ fun LoginScreen() {
             ) {
                 Button(
                     onClick = {
-                        if ( registerOn ){
+                        if ( registerOn && (first_name.isNotEmpty() || second_name.isNotEmpty() || other_name.isNotEmpty() || second_name.isNotEmpty()) ) {
                             KotlinLogging.logger {}.info { "register login=$login pas=$password first_name=$first_name second_name=$second_name other_name=$other_name" }
 
                         } else {
                             KotlinLogging.logger {}.info { "login login=$login pas=$password" }
-                            val response = LoginManager.sendToServer( loginModel(login, password) )
+                            val response = sendToServer( loginModel(login, password) )
                             when ( response.role ) {
                                 Role.NONE -> {
                                     KotlinLogging.logger{}.info { "error ${response.message}" }
                                     errorText = response.message
                                 }
-                                else  -> KotlinLogging.logger{}.info { "login" }
+                                else  -> KotlinLogging.logger{}.info { "login as ${response.role}" }
                             }
                         }
                     },
