@@ -1,10 +1,11 @@
 package org.suai.common
 
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
-import okhttp3.ResponseBody.Companion.create
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.suai.common.model.loginModel
 import java.io.IOException
 
@@ -21,18 +22,21 @@ object LoginRepository {
 
     @Throws(IOException::class, InterruptedException::class)
     fun sendLoginData(data: loginModel?): String {
-        val client = OkHttpClient().newBuilder()
+        val client = OkHttpClient()
+            .newBuilder()
             .build()
 
-        val mediaType = MediaType.parse("text/plain")
-        val body = RequestBody.create(mediaType, "{\"login\":\"Student\", \"password\":\"1\"}")
-//        val body: RequestBody = RequestBody.Companion. create(mediaType, "{\"login\":\"Student\", \"password\":\"1\"}")
-        val request: Request = Request.Builder()
+        val mediaType = "application/json".toMediaTypeOrNull()
+        val body = """{"login":"Student", "password":"1"}""".toRequestBody(mediaType)
+        val request = Request
+            .Builder()
             .url("http://lichuhasite.somee.com/Student/Login")
             .method("POST", body)
-            .addHeader("Content-Type", "text/plain")
+            .addHeader("Content-Type", "application/json")
             .build()
         val response: okhttp3.Response = client.newCall(request).execute()
+
+        return response.body.toString()
 
 //        val uri = "http://www.lichuhasite.somee.com/Student/Login"
 //        val client = HttpClient.newBuilder().build()
