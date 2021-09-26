@@ -27,7 +27,7 @@ fun LoginScreen() {
     var login              by remember { mutableStateOf("") }
     var password           by remember { mutableStateOf("") }
     var second_password    by remember { mutableStateOf("") }
-    var first_name          by remember { mutableStateOf("") }
+    var first_name         by remember { mutableStateOf("") }
     var second_name        by remember { mutableStateOf("") }
     var other_name         by remember { mutableStateOf("") }
 
@@ -130,17 +130,17 @@ fun LoginScreen() {
                     onClick = {
                         if ( registerOn ){
                             KotlinLogging.logger {}.info { "register login=$login pas=$password first_name=$first_name second_name=$second_name other_name=$other_name" }
+
+                        } else {
+                            KotlinLogging.logger {}.info { "login login=$login pas=$password" }
                             val response = LoginManager.sendToServer( loginModel(login, password) )
                             when ( response.role ) {
                                 Role.NONE -> {
                                     KotlinLogging.logger{}.info { "error ${response.message}" }
                                     errorText = response.message
                                 }
-                                    else  -> KotlinLogging.logger{}.info { "login" }
+                                else  -> KotlinLogging.logger{}.info { "login" }
                             }
-                        } else {
-                            KotlinLogging.logger {}.info { "login login=$login pas=$password" }
-
                         }
                     },
                     content = { Text(buttonText) }
