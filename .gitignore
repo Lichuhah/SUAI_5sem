@@ -377,5 +377,5 @@ Database_design/task1-8.png
 # Grable
 .grable
 /Fundamentals_of_Software_Engineering/front/lk/desktop/build
-# /Fundamentals_of_Software_Engineering/front/lk/grable/*
-# /Fundamentals_of_Software_Engineering/front/lk/.gradle/
+/Fundamentals_of_Software_Engineering/front/lk/grable/
+/Fundamentals_of_Software_Engineering/front/lk/.gradle/
