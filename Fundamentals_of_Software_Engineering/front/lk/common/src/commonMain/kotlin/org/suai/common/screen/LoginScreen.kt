@@ -16,24 +16,26 @@ import androidx.compose.ui.unit.sp
 import mu.KLogger
 import mu.KotlinLogging
 import mu.toKLogger
+import org.suai.common.LoginManager
+import org.suai.common.Role
+import org.suai.common.model.loginModel
 
 @Composable
 fun LoginScreen() {
     KotlinLogging.logger{}.info { "recompose LoginScreen" }
 
-    var login          by remember { mutableStateOf("") }
-    var password       by remember { mutableStateOf("") }
-    var secondPassword by remember { mutableStateOf("") }
-    var firstName      by remember { mutableStateOf("") }
-    var secondName     by remember { mutableStateOf("") }
-    var otherName      by remember { mutableStateOf("") }
+    var login              by remember { mutableStateOf("") }
+    var password           by remember { mutableStateOf("") }
+    var second_password    by remember { mutableStateOf("") }
+    var first_name          by remember { mutableStateOf("") }
+    var second_name        by remember { mutableStateOf("") }
+    var other_name         by remember { mutableStateOf("") }
 
     var registerButtonText by remember { mutableStateOf("v") }
-    var buttonText     by remember { mutableStateOf("Вход") }
-    var errorText      by remember { mutableStateOf("") }
+    var buttonText         by remember { mutableStateOf("Вход") }
+    var errorText          by remember { mutableStateOf("") }
 
-    var registerOn     by remember { mutableStateOf(false) }
-    var buttonTap      by remember { mutableStateOf(false) }
+    var registerOn         by remember { mutableStateOf(false) }
 
     LazyColumn (
         modifier            = Modifier.fillMaxSize(),
@@ -99,23 +101,23 @@ fun LoginScreen() {
                     )
                 }
                 OutlinedTextField(
-                    value         = firstName,
-                    onValueChange = { firstName = it },
+                    value         = first_name,
+                    onValueChange = { first_name = it },
                     label         = { Text("Имя") }
                 )
                 OutlinedTextField(
-                    value         = secondName,
-                    onValueChange = { secondName = it },
+                    value         = second_name,
+                    onValueChange = { second_name = it },
                     label         = { Text("Фамилия") }
                 )
                 OutlinedTextField(
-                    value         = otherName,
-                    onValueChange = { otherName = it },
+                    value         = other_name,
+                    onValueChange = { other_name = it },
                     label         = { Text("Отчество") }
                 )
                 OutlinedTextField(
-                    value         = secondPassword,
-                    onValueChange = { secondPassword = it },
+                    value         = second_password,
+                    onValueChange = { second_password = it },
                     label         = { Text("Повторите ввод пароля") },
                     visualTransformation = PasswordVisualTransformation(),
                 )
@@ -125,7 +127,22 @@ fun LoginScreen() {
                 Modifier.padding(top = 3.dp)
             ) {
                 Button(
-                    onClick = { buttonTap = !buttonTap },
+                    onClick = {
+                        if ( registerOn ){
+                            KotlinLogging.logger {}.info { "register login=$login pas=$password first_name=$first_name second_name=$second_name other_name=$other_name" }
+                            val response = LoginManager.sendToServer( loginModel(login, password) )
+                            when ( response.role ) {
+                                Role.NONE -> {
+                                    KotlinLogging.logger{}.info { "login" }
+                                    errorText = response.message
+                                }
+                                    else  -> KotlinLogging.logger{}.info { "login" }
+                            }
+                        } else {
+                            KotlinLogging.logger {}.info { "login login=$login pas=$password" }
+
+                        }
+                    },
                     content = { Text(buttonText) }
                 )
             }
