@@ -21,22 +21,21 @@ object LoginRepository {
     }
 
     @Throws(IOException::class, InterruptedException::class)
-    fun sendLoginData(data: loginModel?): String {
+    fun sendLoginData(data: loginModel): String {
         val client = OkHttpClient()
             .newBuilder()
             .build()
-
         val mediaType = "application/json".toMediaTypeOrNull()
-        val body = """{"login":"Student", "password":"1"}""".toRequestBody(mediaType)
+        val body = """{"login":"${data.login}", "password":"${data.password}"}""".toRequestBody(mediaType)
         val request = Request
             .Builder()
             .url("http://lichuhasite.somee.com/Student/Login")
             .method("POST", body)
             .addHeader("Content-Type", "application/json")
             .build()
-        val response: okhttp3.Response = client.newCall(request).execute()
+        val response = client.newCall(request).execute()
 
-        return response.body.toString()
+        return response.body?.string() ?: "fuck"
 
 //        val uri = "http://www.lichuhasite.somee.com/Student/Login"
 //        val client = HttpClient.newBuilder().build()
