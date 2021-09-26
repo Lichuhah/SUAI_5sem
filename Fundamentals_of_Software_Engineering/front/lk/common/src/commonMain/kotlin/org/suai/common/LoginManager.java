@@ -1,12 +1,27 @@
 package org.suai.common;
+import org.suai.common.model.loginModel;
+
 
 public class LoginManager {
 
-    public Response validate(String login, String password, String secondPassword){
-        if(!password.equals(secondPassword)){
-            return new Response(Role.NONE, "invalid pass");
-        }
+    /**
+     * Проверяет данные на клиенте, затем передает их на сервер и возвращает
+     * от него ответ
+     * @param loginModel - Данные (логин и пароль)
+     * @return Response - Ответ о правильности данных либо статус операции
+     */
+    public static Response sendToServer(loginModel loginModel){
+        return validate(loginModel);
+    }
 
-        return new Response(Role.NONE, "ok");
+    private static Response validate(loginModel data){
+        // if(1){}
+        // if(1){}
+
+        return sendToRepository(data);
+    }
+
+    private static Response sendToRepository(loginModel data){
+        return LoginRepository.getResponse(data);
     }
 }

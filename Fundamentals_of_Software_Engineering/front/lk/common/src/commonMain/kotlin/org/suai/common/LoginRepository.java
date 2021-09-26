@@ -1,5 +1,6 @@
 package org.suai.common;
 
+import org.suai.common.model.loginModel;
 import org.suai.common.model.userModel;
 
 import java.io.DataOutputStream;
@@ -9,7 +10,11 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class LoginRepository {
-    public int sendLoginData(userModel user) throws IOException {
+    public static Response getResponse(loginModel data){
+        return new Response(Role.NONE, "err");
+    }
+
+    public String sendLoginData(userModel user) throws IOException {
         String urlParameters = "param1=a&param2=b&param3=c";
         byte[] postData = urlParameters.getBytes( StandardCharsets.UTF_8 );
         int postDataLength = postData.length;
@@ -28,6 +33,6 @@ public class LoginRepository {
             wr.write( postData );
         }
 
-        return 0;
+        return "";
     }
 }
