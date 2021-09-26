@@ -1,5 +1,5 @@
 create table if not exists Clothes (
-    id_clothes int primary key,
+    id_clothes int primary key auto_increment,
 
     nameClothes nvarchar(20) not null,
     dataCreate date not null ,
@@ -7,14 +7,14 @@ create table if not exists Clothes (
 );
 
 create table if not exists Performance(
-    id_performance int primary key,
+    id_performance int primary key auto_increment,
 
     namePerformance nvarchar(20) not null,
     datePerformance date not null
 );
 
 create table if not exists Role (
-    id_role int primary key,
+    id_role int primary key auto_increment,
 
     id_performance int not null,
     FOREIGN KEY (id_performance) REFERENCES Performance (id_performance)
@@ -25,7 +25,7 @@ create table if not exists Role (
 );
 
 create table if not exists Author (
-    id_author int primary key,
+    id_author int primary key auto_increment,
 
     firstNameAuthor nvarchar(20),
     secondNameAuthor nvarchar(20),
@@ -33,13 +33,13 @@ create table if not exists Author (
 );
 
 create table if not exists Type_Detail (
-    id_type_detail int primary key,
+    id_type_detail int primary key auto_increment,
 
     nameType nvarchar(10)
 );
 
 create table if not exists Concrete_Detail (
-    id_concrete_detail int primary key,
+    id_concrete_detail int primary key auto_increment,
 
     id_type_detail int not null,
     FOREIGN KEY (id_type_detail) REFERENCES Type_Detail (id_type_detail)
