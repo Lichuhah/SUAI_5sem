@@ -23,17 +23,28 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+                implementation("io.github.microutils:kotlin-logging:2.0.3")
+                implementation("org.slf4j:slf4j-api:1.7.31")
+                implementation("ch.qos.logback:logback-classic:1.2.3")
+                implementation("ch.qos.logback:logback-core:1.2.3")
+                implementation("com.google.code.gson:gson:2.8.6")
             }
         }
         val androidMain by getting {
             dependencies {
                 api("androidx.appcompat:appcompat:1.3.1")
                 api("androidx.core:core-ktx:1.6.0")
+                implementation("com.google.code.gson:gson:2.8.6")
             }
         }
         val desktopMain by getting {
             dependencies {
                 api(compose.preview)
+                implementation("io.github.microutils:kotlin-logging:2.0.3")
+                implementation("org.slf4j:slf4j-api:1.7.31")
+                implementation("ch.qos.logback:logback-classic:1.2.3")
+                implementation("ch.qos.logback:logback-core:1.2.3")
+                implementation("com.google.code.gson:gson:2.8.6")
             }
         }
     }

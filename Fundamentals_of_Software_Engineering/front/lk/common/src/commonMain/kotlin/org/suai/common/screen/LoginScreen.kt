@@ -8,12 +8,19 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import mu.KLogger
+import mu.KotlinLogging
+import mu.toKLogger
 
 @Composable
 fun LoginScreen() {
+    KotlinLogging.logger{}.info { "recompose LoginScreen" }
+
     var login          by remember { mutableStateOf("") }
     var password       by remember { mutableStateOf("") }
     var secondPassword by remember { mutableStateOf("") }
@@ -55,14 +62,15 @@ fun LoginScreen() {
             OutlinedTextField(
                 value         = password,
                 onValueChange = { password = it },
-                label         = { Text("Пароль") }
-            )
+                label         = { Text("Пароль") },
+                visualTransformation = PasswordVisualTransformation(),
+                )
         }
         item {
             Box (
                 Modifier.padding(top = 3.dp)
             ) {
-                Button (
+                Button(
                     onClick = {
                         registerOn = !registerOn
                         if ( registerOn ) {
@@ -108,7 +116,8 @@ fun LoginScreen() {
                 OutlinedTextField(
                     value         = secondPassword,
                     onValueChange = { secondPassword = it },
-                    label         = { Text("Повторите ввод пароля") }
+                    label         = { Text("Повторите ввод пароля") },
+                    visualTransformation = PasswordVisualTransformation(),
                 )
             }
         item {
