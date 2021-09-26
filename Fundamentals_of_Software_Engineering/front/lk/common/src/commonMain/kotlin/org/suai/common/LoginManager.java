@@ -1,7 +1,6 @@
 package org.suai.common;
 import org.suai.common.model.loginModel;
 
-
 public class LoginManager {
 
     /**
@@ -15,8 +14,9 @@ public class LoginManager {
     }
 
     private static Response validate(loginModel data){
-        // if(1){}
-        // if(1){}
+        if (data.getLogin().equals("")) {
+            return new Response("Login is empty");
+        }
 
         return sendToRepository(data);
     }

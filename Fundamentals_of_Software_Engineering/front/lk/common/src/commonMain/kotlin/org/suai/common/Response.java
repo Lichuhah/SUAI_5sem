@@ -4,6 +4,11 @@ public class Response{
     public Role role;
     public String message;
 
+    public Response(String message) {
+        this.role = Role.NONE;
+        this.message = message;
+    }
+
     public Response(Role role, String message) {
         this.role = role;
         this.message = message;
