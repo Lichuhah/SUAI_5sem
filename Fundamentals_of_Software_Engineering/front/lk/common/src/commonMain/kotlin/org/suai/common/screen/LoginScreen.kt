@@ -26,6 +26,7 @@ fun LoginScreen() {
     var login              by remember { mutableStateOf("") }
     var password           by remember { mutableStateOf("") }
     var second_password    by remember { mutableStateOf("") }
+
     var first_name         by remember { mutableStateOf("") }
     var second_name        by remember { mutableStateOf("") }
     var other_name         by remember { mutableStateOf("") }
