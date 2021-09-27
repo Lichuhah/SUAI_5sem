@@ -1,12 +1,13 @@
 package org.suai.common
 
-import mu.KotlinLogging
-import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
-import org.suai.common.model.loginModel
+import okhttp3.*
 import java.io.IOException
-
+import org.suai.common.model.loginModel
+import mu.KotlinLogging
+import org.suai.common.net.Net
+import org.suai.common.net.REQUEST
 
 object LoginRepository {
     fun getResponse(data: loginModel): Response {
@@ -19,26 +20,5 @@ object LoginRepository {
     }
 
     @Throws(IOException::class, InterruptedException::class)
-    fun sendLoginData(data: loginModel): String {
-        val client = OkHttpClient()
-            .newBuilder()
-            .build()
-        val mediaType = "application/json".toMediaTypeOrNull()
-        val body = """{"login":"${data.login}", "password":"${data.password}"}""".toRequestBody(mediaType)
-        val request = Request
-            .Builder()
-            .url("http://lichuhasite.somee.com/Login/Auth")
-            .method("POST", body)
-            .addHeader("Content-Type", "application/json")
-            .build()
-
-        val responseBody = client.newCall(request).execute().body
-        return if ( responseBody != null ) {
-            val response = responseBody.string()
-            KotlinLogging.logger {}.info { "response=$response" }
-            response
-        } else {
-            "Error response"
-        }
-    }
+    fun sendLoginData(data: loginModel) = Net.request(REQUEST.POST, "Login/Auth", """{"login":"${data.login}", "password":"${data.password}"}""")
 }
