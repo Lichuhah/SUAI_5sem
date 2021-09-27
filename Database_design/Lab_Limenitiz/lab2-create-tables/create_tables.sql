@@ -29,7 +29,7 @@ create table if not exists Author (
 
     firstNameAuthor nvarchar(20) default null,
     secondNameAuthor nvarchar(20) default null,
-    thirdNameAuthor nvarchar(20) default null;
+    thirdNameAuthor nvarchar(20) default null
 )
 ENGINE = InnoDB
 DEFAULT CHARSET = utf8bm4
