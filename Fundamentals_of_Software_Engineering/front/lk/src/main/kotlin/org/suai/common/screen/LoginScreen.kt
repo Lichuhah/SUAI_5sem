@@ -31,7 +31,7 @@ fun LoginScreen() {
     var second_name        by remember { mutableStateOf("") }
     var other_name         by remember { mutableStateOf("") }
 
-    var registerButtonText by remember { mutableStateOf("v") }
+    var registerButtonText by remember { mutableStateOf("      v      ") }
     var buttonText         by remember { mutableStateOf("Вход") }
     var errorText          by remember { mutableStateOf("") }
 

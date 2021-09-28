@@ -11,9 +11,9 @@ import java.sql.Time
  * @param date дата добавления
  */
 data class docModel(
-    val id              : Int       = -1,
+    override val id              : Int       = -1,
     val disciplineId    : Int       = 0,
     val name            : String    = "",
     val description     : String    = "",
     val date            : Time
-)
+) : uuId
