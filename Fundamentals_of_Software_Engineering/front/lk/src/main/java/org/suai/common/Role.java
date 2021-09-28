@@ -1,5 +1,5 @@
-package org.suai.common
+package org.suai.common;
 
-enum class Role {
+public enum Role {
     STUDENT, LECTURE, DEANAT, ENROLLEE, NONE
 }

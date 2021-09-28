@@ -141,8 +141,7 @@ fun LoginScreen() {
 
                         } else {
                             KotlinLogging.logger {}.info { "login login=$login pas=$password" }
-                            val lm = LoginManager();
-                            val response = lm.sendToServer( loginModel(login, password) )
+                            val response = LoginManager.sendToServer( loginModel(login, password) )
                             when ( response.role ) {
                                 Role.NONE -> {
                                     KotlinLogging.logger{}.info { "error ${response.message}" }
