@@ -6,7 +6,7 @@ package org.suai.common.model
  *  @param other_name Отчество (может быть null)
  * **/
 open class fullName(
-    var first_name: String,
-    var second_name: String,
-    var other_name: String?
+    var first_name:     String,
+    var second_name:    String,
+    var other_name:     String?
 )

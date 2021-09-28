@@ -7,6 +7,6 @@ package org.suai.common.enum_
  * MASTER       - магистратура
  * TRAINEESHIP  - аспирантура
  */
-enum class EDUCATION_TYPE {
+enum class EDUCATION {
     NONE, BACHELOR, SPECIALTY, MASTER, GRADUATE, TRAINEESHIP
 }

@@ -1,5 +1,8 @@
 package org.suai.common;
 
+
+import org.suai.common.enum_.Role;
+
 public class Response {
     public Role role;
     public String message;

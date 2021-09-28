@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.suai.common.manager.LoginManager.findLogin
 import org.suai.common.model.systm.loginModel
-import org.suai.common.Role
+import org.suai.common.enum_.Role
 import mu.KotlinLogging
 
 @Composable

@@ -8,7 +8,7 @@ package org.suai.common.model
  * @param count колличество студентов в группе
  */
 data class groupModel(
-    override val id:             Int                     = -1,
+    override val id:    Int                     = -1,
     val number:         String                  = "",
     val listStudentId:  MutableList<Int>        = mutableListOf(),
     val specialityId:   Int                     = 0,

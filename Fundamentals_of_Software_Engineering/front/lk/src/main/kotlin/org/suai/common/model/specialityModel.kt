@@ -1,6 +1,6 @@
 package org.suai.common.model
 
-import org.suai.common.enum_.EDUCATION_TYPE
+import org.suai.common.enum_.EDUCATION
 
 /**
  * @param Id id специальности
@@ -9,8 +9,8 @@ import org.suai.common.enum_.EDUCATION_TYPE
  * @param educationType тип программы обучения
 **/
 data class specialityModel(
-    val Id:   Int                       = 0,
-    val Code: String                    = "",
-    val Name: String                    = "",
-    val educationType: EDUCATION_TYPE = EDUCATION_TYPE.NONE,
+    val Id:            Int          = 0,
+    val Code:          String       = "",
+    val Name:          String       = "",
+    val educationType: EDUCATION    = EDUCATION.NONE,
 )

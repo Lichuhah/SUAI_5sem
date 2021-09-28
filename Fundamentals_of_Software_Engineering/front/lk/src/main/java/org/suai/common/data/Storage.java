@@ -2,7 +2,7 @@ package org.suai.common.data;
 
 import com.google.gson.GsonBuilder;
 import org.suai.common.Response;
-import org.suai.common.enum_.REQUEST_TYPE;
+import org.suai.common.enum_.REQUEST;
 import org.suai.common.model.docModel;
 import org.suai.common.model.groupModel;
 import org.suai.common.model.role.deanatModel;
@@ -15,20 +15,20 @@ import org.suai.common.net.Net;
 /** Singleton data storage
  *
  */
-public class dataStorageSingleton extends dataStorage {
+public class Storage extends onlyData {
 
     // <Singleton code>
-    private static volatile dataStorageSingleton instance;
-    private dataStorageSingleton(){}
+    private static volatile Storage instance;
+    private Storage(){}
 
-    public static dataStorageSingleton getInstance(){
-        dataStorageSingleton result = instance;
+    public static Storage getInstance(){
+        Storage result = instance;
         if (result != null) {
             return result;
         }
-        synchronized(dataStorageSingleton.class) {
+        synchronized(Storage.class) {
             if (instance == null) {
-                instance = new dataStorageSingleton();
+                instance = new Storage();
             }
             return instance;
         }
@@ -36,14 +36,14 @@ public class dataStorageSingleton extends dataStorage {
     // </Singleton code>
 
 
-    public studentModel getStudentModel(Integer id){
-        for( var student : getStudent()){
-            if(student.getId() == id){
-                return student;
+    public studentModel getStudent(Integer id){
+        for( var students : getStudents()){
+            if(students.getId() == id){
+                return students;
             }
         }
 
-        String response = Net.INSTANCE.request(REQUEST_TYPE.GET, "Student/Get", id.toString());
+        String response = Net.INSTANCE.request(REQUEST.GET, "Student/Get", id.toString());
         //TODO: maybe refactor
 
 
