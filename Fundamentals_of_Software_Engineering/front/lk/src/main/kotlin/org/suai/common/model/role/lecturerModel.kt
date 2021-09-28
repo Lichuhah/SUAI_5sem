@@ -1,4 +1,5 @@
 package org.suai.common.model.role
 
-class lecturerModel : userModel() {
-}
+data class lecturerModel(
+    val position:   String      = "",
+) : userModel()
