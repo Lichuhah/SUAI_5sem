@@ -6,3 +6,5 @@ package org.suai.common.model.role
 data class studentModel(
     var groupId: Int   = 0
 ) : userModel()
+
+// TODO: markList?

@@ -7,5 +7,8 @@ data class taskModel(
     var name:           String,
     var number:         Int,
     var description:    String,
-    var deadline:       Time
+    var deadline:       Time // TODO: DateTime?
 ) : uuId
+
+// TODO: materialList?
+// TODO: mark?

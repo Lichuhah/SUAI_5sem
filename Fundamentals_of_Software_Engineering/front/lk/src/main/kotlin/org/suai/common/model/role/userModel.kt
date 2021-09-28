@@ -19,3 +19,5 @@ open class userModel(
     var mail:       String?     = null,
     var phone:      String?     = null
 ) : uuId
+
+// TODO: role?

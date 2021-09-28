@@ -10,3 +10,6 @@ data class disciplineModle(
     val exam:           EXAM                        = EXAM.NONE,
     val hours:          Int                         = 0
 ) : uuId
+
+// TODO: descriptin?
+// TODO: mark (оценка студента по этой дисциплине)

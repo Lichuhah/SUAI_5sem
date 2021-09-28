@@ -17,3 +17,7 @@ data class groupModel(
     val count : Int
         get() = listStudentId.size
 }
+
+//TODO: course?
+// стоит ли эту штуку здесь фигачить? 
+// обычто из номера группы можно достать (даже если это не гуап)
