@@ -1,5 +1,5 @@
 ALTER TABLE Clothes
-ADD description varchar(200);
+ADD COLUMN description varchar(200) default null;
 
 ALTER TABLE Clothes
 DROP COLUMN description;

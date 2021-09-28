@@ -25,12 +25,16 @@ create table if not exists Role (
 );
 
 create table if not exists Author (
-    id_author int primary key auto_increment,
+    id_author int not null auto_increment primary key, #TODO: переписать все ключи как здесь
 
-    firstNameAuthor nvarchar(20),
-    secondNameAuthor nvarchar(20),
-    thirdNameAuthor nvarchar(20)
-);
+    firstNameAuthor nvarchar(20) default null,
+    secondNameAuthor nvarchar(20) default null,
+    thirdNameAuthor nvarchar(20) default null;
+)
+ENGINE = InnoDB
+DEFAULT CHARSET = utf8bm4
+AUTO_INCREMENT = 1;
+
 
 create table if not exists Type_Detail (
     id_type_detail int primary key auto_increment,
@@ -42,7 +46,8 @@ create table if not exists Concrete_Detail (
     id_concrete_detail int primary key auto_increment,
 
     id_type_detail int not null,
-    FOREIGN KEY (id_type_detail) REFERENCES Type_Detail (id_type_detail)
+    constraint FOREIGN KEY (id_type_detail) #TODO: добавить везде такой constraint
+    REFERENCES Type_Detail (id_type_detail)
         on delete cascade
         on update cascade,
 
