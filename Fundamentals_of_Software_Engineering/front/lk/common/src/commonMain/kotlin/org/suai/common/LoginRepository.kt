@@ -7,7 +7,7 @@ import java.io.IOException
 import org.suai.common.model.loginModel
 import mu.KotlinLogging
 import org.suai.common.net.Net
-import org.suai.common.net.REQUEST
+import org.suai.common.net.REQUEST_TYPE
 
 object LoginRepository {
     fun getResponse(data: loginModel): Response {
@@ -20,5 +20,5 @@ object LoginRepository {
     }
 
     @Throws(IOException::class, InterruptedException::class)
-    fun sendLoginData(data: loginModel) = Net.request(REQUEST.POST, "Login/Auth", """{"login":"${data.login}", "password":"${data.password}"}""")
+    fun sendLoginData(data: loginModel) = Net.request(REQUEST_TYPE.POST, "Login/Auth", """{"login":"${data.login}", "password":"${data.password}"}""")
 }

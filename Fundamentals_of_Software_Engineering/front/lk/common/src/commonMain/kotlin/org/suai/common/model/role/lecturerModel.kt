@@ -1,4 +1,6 @@
 package org.suai.common.model.role
 
-class lecturerModel {
+import org.suai.common.model.userModel
+
+class lecturerModel : userModel() {
 }
