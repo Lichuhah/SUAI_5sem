@@ -1,8 +1,8 @@
 package org.suai.common;
 
 public class Response {
-    Role role;
-    String message;
+    public Role role;
+    public String message;
 
     Response(String message) {
             role = Role.NONE;
