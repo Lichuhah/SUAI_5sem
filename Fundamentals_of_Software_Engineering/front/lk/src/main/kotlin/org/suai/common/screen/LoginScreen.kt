@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.sp
 import org.suai.common.model.systm.loginModel
 import org.suai.common.Role
 import mu.KotlinLogging
-import org.suai.common.LoginManager
+import org.suai.common.manager.LoginManager
 
 @Composable
 fun LoginScreen() {
@@ -141,7 +141,7 @@ fun LoginScreen() {
 
                         } else {
                             KotlinLogging.logger {}.info { "login login=$login pas=$password" }
-                            val response = LoginManager.sendToServer( loginModel(login, password) )
+                            val response = LoginManager.findLogin( loginModel(login, password) )
                             when ( response.role ) {
                                 Role.NONE -> {
                                     KotlinLogging.logger{}.info { "error ${response.message}" }

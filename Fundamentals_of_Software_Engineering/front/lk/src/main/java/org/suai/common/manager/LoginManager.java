@@ -1,19 +1,19 @@
-package org.suai.common;
+package org.suai.common.manager;
+import org.suai.common.Repository.LoginRepository;
 import org.suai.common.Response;
 import org.suai.common.model.systm.loginModel;
 
-import static org.suai.common.LoginRepositoryKt.getServerResponse;
 
 public class LoginManager {
 
     /**
      * Проверяет данные на клиенте, затем передает их на сервер и возвращает
      * от него ответ
-     * @param loginModel - Данные (логин и пароль)
+     * @param data - Данные (логин и пароль)
      * @return Response - Ответ о правильности данных либо статус операции
      */
-    public static Response sendToServer(loginModel loginModel){
-        return validate(loginModel);
+    public static Response findLogin(loginModel data){
+        return validate(data);
     }
 
     private static Response validate(loginModel data){
@@ -21,10 +21,6 @@ public class LoginManager {
             return new Response("Login is empty");
         }
 
-        return sendToRepository(data);
-    }
-
-    private static Response sendToRepository(loginModel data){
-        return getServerResponse(data);
+        return LoginRepository.findLogin(data);
     }
 }
