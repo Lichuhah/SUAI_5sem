@@ -1,8 +1,6 @@
 package org.suai.common
 
-//import org.suai.common.model.loginModel.login
-import org.suai.common.model.loginModel
-import org.suai.common.LoginRepository
+import org.suai.common.model.systm.loginModel
 
 class LoginManager {
     /**

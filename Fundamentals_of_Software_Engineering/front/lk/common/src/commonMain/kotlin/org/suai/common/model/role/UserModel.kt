@@ -1,4 +1,6 @@
-package org.suai.common.model
+package org.suai.common.model.role
+
+import org.suai.common.model.fullName
 
 /**
  * @param id индификатор пользователя
@@ -10,7 +12,7 @@ package org.suai.common.model
  * **/
 open class userModel(
     val id:         Int         = 0,
-    var name:       fullName    = fullName("","", null),
+    var name: fullName = fullName("","", null),
     val login:      String      = "",
     var password:   String      = "",
     var mail:       String?     = null,

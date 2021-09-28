@@ -1,4 +1,4 @@
-package org.suai.common.model
+package org.suai.common.model.systm
 
 data class loginModel(
     val login: String,

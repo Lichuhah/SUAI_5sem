@@ -1,4 +1,4 @@
-package org.suai.common.model
+package org.suai.common.enum_
 
 /**
  * NONE         - нет

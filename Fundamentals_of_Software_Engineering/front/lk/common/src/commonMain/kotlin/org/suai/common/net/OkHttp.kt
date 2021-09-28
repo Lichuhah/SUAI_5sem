@@ -5,6 +5,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.suai.common.enum_.REQUEST_TYPE
 
 object Net {
     private val client = OkHttpClient().newBuilder().build()

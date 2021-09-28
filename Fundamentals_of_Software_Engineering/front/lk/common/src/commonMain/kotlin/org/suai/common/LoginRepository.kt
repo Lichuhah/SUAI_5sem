@@ -1,13 +1,9 @@
 package org.suai.common
 
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.*
 import java.io.IOException
-import org.suai.common.model.loginModel
-import mu.KotlinLogging
+import org.suai.common.model.systm.loginModel
 import org.suai.common.net.Net
-import org.suai.common.net.REQUEST_TYPE
+import org.suai.common.enum_.REQUEST_TYPE
 
 object LoginRepository {
     fun getResponse(data: loginModel): Response {

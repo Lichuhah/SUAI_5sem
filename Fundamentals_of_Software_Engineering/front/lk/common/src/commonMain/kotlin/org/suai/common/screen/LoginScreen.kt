@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.suai.common.model.loginModel
+import org.suai.common.model.systm.loginModel
 import org.suai.common.Role
 import mu.KotlinLogging
 import org.suai.common.LoginManager

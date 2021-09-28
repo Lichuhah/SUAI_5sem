@@ -8,11 +8,11 @@ package org.suai.common.model
  * @param count колличество студентов в группе
  */
 data class groupModel(
-    val number:         String              = "",
-    val id:             Int                 = -1,
-    val listStudentId:  MutableList<Int>    = mutableListOf(),
-    val specialityId:   Int                 = 0,
-    var course:         Int                 = 0
+    val number:         String                  = "",
+    val id:             Int                     = -1,
+    val listStudentId:  MutableList<Int>        = mutableListOf(),
+    val specialityId:   Int                     = 0,
+    var course:         Int                     = 0
 ) {
     val count : Int
         get() = listStudentId.size
