@@ -37,7 +37,7 @@ public class dataStorageSingleton extends dataStorage {
 
 
     public studentModel getStudentModel(Integer id){
-        for( var student : getStudents()){
+        for( var student : getStudent()){
             if(student.getId() == id){
                 return student;
             }

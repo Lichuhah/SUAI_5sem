@@ -14,10 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.suai.common.manager.LoginManager.findLogin
 import org.suai.common.model.systm.loginModel
 import org.suai.common.Role
 import mu.KotlinLogging
-import org.suai.common.manager.LoginManager
 
 @Composable
 fun LoginScreen() {
@@ -31,7 +31,7 @@ fun LoginScreen() {
     var second_name        by remember { mutableStateOf("") }
     var other_name         by remember { mutableStateOf("") }
 
-    var registerButtonText by remember { mutableStateOf("      v      ") }
+    var registerButtonText by remember { mutableStateOf("      v") }
     var buttonText         by remember { mutableStateOf("Вход") }
     var errorText          by remember { mutableStateOf("") }
 
@@ -48,11 +48,12 @@ fun LoginScreen() {
                     text     = errorText,
                     fontSize = 16.sp,
                     color = Color.Red
+
                 )
             }
         item {
             Text(
-                text     = "Личный кабинет ГУАП",
+                text = "Личный кабинет ГУАП",
                 fontSize = 26.sp,
                 maxLines = 1
             )
@@ -81,11 +82,11 @@ fun LoginScreen() {
                     registerOn = !registerOn
                     if ( registerOn ) {
                         buttonText = "Регистрация"
-                        registerButtonText = "      ^      "
+                        registerButtonText = "      ^"
                     }
                     else {
                         buttonText = "Вход"
-                        registerButtonText = "      v      "
+                        registerButtonText = "      v"
                     }
                 }
             ) {
@@ -127,7 +128,7 @@ fun LoginScreen() {
                     onValueChange = { second_password = it },
                     label         = { Text("Повторите ввод пароля") },
                     visualTransformation = PasswordVisualTransformation(),
-                    maxLines = 1
+                    maxLines      = 1
                 )
             }
         item {
@@ -141,13 +142,13 @@ fun LoginScreen() {
 
                         } else {
                             KotlinLogging.logger {}.info { "login login=$login pas=$password" }
-                            val response = LoginManager.findLogin( loginModel(login, password) )
+                            val response = findLogin( loginModel(login, password) )
                             when ( response.role ) {
                                 Role.NONE -> {
                                     KotlinLogging.logger{}.info { "error ${response.message}" }
                                     errorText = response.message
                                 }
-                                else  -> KotlinLogging.logger{}.info { "login as ${response.role}" }
+                                else -> KotlinLogging.logger{}.info { "login as ${response.role}" }
                             }
                         }
                     },
