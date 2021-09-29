@@ -12,12 +12,10 @@ import org.suai.common.model.uuId
  * @param phone телефонный номер (если нет то пустой)
  * **/
 open class userModel(
-    override val id:Int         = 0,
-    var name:       fullName = fullName("","", null),
-    val login:      String      = "",
-    var password:   String      = "",
-    var mail:       String?     = null,
-    var phone:      String?     = null
-) : uuId
-
-// TODO: role?
+    override var id:    Int         = -1,
+    var name:           fullName?   = null,
+    var login:          String?     = null,
+    var password:       String?     = null,
+    var mail:           String?     = null,
+    var phone:          String?     = null
+): uuId

@@ -1,6 +1,6 @@
 package org.suai.common.model
 
-import java.sql.Time
+import java.util.*
 
 /**
  * модель документа (материал)
@@ -11,9 +11,10 @@ import java.sql.Time
  * @param date дата добавления
  */
 data class docModel(
-    override val id     : Int       = -1,
-    val disciplineId    : Int       = 0,
-    val name            : String    = "",
-    val description     : String    = "",
-    val date            : Time
+    override val id     : Int,
+    val disciplineId    : Int,
+    val name            : String,
+    val description     : String,
+    val date            : Date
+
 ) : uuId

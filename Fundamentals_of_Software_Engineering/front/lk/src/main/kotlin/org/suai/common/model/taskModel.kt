@@ -1,13 +1,24 @@
 package org.suai.common.model
 
-import java.sql.Time
+import java.util.*
 
+/**
+ * Модель задания
+ * @param disciplineId id дисциплины
+ * @param name
+ * @param number
+ * @param maxMark
+ * @param description описане
+ * @param deadline
+ */
 data class taskModel(
     override var id:    Int,
+    val disciplineId:   Int,
     var name:           String,
     var number:         Int,
+    val maxMark:        Int,
     var description:    String,
-    var deadline:       Time // TODO: DateTime?
+    var deadline:       Date
 ) : uuId
 
 // TODO: materialList?

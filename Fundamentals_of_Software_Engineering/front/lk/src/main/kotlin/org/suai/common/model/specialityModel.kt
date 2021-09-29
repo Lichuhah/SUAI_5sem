@@ -9,8 +9,8 @@ import org.suai.common.enum_.EDUCATION
  * @param educationType тип программы обучения
 **/
 data class specialityModel(
-    val Id:            Int          = 0,
-    val Code:          String       = "",
-    val Name:          String       = "",
-    val educationType: EDUCATION    = EDUCATION.NONE,
+    val id:            Int,
+    val code:          String,
+    val name:          String,
+    val educationType: EDUCATION,
 )
