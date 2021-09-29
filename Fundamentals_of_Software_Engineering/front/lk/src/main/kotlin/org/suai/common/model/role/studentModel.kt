@@ -10,5 +10,3 @@ import org.suai.common.model.specialityModel
 class studentModel(
     val groupId:        Int
 ) : userModel()
-
-// TODO: markList?
