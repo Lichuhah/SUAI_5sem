@@ -11,8 +11,8 @@ namespace lkAPI.Models.Users
         [JsonProperty]
         public virtual string name { get; set; }
         [JsonProperty]
-        public virtual string lastname { get; set; }
+        public virtual string second_name { get; set; }
         [JsonProperty]
-        public virtual string othername { get; set; }
+        public virtual string other_name { get; set; }
     }
 }

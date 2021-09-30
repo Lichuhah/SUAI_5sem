@@ -1,6 +1,6 @@
 ﻿using lkAPI.Models;
 using lkAPI.Models.Users;
-using NHibernate.Mapping.ByCode.Conformist;
+
 
 namespace lkAPI.NHibernate.Mappings
 {

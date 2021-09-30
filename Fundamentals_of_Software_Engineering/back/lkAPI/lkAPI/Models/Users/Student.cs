@@ -1,4 +1,5 @@
 ﻿using lkAPI.Models.Users;
+using Newtonsoft.Json;
 
 namespace lkAPI.Models
 {
@@ -7,6 +8,12 @@ namespace lkAPI.Models
         public virtual Fullname fullname { get; set; }
         public virtual string mail { get; set; }
         public virtual string phonenumber { get; set; }
-        public virtual string groupnumber { get; set; }
+        public virtual string groupnumber {
+            get { return group.number; }
+            set { group.number = value; }
+        }
+
+        [JsonIgnore]
+        public virtual GroupModel group { get; set; }
     }
 }

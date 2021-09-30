@@ -1,55 +1,59 @@
-﻿using lkAPI.Models;
-using lkAPI.Repositories;
+﻿using lkAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace lkAPI.Controllers
 {
-    public class StudentController : Controller
+    public class DisciplineController : Controller
     {
-        // GET: StudentController
+        DisciplineRepository rep = new DisciplineRepository();
+        // GET: DisciplineController
         public ActionResult Index()
         {
             return View();
         }
-
-        // GET: StudentController/Get/{id}
-        public string get(int id)
+        
+        public string All()
         {
-            StudentRepository rep = new StudentRepository();
-            var student = rep.Get(id);
-            if (student != null)
+            try
             {
-                student.fullname = new Models.Users.Fullname()
-                {
-                    name = student.fullname.name,
-                    second_name = student.fullname.second_name,
-                    other_name = student.fullname.other_name
-                };
-                return JsonConvert.SerializeObject(student);
+                return JsonConvert.SerializeObject(rep.All());
+            } catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(null);
             }
-            else return JsonConvert.SerializeObject(null);
-            
         }
 
-        // GET: StudentController/Details/5
+        public string AllForUser(int id)
+        {
+            try
+            {
+                StudentRepository studrep = new StudentRepository();
+                var stud = studrep.Get(id);
+                var list = rep.All().Where(x=>x.)
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(null);
+            }
+        }
+
+        // GET: DisciplineController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: StudentController/Create
+        // GET: DisciplineController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: StudentController/Create
+        // POST: DisciplineController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -64,13 +68,13 @@ namespace lkAPI.Controllers
             }
         }
 
-        // GET: StudentController/Edit/5
+        // GET: DisciplineController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: StudentController/Edit/5
+        // POST: DisciplineController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -85,13 +89,13 @@ namespace lkAPI.Controllers
             }
         }
 
-        // GET: StudentController/Delete/5
+        // GET: DisciplineController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: StudentController/Delete/5
+        // POST: DisciplineController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
