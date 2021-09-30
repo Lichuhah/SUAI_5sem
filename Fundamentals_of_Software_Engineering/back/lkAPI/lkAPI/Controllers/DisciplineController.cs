@@ -32,8 +32,7 @@ namespace lkAPI.Controllers
             try
             {
                 StudentRepository studrep = new StudentRepository();
-                var stud = studrep.Get(id);
-                var list = rep.All().Where(x=>x.)
+                return JsonConvert.SerializeObject(studrep.Get(id).group.disciplines);
             }
             catch (Exception ex)
             {

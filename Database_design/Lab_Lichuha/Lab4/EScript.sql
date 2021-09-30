@@ -1,2 +1,0 @@
-SELECT ID_Owner, Owner.Name, Owner.Surname FROM Owner JOIN Owner_Payment ON Owner.Id=Owner_Payment.ID_Owner JOIN Payment ON Owner_Payment.ID_Payment=Payment.Id
-WHERE Payment.Name like 'î%' GROUP BY ID_Owner, Owner.Name, Owner.Surname HAVING COUNT(ID_Payment)=(SELECT COUNT(Id) FROM Payment WHERE Name like 'î%')

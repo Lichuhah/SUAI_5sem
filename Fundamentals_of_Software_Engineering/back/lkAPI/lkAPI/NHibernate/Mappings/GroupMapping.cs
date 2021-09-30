@@ -9,7 +9,9 @@ namespace lkAPI.NHibernate.Mappings
             Table("Group");
             Map(x => x.number).Column("Number");
             Map(x => x.cource).Column("Course");
-            
+
+            HasManyToMany(x => x.disciplines).Cascade.All()
+                .Inverse().Table("Group_Discipline");
         }
     }
 }
