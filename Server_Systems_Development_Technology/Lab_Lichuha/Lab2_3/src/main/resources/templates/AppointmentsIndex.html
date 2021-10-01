@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="JQuery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <script type="text/javascript">
@@ -43,15 +43,15 @@
         $.ajax({
             url:'appointments/delete'+idDel,
             type: "DELETE",
-            dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (){
                 refresh();
             },
-            error: function (){
-                console.log("fuck");
+            error: function (error){
+                console.log(error);
             }
         })
+
     }
 </script>
 
@@ -59,9 +59,9 @@
 <center>
     <h1>App Management</h1>
     <h2>
-        <a th:href="@{/appointments/view-1}">Add New Doctor</a>
+        <a th:href="@{/appointments/view}">Add New App</a>
         &nbsp;&nbsp;&nbsp;
-        <a th:href="@{/doctors}"></a>
+        <a th:href="@{/appointments}"></a>
         &nbsp;
         <a th:href="@{/}">Main menu</a>
     </h2>

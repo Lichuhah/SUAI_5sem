@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="JQuery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <script type="text/javascript">
@@ -59,8 +59,15 @@
 
 <body>
 <div align="center" id ="formdoc"></div>
+<h1>App Management</h1>
+<h2>
+    &nbsp;&nbsp;&nbsp;
+    <a th:href="@{/appointments}"></a>
+    &nbsp;
+    <a th:href="@{/}">Main menu</a>
+</h2>
 <form>
-    <table border="1" cellpadding="5">
+    <table border="1" cellpadding="5" align="center">
         <caption>
             <h2>Appointment</h2>
         </caption>
@@ -83,7 +90,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="center"><button type="submit" value="save" onclick='saveData()'>Save</button>
+            <td colspan="2" align="center"><button type="button" value="save" onclick='saveData()'>Save</button>
     </table>
 </form>
 </body>

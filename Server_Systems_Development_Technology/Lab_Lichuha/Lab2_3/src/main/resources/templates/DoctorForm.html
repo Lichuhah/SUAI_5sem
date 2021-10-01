@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="JQuery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <script type="text/javascript">
@@ -60,38 +60,37 @@
                 }
             });
         } else {
-            $.ajax({
-                url: "/doctors/post/",
-                dataType: "json",
-                contentType: "application/json",
-                type: "POST",
-                cache: false,
-                data: JSON.stringify({
-                    id: $("#txtId").val(),
-                    name: $("#txtName").val(),
-                    surname: $("#txtSurname").val(),
-                    midname: $("#txtMidname").val(),
-                    //cabinet:$("#txtCabinet").val(),
-                    cabinet: 0,
-                    speciality: $("#txtSpeciality").val()
-                }),
-                success: function (data) {
-                    docId=data;
-                    getData();
-                },
-                error: function () {
-
-                }
-            })
-    }
-
+                $.ajax({
+                    url: "/doctors/post/",
+                    type: "post",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    traditional: true,
+                    success: function (data) {
+                        docId = data.body;
+                        getData();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    },
+                    data: JSON.stringify({
+                        id: $("#txtId").val(),
+                        name: $("#txtName").val(),
+                        surname: $("#txtSurname").val(),
+                        midname: $("#txtMidname").val(),
+                        //cabinet:$("#txtCabinet").val(),
+                        cabinet: 0,
+                        speciality: $("#txtSpeciality").val()
+                    })
+                })
+        }
     }
 </script>
 
 <body>
 <div align="center" id ="formdoc"></div>
- <form>
-        <table border="1" cellpadding="5">
+ <form id="#form">
+        <table border="1" cellpadding="5" align="center">
                 <caption>
                         <h2>Doctor</h2>
                     </caption>
@@ -99,7 +98,7 @@
                 <tr>
                         <th>Name: </th>
                         <td>
-                               <input type="text" name="name" size="45" id="txtName" />
+                               <input type="text" name="name" size="45" id="txtName" required="required"/>
                         </td>
                     </tr>
                 <tr>
@@ -127,7 +126,7 @@
                             </td>
                     </tr>
                 <tr>
-                    <td colspan="2" align="center"><button type="submit" value="save" onclick='saveData()'>Save</button>
+                    <td colspan="2" align="center"><button type="button" value="save" onclick='saveData()'>Save</button>
         </table>
  </form>
 </body>
