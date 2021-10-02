@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Pharmacy", "Pharmacy\Pharmacy.shproj", "{40D6DD3D-9A45-4B2C-B28B-085C5F889CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.Domain", "Pharmacy.Domain\Pharmacy.Domain.csproj", "{8FA9854D-CFD8-4296-A175-078A9E67BE48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.Desktop", "Pharmacy.Desktop\Pharmacy.Desktop.csproj", "{23EDF31A-B393-4BBB-AF11-A946A38221CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.Test", "Pharmacy.Test\Pharmacy.Test.csproj", "{06550FA5-6EFA-4513-9410-B63B0489399E}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Pharmacy\Pharmacy.projitems*{40d6dd3d-9a45-4b2c-b28b-085c5f889cc5}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FA9854D-CFD8-4296-A175-078A9E67BE48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA9854D-CFD8-4296-A175-078A9E67BE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA9854D-CFD8-4296-A175-078A9E67BE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA9854D-CFD8-4296-A175-078A9E67BE48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06550FA5-6EFA-4513-9410-B63B0489399E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06550FA5-6EFA-4513-9410-B63B0489399E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06550FA5-6EFA-4513-9410-B63B0489399E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06550FA5-6EFA-4513-9410-B63B0489399E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2A34961-F4A8-4EF2-A6E0-D601AE929927}
+	EndGlobalSection
+EndGlobal
