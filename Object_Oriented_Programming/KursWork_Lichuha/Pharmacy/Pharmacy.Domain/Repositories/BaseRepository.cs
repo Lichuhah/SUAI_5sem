@@ -55,5 +55,60 @@ namespace Pharmacy.Domain.Repositories
             }
         }
 
+        public T Add(T data)
+        {
+            ISession session = helper.GetCurrentSession();
+            try
+            {
+                data.ID = (int)session.Save(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                helper.CloseSession();
+            }
+        }
+        public T Update(T data)
+        {
+            ISession session = helper.GetCurrentSession();
+            try
+            {
+                session.Update(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                helper.CloseSession();
+            }
+        }
+
+        public bool Delete(T data)
+        {
+            ISession session = helper.GetCurrentSession();
+            try
+            {
+                session.Delete(data);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                helper.CloseSession();
+            }
+        }
     }
 }

@@ -11,12 +11,6 @@ namespace Pharmacy.Test
         }
 
         [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
-
-        [Test]
         public void TestBrands()
         {
             var manager = new BrandManager();

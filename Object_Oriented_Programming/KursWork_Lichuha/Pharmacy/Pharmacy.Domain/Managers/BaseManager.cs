@@ -21,5 +21,15 @@ namespace Pharmacy.Domain.Managers
         {
             return repository.Get(id);
         }
+
+        public T Add(T data)
+        {
+            return repository.Add(data);
+        }
+
+        public T Update(T data)
+        {
+            return repository.Update(data);
+        }
     }
 }
