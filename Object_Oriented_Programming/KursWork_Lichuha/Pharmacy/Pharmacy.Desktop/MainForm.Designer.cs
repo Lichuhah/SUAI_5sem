@@ -48,15 +48,15 @@ namespace Pharmacy.Desktop
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager)).BeginInit();
             this.SuspendLayout();
             // 
-            // fluentDesignFormContainer1
+            // fluentDesignFormContainer
             // 
             this.fluentDesignFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fluentDesignFormContainer.Location = new System.Drawing.Point(260, 31);
-            this.fluentDesignFormContainer.Name = "fluentDesignFormContainer1";
+            this.fluentDesignFormContainer.Name = "fluentDesignFormContainer";
             this.fluentDesignFormContainer.Size = new System.Drawing.Size(776, 551);
             this.fluentDesignFormContainer.TabIndex = 0;
             // 
-            // accordionControl1
+            // accordionControl
             // 
             this.accordionControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -65,7 +65,7 @@ namespace Pharmacy.Desktop
             this.ControlWarehouse,
             this.ControlCashbox});
             this.accordionControl.Location = new System.Drawing.Point(0, 31);
-            this.accordionControl.Name = "accordionControl1";
+            this.accordionControl.Name = "accordionControl";
             this.accordionControl.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl.Size = new System.Drawing.Size(260, 551);
             this.accordionControl.TabIndex = 1;
@@ -79,14 +79,21 @@ namespace Pharmacy.Desktop
             this.ControlCatalogCategories,
             this.ControlCatalogForms,
             this.ControlCatalogBrands});
+            this.ControlCatalog.Expanded = true;
             this.ControlCatalog.Name = "ControlCatalog";
             this.ControlCatalog.Text = "Каталог";
             // 
             // ControlCatalogProducts
             // 
+            this.ControlCatalogProducts.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
             this.ControlCatalogProducts.Name = "ControlCatalogProducts";
             this.ControlCatalogProducts.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlCatalogProducts.Text = "Товары";
+            this.ControlCatalogProducts.Click += new System.EventHandler(this.ControlCatalogProducts_Click);
             // 
             // ControlCatalogTypes
             // 
@@ -130,17 +137,17 @@ namespace Pharmacy.Desktop
             this.ControlCashbox.Name = "ControlCashbox";
             this.ControlCashbox.Text = "Касса";
             // 
-            // fluentDesignFormControl1
+            // fluentDesignFormControl
             // 
             this.fluentDesignFormControl.FluentDesignForm = this;
             this.fluentDesignFormControl.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl.Manager = this.fluentFormDefaultManager;
-            this.fluentDesignFormControl.Name = "fluentDesignFormControl1";
+            this.fluentDesignFormControl.Name = "fluentDesignFormControl";
             this.fluentDesignFormControl.Size = new System.Drawing.Size(1036, 31);
             this.fluentDesignFormControl.TabIndex = 2;
             this.fluentDesignFormControl.TabStop = false;
             // 
-            // fluentFormDefaultManager1
+            // fluentFormDefaultManager
             // 
             this.fluentFormDefaultManager.Form = this;
             // 

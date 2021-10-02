@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.DXperience.Demos;
+using Pharmacy.Desktop.Module;
 
 namespace Pharmacy.Desktop
 {
@@ -48,6 +49,13 @@ namespace Pharmacy.Desktop
                     if (control.Length == 1) fluentDesignFormContainer.Invoke(new MethodInvoker(delegate () { control[0].BringToFront(); }));
                 }
             });
+        }
+
+        private async void ControlCatalogProducts_Click(object sender, EventArgs e)
+        {
+            if (ModulesInfo.GetItem("ucProduct") == null)
+                ModulesInfo.Add(new ModuleInfo("ucProduct", "Pharmacy.Desktop.Module.ucProduct"));
+            await LoadModuleAsync(ModulesInfo.GetItem("ucProduct"));
         }
     }
 }
