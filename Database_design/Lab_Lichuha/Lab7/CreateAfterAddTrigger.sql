@@ -4,5 +4,5 @@ AFTER INSERT
 AS 
 
 UPDATE Area SET
-FullPrice = FullPrice - (SELECT Price FROM deleted) + (SELECT Price FROM inserted)
-WHERE Area.Number = (SELECT Number_Area FROM inserted)
+FullPrice = FullPrice + inserted.Price FROM inserted
+WHERE Area.Number = Number_Area

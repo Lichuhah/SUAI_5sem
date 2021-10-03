@@ -44,6 +44,10 @@ namespace Lab8
 
             return factory;
         }
+
+        /// <summary>
+        /// ADO.NET: Подключение источника данных
+        /// </summary>
         public void LoadData1()
         {
             SqlConnection connection = GetSql();
@@ -58,6 +62,9 @@ namespace Lab8
             };
         }
 
+        /// <summary>
+        /// ADO.NET: Чтение результата запроса
+        /// </summary>
         public void LoadData2()
         {
             SqlConnection connection = GetSql();
@@ -86,6 +93,9 @@ namespace Lab8
             }      
         }
 
+        /// <summary>
+        /// Nhibernate: Маппинг таблицы
+        /// </summary>
         public void LoadData3()
         {
             ISession session = GetNhibernate().OpenSession();
