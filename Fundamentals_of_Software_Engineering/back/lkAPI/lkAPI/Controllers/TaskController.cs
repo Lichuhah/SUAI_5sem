@@ -1,86 +1,87 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using lkAPI.Models;
+using lkAPI.Models.Tasks;
+using lkAPI.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace lkAPI.Controllers
 {
-    public class TaskController : Controller
+    public class TaskController : BaseController
     {
-        // GET: TaskController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: TaskController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: TaskController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: TaskController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public string AllForStudent([FromBody] int id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                StudentRepository studrep = new StudentRepository();
+                var taskslist = studrep.Get(id).tasks;
+                var query = studrep.Get(id).tasks.Select(x => new CompleteTask
+                {
+                    id = x.id,
+                    mark = x.mark,
+                    passList = null,
+                    task = new Task()
+                    {
+                        number = x.task.number,
+                        maxMark = x.task.maxMark,
+                        description = x.task.description,
+                        deadline = x.task.deadline,
+                        discipline = x.task.discipline
+                    }
+                }).ToList();
+                var a = JsonConvert.SerializeObject(query);
+                return a;
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return JsonConvert.SerializeObject(null);
             }
         }
 
-        // GET: TaskController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: TaskController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TaskController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: TaskController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public string GetForStudent(int id, [FromBody] int userId)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                CompleteTaskRepository rep = new CompleteTaskRepository();
+                var task = rep.Get(id);
+                task.task = new Task()
+                {
+                    number = task.task.number,
+                    maxMark = task.task.maxMark,
+                    description = task.task.description,
+                    deadline = task.task.deadline,
+                    discipline = task.task.discipline
+                };
+                var a = JsonConvert.SerializeObject(task);
+                return a;
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return JsonConvert.SerializeObject(null);
+            }
+        }
+
+        [HttpPost]
+        public bool AddNewTry(int id, [FromBody] PassTask data)
+        {
+            try
+            {
+                CompleteTaskRepository rep = new CompleteTaskRepository();
+                var task = rep.Get(id);
+                if (task != null)
+                {
+                    data.id = 0;
+                    data.date = new DateTime();
+                    data.task = task;
+                    task.passList.Add(data);
+                } else throw new Exception();
+                rep.Save(task);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }

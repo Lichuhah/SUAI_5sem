@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace lkAPI.Models
 {
-    public class DisciplineModel : EntityBase
+    public class Discipline : EntityBase
     {
         public virtual string name { get; set; }
         public virtual ExamType exam { get; set; }
         public virtual int hours { get; set; }
 
         [JsonIgnore]
-        public virtual List<GroupModel> groups { get; set; }
+        public virtual IList<Group> groups { get; set; }
     }
 }

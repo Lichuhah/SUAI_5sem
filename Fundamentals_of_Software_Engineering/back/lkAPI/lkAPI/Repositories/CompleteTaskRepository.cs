@@ -2,7 +2,7 @@
 
 namespace lkAPI.Repositories
 {
-    public class CompleteTaskRepository : BaseRepository<CompleteTaskModel>
+    public class CompleteTaskRepository : BaseRepository<CompleteTask>
     {
     }
 }

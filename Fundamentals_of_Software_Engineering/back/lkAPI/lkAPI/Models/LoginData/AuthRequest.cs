@@ -2,7 +2,7 @@
 {
     public class AuthRequest
     {
-        public string login { get; set; }
-        public string password { get; set; }
+        public virtual string login { get; set; }
+        public virtual string password { get; set; }
     }
 }

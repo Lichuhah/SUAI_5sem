@@ -3,7 +3,7 @@ using lkAPI.Models.Enums;
 
 namespace lkAPI.NHibernate.Mappings
 {
-    public class DisciplineMapping : EntityBaseMapping<DisciplineModel>
+    public class DisciplineMapping : EntityBaseMapping<Discipline>
     {
         public DisciplineMapping()
         {
@@ -12,8 +12,8 @@ namespace lkAPI.NHibernate.Mappings
             Map(x => x.hours).Column("Hours");
             Map(x => x.exam).Column("Exam").CustomType<ExamType>();
 
-            HasManyToMany(x => x.groups).Cascade.All()
-                .Inverse().Table("Group_Discipline");
+            HasManyToMany(x => x.groups).Cascade.AllDeleteOrphan()
+                .Table("Group_Discipline");
         }
     }
 }

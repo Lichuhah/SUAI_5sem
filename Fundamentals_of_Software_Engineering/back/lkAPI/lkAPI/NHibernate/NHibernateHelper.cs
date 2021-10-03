@@ -22,6 +22,10 @@ namespace lkAPI
         {
             return _sessionFactory.OpenSession();
         }
+        public static ISession OpenSession()
+        {
+            return _sessionFactory.OpenSession();
+        }
         public static void CloseSession()
         {
             _sessionFactory.Close();

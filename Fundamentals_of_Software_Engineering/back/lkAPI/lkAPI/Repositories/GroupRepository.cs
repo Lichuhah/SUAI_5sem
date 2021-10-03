@@ -2,7 +2,7 @@
 
 namespace lkAPI.Repositories
 {
-    public class GroupRepository : BaseRepository<GroupModel>
+    public class GroupRepository : BaseRepository<Group>
     {
     }
 }

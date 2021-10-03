@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lkAPI.Models
 {
-    public class SpecialityModel : EntityBase
+    public class Speciality : EntityBase
     {
         public virtual string code { get; set; }
         public virtual string name { get; set; }

@@ -9,44 +9,38 @@ namespace lkAPI.Repositories
 {
     public class BaseRepository<T> where T : EntityBase
     {
+        private ISession session;
+        public BaseRepository()
+        {
+            session = NHibernateHelper.OpenSession();
+        }
+
+        ~BaseRepository()
+        {
+            NHibernateHelper.CloseSession();
+        }
         public List<T> All()
         {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            try
-            {
-                 var items = session.Query<T>().ToList();
-                 return items;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-            finally
-            {
-                NHibernateHelper.CloseSession();
-            }
-
+            return new List<T>(session.CreateCriteria(typeof(T)).List<T>());
         }
 
         public T Get(int id)
-        {
-            ISession session = NHibernateHelper.GetCurrentSession();
-            try
-            {
-                var item = session.Get<T>(id);
-                return item;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-            finally
-            {
-                NHibernateHelper.CloseSession();
-            }
+        {  
+            return session.Get<T>(id);
         }
-        
+
+        public T Save(T entity)
+        {
+            ITransaction tr = session.BeginTransaction();
+            entity.id = (int)session.Save(entity);       
+            tr.Commit();
+            return entity;
+        }
+
+        public bool Delete(T data)
+        {
+            session.Delete(data);
+            return true;
+        }
     }
 }

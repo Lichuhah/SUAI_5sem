@@ -1,4 +1,5 @@
-﻿using lkAPI.Repositories;
+﻿using lkAPI.Models;
+using lkAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -7,15 +8,10 @@ using System.Linq;
 
 namespace lkAPI.Controllers
 {
-    public class DisciplineController : Controller
+    public class DisciplineController : BaseController
     {
         DisciplineRepository rep = new DisciplineRepository();
-        // GET: DisciplineController
-        public ActionResult Index()
-        {
-            return View();
-        }
-        
+        // GET: DisciplineController  
         public string All()
         {
             try
@@ -27,12 +23,19 @@ namespace lkAPI.Controllers
             }
         }
 
-        public string AllForUser(int id)
+        public string AllForStudent([FromBody]int id)
         {
             try
             {
                 StudentRepository studrep = new StudentRepository();
-                return JsonConvert.SerializeObject(studrep.Get(id).group.disciplines);
+                var query = studrep.Get(id).group.disciplines.Select(x => new Discipline
+                {
+                    id=x.discipline.id,
+                    exam=x.discipline.exam,
+                    hours=x.discipline.hours,
+                    name = x.discipline.name
+                }).ToList();
+                return JsonConvert.SerializeObject(query);
             }
             catch (Exception ex)
             {
@@ -40,73 +43,5 @@ namespace lkAPI.Controllers
             }
         }
 
-        // GET: DisciplineController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: DisciplineController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: DisciplineController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DisciplineController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: DisciplineController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DisciplineController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: DisciplineController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

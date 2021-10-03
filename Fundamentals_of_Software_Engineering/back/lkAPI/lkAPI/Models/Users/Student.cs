@@ -1,5 +1,7 @@
-﻿using lkAPI.Models.Users;
+﻿using lkAPI.Models.Tasks;
+using lkAPI.Models.Users;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace lkAPI.Models
 {
@@ -14,6 +16,9 @@ namespace lkAPI.Models
         }
 
         [JsonIgnore]
-        public virtual GroupModel group { get; set; }
+        public virtual Group group { get; set; }
+
+        [JsonIgnore]
+        public virtual IList<CompleteTask> tasks { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace lkAPI.Repositories
 {
-    public class SpecialityRepository : BaseRepository<SpecialityModel>
+    public class SpecialityRepository : BaseRepository<Speciality>
     {
     }
 }

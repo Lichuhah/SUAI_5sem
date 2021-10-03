@@ -3,7 +3,7 @@ using lkAPI.Models.Enums;
 
 namespace lkAPI.NHibernate.Mappings
 {
-    public class SpecialityMapping : EntityBaseMapping<SpecialityModel>
+    public class SpecialityMapping : EntityBaseMapping<Speciality>
     {
         public SpecialityMapping()
         {

@@ -2,7 +2,7 @@
 
 namespace lkAPI.Repositories
 {
-    public class DisciplineRepository : BaseRepository<DisciplineModel>
+    public class DisciplineRepository : BaseRepository<Discipline>
     {
     }
 }
