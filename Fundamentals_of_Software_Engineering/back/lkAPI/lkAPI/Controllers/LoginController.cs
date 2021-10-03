@@ -1,12 +1,9 @@
 ﻿using lkAPI.Models;
 using lkAPI.Models.Users;
 using lkAPI.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace lkAPI.Controllers

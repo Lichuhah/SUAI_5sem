@@ -1,5 +1,3 @@
-using System;
-
 namespace lkAPI.Models
 {
     public class ErrorViewModel

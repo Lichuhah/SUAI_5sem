@@ -1,5 +1,4 @@
-﻿using lkAPI.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 
 namespace lkAPI.Models.Tasks

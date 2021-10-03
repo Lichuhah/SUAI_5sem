@@ -30,8 +30,7 @@ namespace lkAPI.Controllers
                         discipline = x.task.discipline
                     }
                 }).ToList();
-                var a = JsonConvert.SerializeObject(query);
-                return a;
+                return JsonConvert.SerializeObject(query);
             }
             catch (Exception ex)
             {
@@ -53,8 +52,7 @@ namespace lkAPI.Controllers
                     deadline = task.task.deadline,
                     discipline = task.task.discipline
                 };
-                var a = JsonConvert.SerializeObject(task);
-                return a;
+                return JsonConvert.SerializeObject(task);
             }
             catch (Exception ex)
             {
@@ -63,7 +61,7 @@ namespace lkAPI.Controllers
         }
 
         [HttpPost]
-        public bool AddNewTry(int id, [FromBody] PassTask data)
+        public string AddNewTry(int id, [FromBody] PassTask data)
         {
             try
             {
@@ -76,6 +74,27 @@ namespace lkAPI.Controllers
                     data.task = task;
                     task.passList.Add(data);
                 } else throw new Exception();
+                rep.Save(task);
+                return JsonConvert.SerializeObject(task.passList.Last());
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(null);
+            }
+        }
+
+        [HttpDelete]
+        public bool DeleteTry(int id, [FromBody] int tryId)
+        {
+            try
+            {
+                CompleteTaskRepository rep = new CompleteTaskRepository();
+                var task = rep.Get(id);
+                if (task != null)
+                {
+                    if (task.passList.Where(x => x.id == tryId).Count() > 0) task.passList.Remove(task.passList.Where(x => x.id == tryId).First());
+                }
+                else throw new Exception();
                 rep.Save(task);
                 return true;
             }

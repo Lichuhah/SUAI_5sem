@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace lkAPI.Models.Users
+﻿namespace lkAPI.Models.Users
 {
     public class User : EntityBase
     {

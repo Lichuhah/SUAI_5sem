@@ -1,10 +1,7 @@
 ﻿using NHibernate;
-using NHibernate.Tool.hbm2ddl;
-using Microsoft.Data.SqlClient;
 using System.Reflection;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Cfg;
-using NHibernate.Cfg;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Mapping.ByCode;
 using lkAPI.Models;
