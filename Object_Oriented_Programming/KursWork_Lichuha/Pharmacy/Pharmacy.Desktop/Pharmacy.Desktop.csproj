@@ -33,10 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v21.1.Core, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v21.1.Core, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Tutorials.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -45,7 +47,14 @@
     <Reference Include="DevExpress.XtraLayout.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,22 +72,64 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module\ProductForm.cs">
+    <Compile Include="Module\Forms\BrandForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module\ProductForm.Designer.cs">
+    <Compile Include="Module\Forms\BrandForm.Designer.cs">
+      <DependentUpon>BrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Forms\CategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\CategoryForm.Designer.cs">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Forms\FormForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\FormForm.Designer.cs">
+      <DependentUpon>FormForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Forms\ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module\ucCategory.cs">
+    <Compile Include="Module\Forms\TypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\TypeForm.Designer.cs">
+      <DependentUpon>TypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Grids\ucBrand.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Module\ucCategory.Designer.cs">
+    <Compile Include="Module\Grids\ucBrand.Designer.cs">
+      <DependentUpon>ucBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Grids\ucForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucForm.Designer.cs">
+      <DependentUpon>ucForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Grids\ucType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucType.Designer.cs">
+      <DependentUpon>ucType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Grids\ucCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucCategory.Designer.cs">
       <DependentUpon>ucCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module\ucProduct.cs">
+    <Compile Include="Module\Grids\ucProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Module\ucProduct.Designer.cs">
+    <Compile Include="Module\Grids\ucProduct.Designer.cs">
       <DependentUpon>ucProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -86,14 +137,35 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module\ProductForm.resx">
+    <EmbeddedResource Include="Module\Forms\BrandForm.resx">
+      <DependentUpon>BrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\CategoryForm.resx">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\FormForm.resx">
+      <DependentUpon>FormForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module\ucCategory.resx">
+    <EmbeddedResource Include="Module\Forms\TypeForm.resx">
+      <DependentUpon>TypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucBrand.resx">
+      <DependentUpon>ucBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucCategory.resx">
       <DependentUpon>ucCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module\ucProduct.resx">
+    <EmbeddedResource Include="Module\Grids\ucForm.resx">
+      <DependentUpon>ucForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucProduct.resx">
       <DependentUpon>ucProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucType.resx">
+      <DependentUpon>ucType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

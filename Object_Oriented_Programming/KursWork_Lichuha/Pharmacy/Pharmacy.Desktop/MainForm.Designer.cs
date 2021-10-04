@@ -100,24 +100,28 @@ namespace Pharmacy.Desktop
             this.ControlCatalogTypes.Name = "ControlCatalogTypes";
             this.ControlCatalogTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlCatalogTypes.Text = "Типы товаров";
+            this.ControlCatalogTypes.Click += new System.EventHandler(this.ControlCatalogTypes_Click);
             // 
             // ControlCatalogCategories
             // 
             this.ControlCatalogCategories.Name = "ControlCatalogCategories";
             this.ControlCatalogCategories.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlCatalogCategories.Text = "Категории товаров";
+            this.ControlCatalogCategories.Click += new System.EventHandler(this.ControlCatalogCategories_Click);
             // 
             // ControlCatalogForms
             // 
             this.ControlCatalogForms.Name = "ControlCatalogForms";
             this.ControlCatalogForms.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlCatalogForms.Text = "Формы выпуска товаров";
+            this.ControlCatalogForms.Click += new System.EventHandler(this.ControlCatalogForms_Click);
             // 
             // ControlCatalogBrands
             // 
             this.ControlCatalogBrands.Name = "ControlCatalogBrands";
             this.ControlCatalogBrands.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlCatalogBrands.Text = "Бренды";
+            this.ControlCatalogBrands.Click += new System.EventHandler(this.ControlCatalogBrands_Click);
             // 
             // ControlUsers
             // 

@@ -1,16 +1,24 @@
-﻿using DevExpress.XtraEditors;
-using Pharmacy.Domain.Managers.Products;
-using System;
-using DevExpress.DXperience.Demos;
+﻿using DevExpress.DXperience.Demos;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
+using Pharmacy.Desktop.Module.Forms;
+using Pharmacy.Domain.Managers.Products;
 using Pharmacy.Domain.Models.Products;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Pharmacy.Desktop.Module
 {
-    public partial class ucProduct : TutorialControlBase
+    public partial class ucType : TutorialControlBase
     {
-        public ucProduct()
+        public ucType()
         {
             InitializeComponent();
         }
@@ -18,19 +26,17 @@ namespace Pharmacy.Desktop.Module
         private void loadData()
         {
             grid.DataSource = null;
-            var manager = new ProductManager();
+            var manager = new TypeProductManager();
             var list = manager.All();
             grid.DataSource = list;
         }
-        private void ucProduct_Load(object sender, EventArgs e)
+        private void ucType_Load(object sender, EventArgs e)
         {
             loadData();
 
-            gridView.Columns.ColumnByFieldName("Category").Visible = false;
-            gridView.Columns.ColumnByFieldName("Brand").Visible = false;
-            gridView.Columns.ColumnByFieldName("Form").Visible = false;
+            gridView.Columns.ColumnByFieldName("Categories").Visible = false;
+            gridView.Columns.ColumnByFieldName("Forms").Visible = false;
             gridView.Columns.ColumnByFieldName("ID").Visible = false;
-            gridView.Columns.ColumnByFieldName("IsDeleted").Visible = false;
             gridView.Columns.ColumnByFieldName("Name").VisibleIndex = 0;
 
             gridView.Columns.Add(new GridColumn()
@@ -45,35 +51,34 @@ namespace Pharmacy.Desktop.Module
             {
                 Name = "btnColumnView",
                 ColumnEdit = btnViewElement,
-                MaxWidth=40
+                MaxWidth = 40
             });
             gridView.Columns.ColumnByName("btnColumnView").VisibleIndex = 0;
         }
-
         private void btnViewElement_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            Product product = ((List<Product>)grid.DataSource)[gridView.FocusedRowHandle];
-            ProductForm form = new ProductForm(product.ID);
+            TypeProduct item = ((List<TypeProduct>)grid.DataSource)[gridView.FocusedRowHandle];
+            TypeForm form = new TypeForm(item.ID);
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 loadData();
         }
 
         private void barBtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ProductForm form = new ProductForm();
-            if(form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            TypeForm form = new TypeForm();
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 loadData();
         }
 
         private void btnDeleteElement_Click(object sender, EventArgs e)
         {
-            ProductManager manager = new ProductManager();
-            if(manager.Delete(((List<Product>)grid.DataSource)[gridView.FocusedRowHandle])) 
+            TypeProductManager manager = new TypeProductManager();
+            if (manager.Delete(((List<TypeProduct>)grid.DataSource)[gridView.FocusedRowHandle]))
                 loadData();
-            
+
         }
 
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barButtonRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             loadData();
         }

@@ -57,5 +57,33 @@ namespace Pharmacy.Desktop
                 ModulesInfo.Add(new ModuleInfo("ucProduct", "Pharmacy.Desktop.Module.ucProduct"));
             await LoadModuleAsync(ModulesInfo.GetItem("ucProduct"));
         }
+
+        private async void ControlCatalogTypes_Click(object sender, EventArgs e)
+        {
+            if (ModulesInfo.GetItem("ucType") == null)
+                ModulesInfo.Add(new ModuleInfo("ucType", "Pharmacy.Desktop.Module.ucType"));
+            await LoadModuleAsync(ModulesInfo.GetItem("ucType"));
+        }
+
+        private async void ControlCatalogCategories_Click(object sender, EventArgs e)
+        {
+            if (ModulesInfo.GetItem("ucCategory") == null)
+                ModulesInfo.Add(new ModuleInfo("ucCategory", "Pharmacy.Desktop.Module.ucCategory"));
+            await LoadModuleAsync(ModulesInfo.GetItem("ucCategory"));
+        }
+
+        private async void ControlCatalogForms_Click(object sender, EventArgs e)
+        {
+            if (ModulesInfo.GetItem("ucForm") == null)
+                ModulesInfo.Add(new ModuleInfo("ucForm", "Pharmacy.Desktop.Module.ucForm"));
+            await LoadModuleAsync(ModulesInfo.GetItem("ucForm"));
+        }
+
+        private async void ControlCatalogBrands_Click(object sender, EventArgs e)
+        {
+            if (ModulesInfo.GetItem("ucBrand") == null)
+                ModulesInfo.Add(new ModuleInfo("ucBrand", "Pharmacy.Desktop.Module.ucBrand"));
+            await LoadModuleAsync(ModulesInfo.GetItem("ucBrand"));
+        }
     }
 }
