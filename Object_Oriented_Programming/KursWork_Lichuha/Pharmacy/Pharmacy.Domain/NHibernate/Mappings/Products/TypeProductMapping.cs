@@ -10,13 +10,13 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Products
                 .Table("CategoryProduct")
                 .KeyColumn("Type_ID")
                 .Inverse()
-                .Cascade.All();
+                .Cascade.DeleteOrphan();
 
             HasMany(x => x.Forms)
                 .Table("TypeProduct")
                 .KeyColumn("Type_ID")
                 .Inverse()
-                .Cascade.All();
+                .Cascade.DeleteOrphan();
         }
     }
 }

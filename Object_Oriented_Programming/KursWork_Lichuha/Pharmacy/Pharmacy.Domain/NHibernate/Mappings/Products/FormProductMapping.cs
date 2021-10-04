@@ -7,7 +7,7 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Products
         public FormProductMapping()
         {
             Map(x => x.Unit).Column("Unit").Nullable();
-            References<TypeProduct>(x => x.Type, "Type_ID").Cascade.None();
+            References<TypeProduct>(x => x.Type, "Type_ID");
         }
     }
 }

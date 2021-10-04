@@ -6,7 +6,7 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Products
     {
         public CategoryProductMapping()
         {
-            References<TypeProduct>(x => x.Type, "Type_ID").Cascade.None();
+            References<TypeProduct>(x => x.Type, "Type_ID");
         }
     }
 }

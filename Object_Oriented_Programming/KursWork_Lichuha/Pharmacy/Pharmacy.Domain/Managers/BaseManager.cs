@@ -24,12 +24,18 @@ namespace Pharmacy.Domain.Managers
 
         public T Add(T data)
         {
-            return repository.Add(data);
+            return repository.Save(data);
         }
 
         public T Update(T data)
         {
-            return repository.Update(data);
+            return repository.Save(data);
         }
+
+        public bool Delete(T data)
+        {
+            return repository.Delete(data);
+        }
+
     }
 }
