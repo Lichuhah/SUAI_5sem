@@ -47,6 +47,9 @@ namespace Pharmacy.Desktop
             this.ControlCashbox = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
+            this.ControleWarehouseChange = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlNewSale = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlCashBoxList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager)).BeginInit();
@@ -148,13 +151,16 @@ namespace Pharmacy.Desktop
             this.ControlPharmacyList.Name = "ControlPharmacyList";
             this.ControlPharmacyList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlPharmacyList.Text = "Список аптек";
+            this.ControlPharmacyList.Click += new System.EventHandler(this.ControlPharmacyList_Click);
             // 
             // ControlWarehouse
             // 
             this.ControlWarehouse.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlWarehouseItems,
-            this.ControlWarehouseReports});
+            this.ControlWarehouseReports,
+            this.ControleWarehouseChange});
             this.ControlWarehouse.Enabled = false;
+            this.ControlWarehouse.Expanded = true;
             this.ControlWarehouse.Name = "ControlWarehouse";
             this.ControlWarehouse.Text = "Склад";
             // 
@@ -163,16 +169,22 @@ namespace Pharmacy.Desktop
             this.ControlWarehouseItems.Name = "ControlWarehouseItems";
             this.ControlWarehouseItems.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlWarehouseItems.Text = "Посмотреть склад";
+            this.ControlWarehouseItems.Click += new System.EventHandler(this.ControlWarehouseItems_Click);
             // 
             // ControlWarehouseReports
             // 
             this.ControlWarehouseReports.Name = "ControlWarehouseReports";
             this.ControlWarehouseReports.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlWarehouseReports.Text = "Зачисление/списание товара";
+            this.ControlWarehouseReports.Click += new System.EventHandler(this.ControlWarehouseReports_Click);
             // 
             // ControlCashbox
             // 
+            this.ControlCashbox.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ControlNewSale,
+            this.ControlCashBoxList});
             this.ControlCashbox.Enabled = false;
+            this.ControlCashbox.Expanded = true;
             this.ControlCashbox.Name = "ControlCashbox";
             this.ControlCashbox.Text = "Касса";
             // 
@@ -189,6 +201,27 @@ namespace Pharmacy.Desktop
             // fluentFormDefaultManager
             // 
             this.fluentFormDefaultManager.Form = this;
+            // 
+            // ControleWarehouseChange
+            // 
+            this.ControleWarehouseChange.Name = "ControleWarehouseChange";
+            this.ControleWarehouseChange.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControleWarehouseChange.Text = "Отчетность";
+            this.ControleWarehouseChange.Click += new System.EventHandler(this.ControleWarehouseChange_Click);
+            // 
+            // ControlNewSale
+            // 
+            this.ControlNewSale.Name = "ControlNewSale";
+            this.ControlNewSale.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControlNewSale.Text = "Создать продажу";
+            this.ControlNewSale.Click += new System.EventHandler(this.ControlNewSale_Click);
+            // 
+            // ControlCashBoxList
+            // 
+            this.ControlCashBoxList.Name = "ControlCashBoxList";
+            this.ControlCashBoxList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControlCashBoxList.Text = "Отчетность";
+            this.ControlCashBoxList.Click += new System.EventHandler(this.ControlCashBoxList_Click);
             // 
             // MainForm
             // 
@@ -229,5 +262,8 @@ namespace Pharmacy.Desktop
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlWarehouseReports;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlUserList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlPharmacyList;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControleWarehouseChange;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlNewSale;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCashBoxList;
     }
 }

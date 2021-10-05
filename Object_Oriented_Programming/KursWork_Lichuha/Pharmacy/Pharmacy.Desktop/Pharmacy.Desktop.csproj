@@ -78,6 +78,12 @@
     <Compile Include="Module\Forms\BrandForm.Designer.cs">
       <DependentUpon>BrandForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Forms\CatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\CatalogForm.Designer.cs">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\Forms\CategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,11 +96,29 @@
     <Compile Include="Module\Forms\FormForm.Designer.cs">
       <DependentUpon>FormForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Forms\PharmacyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\PharmacyForm.Designer.cs">
+      <DependentUpon>PharmacyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\Forms\ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\Forms\ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Forms\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Forms\SaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\SaleForm.Designer.cs">
+      <DependentUpon>SaleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Module\Forms\TypeForm.cs">
       <SubType>Form</SubType>
@@ -120,6 +144,18 @@
     <Compile Include="Module\Grids\ucForm.Designer.cs">
       <DependentUpon>ucForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Grids\ucPharmacy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucPharmacy.Designer.cs">
+      <DependentUpon>ucPharmacy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Grids\ucSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucSales.Designer.cs">
+      <DependentUpon>ucSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\Grids\ucType.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,6 +180,18 @@
     <Compile Include="Module\Grids\ucUsers.Designer.cs">
       <DependentUpon>ucUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Grids\ucWarehouse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucWarehouse.Designer.cs">
+      <DependentUpon>ucWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Grids\ucWareHouseReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucWareHouseReports.Designer.cs">
+      <DependentUpon>ucWareHouseReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -152,14 +200,26 @@
     <EmbeddedResource Include="Module\Forms\BrandForm.resx">
       <DependentUpon>BrandForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\CatalogForm.resx">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\Forms\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Forms\FormForm.resx">
       <DependentUpon>FormForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\PharmacyForm.resx">
+      <DependentUpon>PharmacyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\Forms\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\SaleForm.resx">
+      <DependentUpon>SaleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Forms\TypeForm.resx">
       <DependentUpon>TypeForm.cs</DependentUpon>
@@ -176,14 +236,26 @@
     <EmbeddedResource Include="Module\Grids\ucForm.resx">
       <DependentUpon>ucForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucPharmacy.resx">
+      <DependentUpon>ucPharmacy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\Grids\ucProduct.resx">
       <DependentUpon>ucProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucSales.resx">
+      <DependentUpon>ucSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Grids\ucType.resx">
       <DependentUpon>ucType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Grids\ucUsers.resx">
       <DependentUpon>ucUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucWarehouse.resx">
+      <DependentUpon>ucWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucWareHouseReports.resx">
+      <DependentUpon>ucWareHouseReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

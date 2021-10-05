@@ -92,5 +92,37 @@ namespace Pharmacy.Desktop
                 ModulesInfo.Add(new ModuleInfo("ucUsers", "Pharmacy.Desktop.Module.ucUsers"));
             await LoadModuleAsync(ModulesInfo.GetItem("ucUsers"));
         }
+
+        private async void ControlPharmacyList_Click(object sender, EventArgs e)
+        {
+            if (ModulesInfo.GetItem("ucPharmacy") == null)
+                ModulesInfo.Add(new ModuleInfo("ucPharmacy", "Pharmacy.Desktop.Module.Grids.ucPharmacy"));
+            await LoadModuleAsync(ModulesInfo.GetItem("ucPharmacy"));
+        }
+
+        private void ControlWarehouseItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlWarehouseReports_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControleWarehouseChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlNewSale_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlCashBoxList_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
