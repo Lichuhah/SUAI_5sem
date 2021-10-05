@@ -10,7 +10,7 @@ namespace Pharmacy.Domain.Managers
 {
     public class BaseManager<T> where T : BaseEntity
     {
-        private BaseRepository<T> repository = new BaseRepository<T>();
+        protected BaseRepository<T> repository = new BaseRepository<T>();
 
         public List<T> All()
         {

@@ -71,6 +71,9 @@
     <Compile Include="Managers\Products\FormProductManager.cs" />
     <Compile Include="Managers\Products\ProductManager.cs" />
     <Compile Include="Managers\Products\TypeProductManager.cs" />
+    <Compile Include="Managers\Warehouse\Changes\WareHouseReportManager.cs" />
+    <Compile Include="Managers\Warehouse\Changes\WareHouseEnrollmentManager.cs" />
+    <Compile Include="Managers\Warehouse\Changes\WareHouseWriteOffManager.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BaseNamedEntity.cs" />
     <Compile Include="Models\Pharmacy.cs" />
@@ -79,8 +82,14 @@
     <Compile Include="Models\Products\FormProduct.cs" />
     <Compile Include="Models\Products\Product.cs" />
     <Compile Include="Models\Products\TypeProduct.cs" />
+    <Compile Include="Models\Warehouse\Changes\WareHouseEnrollment.cs" />
+    <Compile Include="Models\Warehouse\Changes\WareHouseWriteOff.cs" />
+    <Compile Include="Models\Warehouse\WareHouse.cs" />
+    <Compile Include="Models\Warehouse\WareHouseItem.cs" />
+    <Compile Include="Models\Warehouse\Changes\WareHouseReport.cs" />
     <Compile Include="NHibernate\Mappings\BaseEntityMapping.cs" />
     <Compile Include="NHibernate\Mappings\BaseNamedEntityMapping.cs" />
+    <Compile Include="NHibernate\PharmacySession.cs" />
     <Compile Include="NHibernate\Mappings\Products\BrandMapping.cs" />
     <Compile Include="NHibernate\Mappings\Products\CategoryProductMapping.cs" />
     <Compile Include="NHibernate\Mappings\Products\FormProductMapping.cs" />
@@ -94,9 +103,11 @@
     <Compile Include="Repositories\Products\FormProductRepository.cs" />
     <Compile Include="Repositories\Products\ProductRepository.cs" />
     <Compile Include="Repositories\Products\TypeProductRepository.cs" />
+    <Compile Include="Repositories\Warehouse\WareHouseReportRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

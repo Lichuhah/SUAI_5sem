@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using Pharmacy.Domain.Models;
 using Pharmacy.Domain.NHibernate;
+using Pharmacy.Domain.NHibernate.Mappings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace Pharmacy.Domain.Repositories
 {
     public class BaseRepository<T> where T : BaseEntity
     {
-        private ISession session;
+        private PharmacySession session;
         public BaseRepository()
         {
-            session = NHibernateHelper.OpenSession();
+            session = PharmacySession.GetInstance();
         }
 
         ~BaseRepository()
@@ -35,7 +36,7 @@ namespace Pharmacy.Domain.Repositories
         {
             
             ITransaction tr = session.BeginTransaction();
-            entity.ID = session.Merge(entity).ID;
+            entity.ID = ((T)session.Merge(entity)).ID;
            // entity.ID = (int)session.Save(entity);
             tr.Commit();
             return entity;
