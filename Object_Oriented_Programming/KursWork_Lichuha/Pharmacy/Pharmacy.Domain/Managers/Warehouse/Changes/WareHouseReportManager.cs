@@ -1,4 +1,5 @@
-﻿using Pharmacy.Domain.Managers.Products;
+﻿using Pharmacy.Domain.Login;
+using Pharmacy.Domain.Managers.Products;
 using Pharmacy.Domain.Models.Products;
 using Pharmacy.Domain.Models.Warehouse;
 using System;
@@ -11,6 +12,17 @@ namespace Pharmacy.Domain.Managers.Warehouse.Changes
 {
     public class WareHouseReportManager : BaseManager<WareHouseReport>
     {
+        public List<WareHouseReport> All()
+        {
+            if (LoginUser.GetUser().Pharmacy != null)
+            {
+                return LoginUser.GetUser().Pharmacy.WareHouse.Changes.ToList();
+            }
+            else
+            {
+                return repository.All();
+            }
+        }
         public int GetCountByProduct(Product product)
         {
             var result = this.All().Where(x => x.Product.ID == product.ID);

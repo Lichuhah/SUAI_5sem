@@ -1,4 +1,5 @@
-﻿using Pharmacy.Domain.Managers.Warehouse;
+﻿using Pharmacy.Domain.Login;
+using Pharmacy.Domain.Managers.Warehouse;
 using Pharmacy.Domain.Models.Cashbox;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,16 @@ namespace Pharmacy.Domain.Managers.Cashbox
 {
     public class SaleManager : BaseManager<Sale>
     {
+        public List<Sale> All()
+        {
+            if (LoginUser.GetUser().Pharmacy != null)
+            {
+                return LoginUser.GetUser().Pharmacy.Sales.ToList();
+            } else
+            {
+                return repository.All();
+            }
+        }
         public Sale Add(Sale data)
         {
             foreach(var item in data.Items)

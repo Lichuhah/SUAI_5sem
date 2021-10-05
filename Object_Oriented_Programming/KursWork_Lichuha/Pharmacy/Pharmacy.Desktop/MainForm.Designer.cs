@@ -31,7 +31,7 @@ namespace Pharmacy.Desktop
         {
             this.components = new System.ComponentModel.Container();
             this.fluentDesignFormContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
-            this.accordionControl = new DevExpress.XtraBars.Navigation.AccordionControl();
+            this.ControlCash = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.ControlCatalog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCatalogProducts = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCatalogTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -50,33 +50,45 @@ namespace Pharmacy.Desktop
             this.ControlCashBoxList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.accordionControl)).BeginInit();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
+            this.bar3 = new DevExpress.XtraBars.BarEditItem();
+            this.barPharmacy = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            ((System.ComponentModel.ISupportInitialize)(this.ControlCash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barPharmacy)).BeginInit();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer
             // 
             this.fluentDesignFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer.Location = new System.Drawing.Point(260, 31);
+            this.fluentDesignFormContainer.Location = new System.Drawing.Point(260, 51);
             this.fluentDesignFormContainer.Name = "fluentDesignFormContainer";
-            this.fluentDesignFormContainer.Size = new System.Drawing.Size(776, 551);
+            this.fluentDesignFormContainer.Size = new System.Drawing.Size(776, 531);
             this.fluentDesignFormContainer.TabIndex = 0;
             // 
-            // accordionControl
+            // ControlCash
             // 
-            this.accordionControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.accordionControl.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ControlCash.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ControlCash.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlCatalog,
             this.ControlAdmins,
             this.ControlWarehouse,
             this.ControlCashbox});
-            this.accordionControl.Location = new System.Drawing.Point(0, 31);
-            this.accordionControl.Name = "accordionControl";
-            this.accordionControl.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl.Size = new System.Drawing.Size(260, 551);
-            this.accordionControl.TabIndex = 1;
-            this.accordionControl.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
+            this.ControlCash.Location = new System.Drawing.Point(0, 51);
+            this.ControlCash.Name = "ControlCash";
+            this.ControlCash.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
+            this.ControlCash.Size = new System.Drawing.Size(260, 531);
+            this.ControlCash.TabIndex = 1;
+            this.ControlCash.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // ControlCatalog
             // 
@@ -221,6 +233,94 @@ namespace Pharmacy.Desktop
             // 
             this.fluentFormDefaultManager.Form = this;
             // 
+            // barManager1
+            // 
+            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.bar1});
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bar3,
+            this.barButtonItem1,
+            this.barHeaderItem1});
+            this.barManager1.MaxItemId = 3;
+            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.barPharmacy});
+            // 
+            // bar1
+            // 
+            this.bar1.BarName = "Сервис";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar3)});
+            this.bar1.Text = "Сервис";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Out";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barHeaderItem1
+            // 
+            this.barHeaderItem1.Caption = "barHeaderItem1";
+            this.barHeaderItem1.Id = 2;
+            this.barHeaderItem1.Name = "barHeaderItem1";
+            // 
+            // bar3
+            // 
+            this.bar3.Caption = "Аптека:";
+            this.bar3.Edit = this.barPharmacy;
+            this.bar3.Id = 0;
+            this.bar3.Name = "bar3";
+            // 
+            // barPharmacy
+            // 
+            this.barPharmacy.AutoHeight = false;
+            this.barPharmacy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.barPharmacy.Name = "barPharmacy";
+            this.barPharmacy.SelectedIndexChanged += new System.EventHandler(this.barPharmacy_SelectedIndexChanged);
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 31);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1036, 20);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 582);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1036, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 531);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1036, 51);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 531);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,23 +328,30 @@ namespace Pharmacy.Desktop
             this.ClientSize = new System.Drawing.Size(1036, 582);
             this.ControlContainer = this.fluentDesignFormContainer;
             this.Controls.Add(this.fluentDesignFormContainer);
-            this.Controls.Add(this.accordionControl);
+            this.Controls.Add(this.ControlCash);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Controls.Add(this.fluentDesignFormControl);
             this.FluentDesignFormControl = this.fluentDesignFormControl;
             this.Name = "MainForm";
-            this.NavigationControl = this.accordionControl;
+            this.NavigationControl = this.ControlCash;
             this.Text = "FluentDesignForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.accordionControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ControlCash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barPharmacy)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fluentDesignFormContainer;
-        private DevExpress.XtraBars.Navigation.AccordionControl accordionControl;
+        private DevExpress.XtraBars.Navigation.AccordionControl ControlCash;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalog;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager;
@@ -263,5 +370,15 @@ namespace Pharmacy.Desktop
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControleWarehouseChanges;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlNewSale;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCashBoxList;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
+        private DevExpress.XtraBars.BarEditItem bar3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox barPharmacy;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }

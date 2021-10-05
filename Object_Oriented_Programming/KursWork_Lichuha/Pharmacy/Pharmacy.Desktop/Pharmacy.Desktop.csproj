@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,12 +145,6 @@
     <Compile Include="Module\Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module\Grids\SplashScreen1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Module\Grids\SplashScreen1.Designer.cs">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Module\Grids\ucBrand.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,6 +207,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,9 +245,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Module\Grids\SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Grids\ucBrand.resx">
       <DependentUpon>ucBrand.cs</DependentUpon>

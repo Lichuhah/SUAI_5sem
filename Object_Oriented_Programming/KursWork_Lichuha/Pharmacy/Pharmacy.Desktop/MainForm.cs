@@ -11,19 +11,52 @@ using System.Windows.Forms;
 using DevExpress.DXperience.Demos;
 using Pharmacy.Desktop.Module;
 using Pharmacy.Desktop.Module.Forms;
+using Pharmacy.Domain.Models;
+using Pharmacy.Domain.Managers.Administration;
+using DevExpress.XtraEditors;
+using Pharmacy.Domain.Models.Administration;
+using Pharmacy.Domain.Login;
 
 namespace Pharmacy.Desktop
 {
     public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        User User = LoginUser.GetUser();
+        PharmacyModel Pharmacy = null;
+        List<PharmacyModel> Pharmacies = new List<PharmacyModel>();
         public MainForm()
         {
             InitializeComponent();
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            barHeaderItem1.Caption = User.Login;
+            if (User.Pharmacy == null)
+            {
+                PharmacyManager manager = new PharmacyManager();
+                Pharmacies = manager.All();
+                barPharmacy.Items.AddRange(Pharmacies);
+            }
+            if (User.Role != UserRole.Admin) { Pharmacy = User.Pharmacy; bar3.Enabled = false; barPharmacy.NullText = Pharmacy.Address; }
+            switch (User.Role)
+            {
+                case UserRole.Admin:
+                    ControlCash.Enabled = false;
+                    ControlWarehouse.Enabled = false;
+                    break;
+                case UserRole.Manager:
+                    ControlAdmins.Enabled = false;
+                    break;
+                case UserRole.Cashier:
+                    ControlAdmins.Enabled = false;
+                    ControlCatalog.Enabled = false;
+                    ControlWarehouse.Enabled = false; break;
+                case UserRole.Warehouse:
+                    ControlAdmins.Enabled = false;
+                    ControlCatalog.Enabled = false;
+                    ControlCash.Enabled = false;
+                    break;
+            }
         }
 
         async Task LoadModuleAsync(ModuleInfo module)
@@ -119,6 +152,15 @@ namespace Pharmacy.Desktop
             if (ModulesInfo.GetItem(uc) == null)
                 ModulesInfo.Add(new ModuleInfo(uc, path));
             await LoadModuleAsync(ModulesInfo.GetItem(uc));
+        }
+
+        private void barPharmacy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = sender as ComboBoxEdit;
+            Pharmacy = Pharmacies[item.SelectedIndex];
+            LoginUser.SetPharmacy(Pharmacy);
+            ControlCash.Enabled = true;
+            ControlWarehouse.Enabled = true;
         }
     }
 }

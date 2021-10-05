@@ -1,4 +1,5 @@
-﻿using Pharmacy.Domain.Models.Warehouse;
+﻿using Pharmacy.Domain.Login;
+using Pharmacy.Domain.Models.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Pharmacy.Domain.Managers.Warehouse.Changes
     {
         new public List<WareHouseReport> All()
         {
-            var list = repository.All().Where(x => x.Count < 0).ToList();
-            list.ForEach(x=>x.Count = x.Count*-1);
-            return list;
+            if (LoginUser.GetUser().Pharmacy != null)
+            {
+                return LoginUser.GetUser().Pharmacy.WareHouse.Changes.ToList();
+            }
+            else
+            {
+                var list = repository.All().Where(x => x.Count < 0).ToList();
+                list.ForEach(x => x.Count = x.Count * -1);
+                return list;
+            }
         }
 
         new public WareHouseReport Get(int id)

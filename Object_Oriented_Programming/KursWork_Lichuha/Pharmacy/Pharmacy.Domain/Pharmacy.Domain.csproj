@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\LoginUser.cs" />
     <Compile Include="Managers\Administration\PharmacyManager.cs" />
     <Compile Include="Managers\Administration\UserManager.cs" />
     <Compile Include="Managers\BaseManager.cs" />
