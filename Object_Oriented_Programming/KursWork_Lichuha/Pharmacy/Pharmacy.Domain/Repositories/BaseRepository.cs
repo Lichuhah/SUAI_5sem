@@ -42,6 +42,15 @@ namespace Pharmacy.Domain.Repositories
             return entity;
         }
 
+        public T Add(T entity)
+        {
+
+            ITransaction tr = session.BeginTransaction();
+            entity.ID = (int)session.Save(entity);
+            // entity.ID = (int)session.Save(entity);
+            tr.Commit();
+            return entity;
+        }
         public bool Delete(T entity)
         {
             ITransaction tr = session.BeginTransaction();

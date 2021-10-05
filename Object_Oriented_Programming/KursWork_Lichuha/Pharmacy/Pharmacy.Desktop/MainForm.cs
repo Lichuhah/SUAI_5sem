@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.DXperience.Demos;
 using Pharmacy.Desktop.Module;
+using Pharmacy.Desktop.Module.Forms;
 
 namespace Pharmacy.Desktop
 {
@@ -91,9 +92,10 @@ namespace Pharmacy.Desktop
             await Loaduc("ucWarehouse", "Pharmacy.Desktop.Module.Grids.ucWarehouse");
         }
 
-        private async void ControlWarehouseReport_Click(object sender, EventArgs e)
+        private void ControlWarehouseReport_Click(object sender, EventArgs e)
         {
-            
+            ReportForm form = new ReportForm();
+            form.ShowDialog();
         }
 
         private async void ControleWarehouseChanges_Click(object sender, EventArgs e)

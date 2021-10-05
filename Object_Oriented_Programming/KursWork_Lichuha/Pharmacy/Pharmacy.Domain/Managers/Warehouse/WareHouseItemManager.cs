@@ -1,4 +1,5 @@
-﻿using Pharmacy.Domain.Models.Warehouse;
+﻿using Pharmacy.Domain.Models.Products;
+using Pharmacy.Domain.Models.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Pharmacy.Domain.Managers.Warehouse
 {
     public class WareHouseItemManager : BaseManager<WareHouseItem>
     {
+        
     }
 }

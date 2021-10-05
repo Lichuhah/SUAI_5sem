@@ -22,8 +22,9 @@ namespace Pharmacy.Domain.Managers.Warehouse.Changes
 
         new public WareHouseReport Add(WareHouseReport data)
         {
+            data.Type = "Зачисление";
             if (data.Count < 0) data.Count *= -1;
-            return repository.Save(data);
+            return repository.Add(data);
         }
 
         new public WareHouseReport Update(WareHouseReport data)
