@@ -65,6 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\Administration\PharmacyManager.cs" />
+    <Compile Include="Managers\Administration\UserManager.cs" />
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\Products\BrandManager.cs" />
     <Compile Include="Managers\Products\CategoryProductManager.cs" />
@@ -74,19 +76,25 @@
     <Compile Include="Managers\Warehouse\Changes\WareHouseReportManager.cs" />
     <Compile Include="Managers\Warehouse\Changes\WareHouseEnrollmentManager.cs" />
     <Compile Include="Managers\Warehouse\Changes\WareHouseWriteOffManager.cs" />
+    <Compile Include="Models\Administration\UserRole.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BaseNamedEntity.cs" />
-    <Compile Include="Models\Pharmacy.cs" />
+    <Compile Include="Models\Administration\PharmacyModel.cs" />
+    <Compile Include="Models\Cashbox\Sale.cs" />
+    <Compile Include="Models\Cashbox\SaleItem.cs" />
     <Compile Include="Models\Products\Brand.cs" />
     <Compile Include="Models\Products\CategoryProduct.cs" />
     <Compile Include="Models\Products\FormProduct.cs" />
     <Compile Include="Models\Products\Product.cs" />
     <Compile Include="Models\Products\TypeProduct.cs" />
+    <Compile Include="Models\Administration\User.cs" />
     <Compile Include="Models\Warehouse\Changes\WareHouseEnrollment.cs" />
     <Compile Include="Models\Warehouse\Changes\WareHouseWriteOff.cs" />
     <Compile Include="Models\Warehouse\WareHouse.cs" />
     <Compile Include="Models\Warehouse\WareHouseItem.cs" />
     <Compile Include="Models\Warehouse\Changes\WareHouseReport.cs" />
+    <Compile Include="NHibernate\Mappings\Administration\PharmacyMapping.cs" />
+    <Compile Include="NHibernate\Mappings\Administration\UserMapping.cs" />
     <Compile Include="NHibernate\Mappings\BaseEntityMapping.cs" />
     <Compile Include="NHibernate\Mappings\BaseNamedEntityMapping.cs" />
     <Compile Include="NHibernate\PharmacySession.cs" />
@@ -97,6 +105,8 @@
     <Compile Include="NHibernate\Mappings\Products\TypeProductMapping.cs" />
     <Compile Include="NHibernate\NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Administration\PharmacyRepository.cs" />
+    <Compile Include="Repositories\Administration\UserRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\Products\BrandRepository.cs" />
     <Compile Include="Repositories\Products\CategoryProductRepository.cs" />
@@ -108,6 +118,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Managers\Cashbox\" />
+    <Folder Include="NHibernate\Mappings\Cashbox\" />
+    <Folder Include="NHibernate\Mappings\Warehouse\" />
+    <Folder Include="Repositories\Cashbox\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

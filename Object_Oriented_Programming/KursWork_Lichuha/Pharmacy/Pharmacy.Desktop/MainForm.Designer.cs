@@ -38,8 +38,12 @@ namespace Pharmacy.Desktop
             this.ControlCatalogCategories = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCatalogForms = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCatalogBrands = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ControlUsers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlAdmins = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlUserList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlPharmacyList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlWarehouse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlWarehouseItems = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlWarehouseReports = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCashbox = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
@@ -61,7 +65,7 @@ namespace Pharmacy.Desktop
             this.accordionControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlCatalog,
-            this.ControlUsers,
+            this.ControlAdmins,
             this.ControlWarehouse,
             this.ControlCashbox});
             this.accordionControl.Location = new System.Drawing.Point(0, 31);
@@ -123,17 +127,48 @@ namespace Pharmacy.Desktop
             this.ControlCatalogBrands.Text = "Бренды";
             this.ControlCatalogBrands.Click += new System.EventHandler(this.ControlCatalogBrands_Click);
             // 
-            // ControlUsers
+            // ControlAdmins
             // 
-            this.ControlUsers.Enabled = false;
-            this.ControlUsers.Name = "ControlUsers";
-            this.ControlUsers.Text = "Пользователи";
+            this.ControlAdmins.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ControlUserList,
+            this.ControlPharmacyList});
+            this.ControlAdmins.Expanded = true;
+            this.ControlAdmins.Name = "ControlAdmins";
+            this.ControlAdmins.Text = "Администрирование";
+            // 
+            // ControlUserList
+            // 
+            this.ControlUserList.Name = "ControlUserList";
+            this.ControlUserList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControlUserList.Text = "Список пользователей";
+            this.ControlUserList.Click += new System.EventHandler(this.ControlUserList_Click);
+            // 
+            // ControlPharmacyList
+            // 
+            this.ControlPharmacyList.Name = "ControlPharmacyList";
+            this.ControlPharmacyList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControlPharmacyList.Text = "Список аптек";
             // 
             // ControlWarehouse
             // 
+            this.ControlWarehouse.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ControlWarehouseItems,
+            this.ControlWarehouseReports});
             this.ControlWarehouse.Enabled = false;
             this.ControlWarehouse.Name = "ControlWarehouse";
             this.ControlWarehouse.Text = "Склад";
+            // 
+            // ControlWarehouseItems
+            // 
+            this.ControlWarehouseItems.Name = "ControlWarehouseItems";
+            this.ControlWarehouseItems.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControlWarehouseItems.Text = "Посмотреть склад";
+            // 
+            // ControlWarehouseReports
+            // 
+            this.ControlWarehouseReports.Name = "ControlWarehouseReports";
+            this.ControlWarehouseReports.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControlWarehouseReports.Text = "Зачисление/списание товара";
             // 
             // ControlCashbox
             // 
@@ -182,7 +217,7 @@ namespace Pharmacy.Desktop
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalog;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlUsers;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlAdmins;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlWarehouse;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCashbox;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalogProducts;
@@ -190,5 +225,9 @@ namespace Pharmacy.Desktop
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalogCategories;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalogForms;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalogBrands;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlWarehouseItems;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlWarehouseReports;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlUserList;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlPharmacyList;
     }
 }

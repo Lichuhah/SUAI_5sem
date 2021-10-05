@@ -102,6 +102,12 @@
     <Compile Include="Module\Forms\TypeForm.Designer.cs">
       <DependentUpon>TypeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Forms\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Forms\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\Grids\ucBrand.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     <Compile Include="Module\Grids\ucProduct.Designer.cs">
       <DependentUpon>ucProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\Grids\ucUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module\Grids\ucUsers.Designer.cs">
+      <DependentUpon>ucUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -152,6 +164,9 @@
     <EmbeddedResource Include="Module\Forms\TypeForm.resx">
       <DependentUpon>TypeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Module\Forms\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\Grids\ucBrand.resx">
       <DependentUpon>ucBrand.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Grids\ucType.resx">
       <DependentUpon>ucType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Grids\ucUsers.resx">
+      <DependentUpon>ucUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

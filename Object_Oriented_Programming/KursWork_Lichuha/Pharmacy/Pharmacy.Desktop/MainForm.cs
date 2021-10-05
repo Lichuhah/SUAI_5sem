@@ -85,5 +85,12 @@ namespace Pharmacy.Desktop
                 ModulesInfo.Add(new ModuleInfo("ucBrand", "Pharmacy.Desktop.Module.ucBrand"));
             await LoadModuleAsync(ModulesInfo.GetItem("ucBrand"));
         }
+
+        private async void ControlUserList_Click(object sender, EventArgs e)
+        {
+            if (ModulesInfo.GetItem("ucUsers") == null)
+                ModulesInfo.Add(new ModuleInfo("ucUsers", "Pharmacy.Desktop.Module.ucUsers"));
+            await LoadModuleAsync(ModulesInfo.GetItem("ucUsers"));
+        }
     }
 }

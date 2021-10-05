@@ -8,7 +8,7 @@ namespace Pharmacy.Domain.Models.Warehouse
 {
     public class WareHouse : BaseEntity
     {
-        public virtual Pharmacy Pharmacy { get; set; }
+        public virtual PharmacyModel Pharmacy { get; set; }
 
         public virtual IList<WareHouseItem> Items { get; set; }
 
