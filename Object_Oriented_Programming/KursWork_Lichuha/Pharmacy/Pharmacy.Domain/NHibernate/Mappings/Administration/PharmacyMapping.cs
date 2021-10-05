@@ -1,4 +1,5 @@
 ﻿using Pharmacy.Domain.Models;
+using Pharmacy.Domain.Models.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Administration
         {
             Table("Pharmacy");
             Map(x => x.Address).Column("Address");
+            References<WareHouse>(x => x.WareHouse, "Warehouse_ID");
         }
     }
 }

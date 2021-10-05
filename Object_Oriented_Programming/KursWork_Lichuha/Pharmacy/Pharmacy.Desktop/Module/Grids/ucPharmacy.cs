@@ -1,7 +1,9 @@
 ﻿using DevExpress.DXperience.Demos;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
+using Pharmacy.Desktop.Module.Forms;
 using Pharmacy.Domain.Managers.Administration;
+using Pharmacy.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +31,9 @@ namespace Pharmacy.Desktop.Module.Grids
         }
         private void barBtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            PharmacyForm form = new PharmacyForm();
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                loadData();
         }
 
         private void barBtnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -65,12 +69,17 @@ namespace Pharmacy.Desktop.Module.Grids
 
         private void btnViewElement_Click(object sender, EventArgs e)
         {
-
+            PharmacyModel item = ((List<PharmacyModel>)grid.DataSource)[gridView.FocusedRowHandle];
+            PharmacyForm form = new PharmacyForm(item.ID);
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                loadData();
         }
 
         private void btnDeleteElement_Click(object sender, EventArgs e)
         {
-
+            PharmacyManager manager = new PharmacyManager();
+            if (manager.Delete(((List<PharmacyModel>)grid.DataSource)[gridView.FocusedRowHandle]))
+                loadData();
         }
     }
 }

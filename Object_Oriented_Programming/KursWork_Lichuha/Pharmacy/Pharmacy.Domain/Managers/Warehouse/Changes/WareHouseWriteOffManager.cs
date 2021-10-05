@@ -11,12 +11,19 @@ namespace Pharmacy.Domain.Managers.Warehouse.Changes
     {
         new public List<WareHouseReport> All()
         {
-            return repository.All().Where(x => x.Count < 0).ToList();
+            var list = repository.All().Where(x => x.Count < 0).ToList();
+            list.ForEach(x=>x.Count = x.Count*-1);
+            return list;
         }
 
         new public WareHouseReport Get(int id)
         {
-            return repository.Get(id).Count < 0 ? repository.Get(id) : null;
+            var item =  repository.Get(id);
+            if (item != null)
+            {
+                item.Count *= -1;
+            }
+            return item;
         }
 
         new public WareHouseReport Add(WareHouseReport data)

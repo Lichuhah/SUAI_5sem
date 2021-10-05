@@ -19,6 +19,7 @@ namespace Pharmacy.Domain.Models.Warehouse
 
         [DisplayName("Доп. информация")]
         public virtual string Description { get; set; }
-
+        [DisplayName("Дaта")]
+        public virtual DateTime Date { get; set; }
     }
 }

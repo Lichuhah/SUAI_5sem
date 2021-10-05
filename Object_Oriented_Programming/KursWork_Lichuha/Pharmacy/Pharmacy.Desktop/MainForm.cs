@@ -53,66 +53,52 @@ namespace Pharmacy.Desktop
 
         private async void ControlCatalogProducts_Click(object sender, EventArgs e)
         {
-            if (ModulesInfo.GetItem("ucProduct") == null)
-                ModulesInfo.Add(new ModuleInfo("ucProduct", "Pharmacy.Desktop.Module.ucProduct"));
-            await LoadModuleAsync(ModulesInfo.GetItem("ucProduct"));
+            await Loaduc("ucProduct", "Pharmacy.Desktop.Module.ucProduct");
         }
 
         private async void ControlCatalogTypes_Click(object sender, EventArgs e)
         {
-            if (ModulesInfo.GetItem("ucType") == null)
-                ModulesInfo.Add(new ModuleInfo("ucType", "Pharmacy.Desktop.Module.ucType"));
-            await LoadModuleAsync(ModulesInfo.GetItem("ucType"));
+            await Loaduc("ucType", "Pharmacy.Desktop.Module.ucType");
         }
 
         private async void ControlCatalogCategories_Click(object sender, EventArgs e)
         {
-            if (ModulesInfo.GetItem("ucCategory") == null)
-                ModulesInfo.Add(new ModuleInfo("ucCategory", "Pharmacy.Desktop.Module.ucCategory"));
-            await LoadModuleAsync(ModulesInfo.GetItem("ucCategory"));
+            await Loaduc("ucCategory", "Pharmacy.Desktop.Module.ucCategory");
         }
 
         private async void ControlCatalogForms_Click(object sender, EventArgs e)
         {
-            if (ModulesInfo.GetItem("ucForm") == null)
-                ModulesInfo.Add(new ModuleInfo("ucForm", "Pharmacy.Desktop.Module.ucForm"));
-            await LoadModuleAsync(ModulesInfo.GetItem("ucForm"));
+            await Loaduc("ucForm", "Pharmacy.Desktop.Module.ucForm");
         }
 
         private async void ControlCatalogBrands_Click(object sender, EventArgs e)
         {
-            if (ModulesInfo.GetItem("ucBrand") == null)
-                ModulesInfo.Add(new ModuleInfo("ucBrand", "Pharmacy.Desktop.Module.ucBrand"));
-            await LoadModuleAsync(ModulesInfo.GetItem("ucBrand"));
+            await Loaduc("ucBrand", "Pharmacy.Desktop.Module.ucBrand");
         }
 
         private async void ControlUserList_Click(object sender, EventArgs e)
         {
-            if (ModulesInfo.GetItem("ucUsers") == null)
-                ModulesInfo.Add(new ModuleInfo("ucUsers", "Pharmacy.Desktop.Module.ucUsers"));
-            await LoadModuleAsync(ModulesInfo.GetItem("ucUsers"));
+            await Loaduc("ucUsers", "Pharmacy.Desktop.Module.ucUsers");
         }
 
         private async void ControlPharmacyList_Click(object sender, EventArgs e)
         {
-            if (ModulesInfo.GetItem("ucPharmacy") == null)
-                ModulesInfo.Add(new ModuleInfo("ucPharmacy", "Pharmacy.Desktop.Module.Grids.ucPharmacy"));
-            await LoadModuleAsync(ModulesInfo.GetItem("ucPharmacy"));
+            await Loaduc("ucPharmacy", "Pharmacy.Desktop.Module.Grids.ucPharmacy");
         }
 
-        private void ControlWarehouseItems_Click(object sender, EventArgs e)
+        private async void ControlWarehouseItems_Click(object sender, EventArgs e)
         {
-
+            await Loaduc("ucWarehouse", "Pharmacy.Desktop.Module.Grids.ucWarehouse");
         }
 
-        private void ControlWarehouseReports_Click(object sender, EventArgs e)
+        private async void ControlWarehouseReport_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void ControleWarehouseChange_Click(object sender, EventArgs e)
+        private async void ControleWarehouseChanges_Click(object sender, EventArgs e)
         {
-
+            await Loaduc("ucWarehouseReports", "Pharmacy.Desktop.Module.Grids.ucWareHouseReports");
         }
 
         private void ControlNewSale_Click(object sender, EventArgs e)
@@ -123,6 +109,13 @@ namespace Pharmacy.Desktop
         private void ControlCashBoxList_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private async Task Loaduc(string uc, string path)
+        {
+            if (ModulesInfo.GetItem(uc) == null)
+                ModulesInfo.Add(new ModuleInfo(uc, path));
+            await LoadModuleAsync(ModulesInfo.GetItem(uc));
         }
     }
 }

@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pharmacy.Domain.Managers.Warehouse.Changes
+namespace Pharmacy.Domain.Managers.Warehouse
 {
-    public class WareHouseReportManager : BaseManager<WareHouseReport>
+    public class WareHouseItemManager : BaseManager<WareHouseItem>
     {
-        
     }
 }

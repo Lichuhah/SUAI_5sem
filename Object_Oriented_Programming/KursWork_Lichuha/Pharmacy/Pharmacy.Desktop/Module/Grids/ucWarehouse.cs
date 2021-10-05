@@ -1,5 +1,7 @@
 ﻿using DevExpress.DXperience.Demos;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
+using Pharmacy.Domain.Managers.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,9 +21,20 @@ namespace Pharmacy.Desktop.Module.Grids
             InitializeComponent();
         }
 
+        private void loadData()
+        {
+            grid.DataSource = null;
+            var manager = new WareHouseItemManager();
+            var list = manager.All();
+            grid.DataSource = list;
+        }
         private void ucWarehouse_Load(object sender, EventArgs e)
         {
+            loadData();
 
+            gridView.Columns.ColumnByFieldName("WareHouse").Visible = false;
+            gridView.Columns.ColumnByFieldName("Product").Visible = false;
+            gridView.Columns.ColumnByFieldName("ID").Visible = false;
         }
 
         private void barBtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -31,17 +44,7 @@ namespace Pharmacy.Desktop.Module.Grids
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-        }
-
-        private void btnViewElement_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDeleteElement_Click(object sender, EventArgs e)
-        {
-
+            loadData();
         }
     }
 }

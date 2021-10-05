@@ -43,13 +43,13 @@ namespace Pharmacy.Desktop
             this.ControlPharmacyList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlWarehouse = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlWarehouseItems = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ControlWarehouseReports = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControlWarehouseReport = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ControleWarehouseChanges = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCashbox = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.fluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
-            this.fluentFormDefaultManager = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.ControleWarehouseChange = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlNewSale = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCashBoxList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.fluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            this.fluentFormDefaultManager = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager)).BeginInit();
@@ -157,9 +157,8 @@ namespace Pharmacy.Desktop
             // 
             this.ControlWarehouse.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlWarehouseItems,
-            this.ControlWarehouseReports,
-            this.ControleWarehouseChange});
-            this.ControlWarehouse.Enabled = false;
+            this.ControlWarehouseReport,
+            this.ControleWarehouseChanges});
             this.ControlWarehouse.Expanded = true;
             this.ControlWarehouse.Name = "ControlWarehouse";
             this.ControlWarehouse.Text = "Склад";
@@ -171,12 +170,19 @@ namespace Pharmacy.Desktop
             this.ControlWarehouseItems.Text = "Посмотреть склад";
             this.ControlWarehouseItems.Click += new System.EventHandler(this.ControlWarehouseItems_Click);
             // 
-            // ControlWarehouseReports
+            // ControlWarehouseReport
             // 
-            this.ControlWarehouseReports.Name = "ControlWarehouseReports";
-            this.ControlWarehouseReports.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ControlWarehouseReports.Text = "Зачисление/списание товара";
-            this.ControlWarehouseReports.Click += new System.EventHandler(this.ControlWarehouseReports_Click);
+            this.ControlWarehouseReport.Name = "ControlWarehouseReport";
+            this.ControlWarehouseReport.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControlWarehouseReport.Text = "Зачисление/списание товара";
+            this.ControlWarehouseReport.Click += new System.EventHandler(this.ControlWarehouseReport_Click);
+            // 
+            // ControleWarehouseChanges
+            // 
+            this.ControleWarehouseChanges.Name = "ControleWarehouseChanges";
+            this.ControleWarehouseChanges.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ControleWarehouseChanges.Text = "Отчетность";
+            this.ControleWarehouseChanges.Click += new System.EventHandler(this.ControleWarehouseChanges_Click);
             // 
             // ControlCashbox
             // 
@@ -184,30 +190,8 @@ namespace Pharmacy.Desktop
             this.ControlNewSale,
             this.ControlCashBoxList});
             this.ControlCashbox.Enabled = false;
-            this.ControlCashbox.Expanded = true;
             this.ControlCashbox.Name = "ControlCashbox";
             this.ControlCashbox.Text = "Касса";
-            // 
-            // fluentDesignFormControl
-            // 
-            this.fluentDesignFormControl.FluentDesignForm = this;
-            this.fluentDesignFormControl.Location = new System.Drawing.Point(0, 0);
-            this.fluentDesignFormControl.Manager = this.fluentFormDefaultManager;
-            this.fluentDesignFormControl.Name = "fluentDesignFormControl";
-            this.fluentDesignFormControl.Size = new System.Drawing.Size(1036, 31);
-            this.fluentDesignFormControl.TabIndex = 2;
-            this.fluentDesignFormControl.TabStop = false;
-            // 
-            // fluentFormDefaultManager
-            // 
-            this.fluentFormDefaultManager.Form = this;
-            // 
-            // ControleWarehouseChange
-            // 
-            this.ControleWarehouseChange.Name = "ControleWarehouseChange";
-            this.ControleWarehouseChange.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ControleWarehouseChange.Text = "Отчетность";
-            this.ControleWarehouseChange.Click += new System.EventHandler(this.ControleWarehouseChange_Click);
             // 
             // ControlNewSale
             // 
@@ -222,6 +206,20 @@ namespace Pharmacy.Desktop
             this.ControlCashBoxList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlCashBoxList.Text = "Отчетность";
             this.ControlCashBoxList.Click += new System.EventHandler(this.ControlCashBoxList_Click);
+            // 
+            // fluentDesignFormControl
+            // 
+            this.fluentDesignFormControl.FluentDesignForm = this;
+            this.fluentDesignFormControl.Location = new System.Drawing.Point(0, 0);
+            this.fluentDesignFormControl.Manager = this.fluentFormDefaultManager;
+            this.fluentDesignFormControl.Name = "fluentDesignFormControl";
+            this.fluentDesignFormControl.Size = new System.Drawing.Size(1036, 31);
+            this.fluentDesignFormControl.TabIndex = 2;
+            this.fluentDesignFormControl.TabStop = false;
+            // 
+            // fluentFormDefaultManager
+            // 
+            this.fluentFormDefaultManager.Form = this;
             // 
             // MainForm
             // 
@@ -259,10 +257,10 @@ namespace Pharmacy.Desktop
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalogForms;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalogBrands;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlWarehouseItems;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlWarehouseReports;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControlWarehouseReport;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlUserList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlPharmacyList;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement ControleWarehouseChange;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ControleWarehouseChanges;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlNewSale;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCashBoxList;
     }

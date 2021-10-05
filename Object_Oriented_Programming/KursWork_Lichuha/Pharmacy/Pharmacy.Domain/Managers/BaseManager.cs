@@ -12,6 +12,11 @@ namespace Pharmacy.Domain.Managers
     {
         protected BaseRepository<T> repository = new BaseRepository<T>();
 
+        public BaseManager()
+        {
+            repository = new BaseRepository<T>();
+        }
+
         public List<T> All()
         {
             return repository.All();

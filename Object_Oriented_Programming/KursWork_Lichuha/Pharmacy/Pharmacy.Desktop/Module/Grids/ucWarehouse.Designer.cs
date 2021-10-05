@@ -199,7 +199,6 @@ namespace Pharmacy.Desktop.Module.Grids
             this.btnViewElement.ContextImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewElement.ContextImageOptions.Image")));
             this.btnViewElement.Name = "btnViewElement";
             this.btnViewElement.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnViewElement.Click += new System.EventHandler(this.btnViewElement_Click);
             // 
             // btnDeleteElement
             // 
@@ -208,7 +207,6 @@ namespace Pharmacy.Desktop.Module.Grids
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
             this.btnDeleteElement.Name = "btnDeleteElement";
             this.btnDeleteElement.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnDeleteElement.Click += new System.EventHandler(this.btnDeleteElement_Click);
             // 
             // Root
             // 
