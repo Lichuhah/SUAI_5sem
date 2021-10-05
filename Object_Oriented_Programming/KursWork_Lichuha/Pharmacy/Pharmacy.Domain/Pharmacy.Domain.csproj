@@ -68,6 +68,8 @@
     <Compile Include="Managers\Administration\PharmacyManager.cs" />
     <Compile Include="Managers\Administration\UserManager.cs" />
     <Compile Include="Managers\BaseManager.cs" />
+    <Compile Include="Managers\Cashbox\SaleItemManager.cs" />
+    <Compile Include="Managers\Cashbox\SaleManager.cs" />
     <Compile Include="Managers\Products\BrandManager.cs" />
     <Compile Include="Managers\Products\CategoryProductManager.cs" />
     <Compile Include="Managers\Products\FormProductManager.cs" />
@@ -96,6 +98,8 @@
     <Compile Include="NHibernate\Mappings\Administration\UserMapping.cs" />
     <Compile Include="NHibernate\Mappings\BaseEntityMapping.cs" />
     <Compile Include="NHibernate\Mappings\BaseNamedEntityMapping.cs" />
+    <Compile Include="NHibernate\Mappings\Cashbox\SaleItemMapping.cs" />
+    <Compile Include="NHibernate\Mappings\Cashbox\SaleMapping.cs" />
     <Compile Include="NHibernate\Mappings\Warehouse\WareHouseItemMapping.cs" />
     <Compile Include="NHibernate\Mappings\Warehouse\WareHouseMapping.cs" />
     <Compile Include="NHibernate\Mappings\Warehouse\WareHouseReportMapping.cs" />
@@ -110,6 +114,8 @@
     <Compile Include="Repositories\Administration\PharmacyRepository.cs" />
     <Compile Include="Repositories\Administration\UserRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\Cashbox\SaleItemRepository.cs" />
+    <Compile Include="Repositories\Cashbox\SaleRepository.cs" />
     <Compile Include="Repositories\Products\BrandRepository.cs" />
     <Compile Include="Repositories\Products\CategoryProductRepository.cs" />
     <Compile Include="Repositories\Products\FormProductRepository.cs" />
@@ -121,10 +127,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Managers\Cashbox\" />
-    <Folder Include="NHibernate\Mappings\Cashbox\" />
-    <Folder Include="Repositories\Cashbox\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

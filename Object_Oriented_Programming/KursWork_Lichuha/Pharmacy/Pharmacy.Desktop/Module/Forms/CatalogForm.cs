@@ -1,7 +1,9 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using Pharmacy.Domain.Managers.Products;
+using Pharmacy.Domain.Managers.Warehouse;
 using Pharmacy.Domain.Models.Products;
+using Pharmacy.Domain.Models.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,8 @@ namespace Pharmacy.Desktop.Module.Forms
     {
         public Product Product = null;
         List<Product> products = new List<Product>();
+        List<WareHouseItem> warehouse = new List<WareHouseItem>();
+        public WareHouseItem Item = null;
         public CatalogForm()
         {
             InitializeComponent();
@@ -28,6 +32,14 @@ namespace Pharmacy.Desktop.Module.Forms
             var manager = new ProductManager();
             products = manager.All();
             grid.DataSource = products;
+        }
+
+        private void loadWarehouse()
+        {
+            gridWareHouse.DataSource = null;
+            var manager = new WareHouseItemManager();
+            warehouse = manager.All();
+            gridWareHouse.DataSource = warehouse;
         }
         private void CatalogForm_Load(object sender, EventArgs e)
         {
@@ -47,11 +59,33 @@ namespace Pharmacy.Desktop.Module.Forms
                 MaxWidth = 40
             });
             gridView.Columns.ColumnByName("btnColumnView").VisibleIndex = 0;
+
+            loadWarehouse();
+
+            gridView1.Columns.ColumnByFieldName("Product").Visible = false;
+            gridView1.Columns.ColumnByFieldName("WareHouse").Visible = false;
+            gridView1.Columns.ColumnByFieldName("ID").Visible = false;
+
+            gridView1.Columns.Add(new GridColumn()
+            {
+                Name = "btnColumnView",
+                ColumnEdit = repositoryItemButtonEdit3,
+                MaxWidth = 40
+            });
+            gridView1.Columns.ColumnByName("btnColumnView").VisibleIndex = 0;
         }
 
-        private void btnSelectProduct_Click(object sender, EventArgs e)
+        private void btnSelectProduct_Click_1(object sender, EventArgs e)
         {
-            Product = products[gridView.GetSelectedRows()[0]];
+            Product = products[gridView.FocusedRowHandle];
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void repositoryItemButtonEdit3_Click(object sender, EventArgs e)
+        {
+            Item = warehouse[gridView1.FocusedRowHandle];
+            Product = Item.Product;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

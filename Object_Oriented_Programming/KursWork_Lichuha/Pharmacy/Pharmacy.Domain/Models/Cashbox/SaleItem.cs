@@ -10,6 +10,7 @@ namespace Pharmacy.Domain.Models.Cashbox
     public class SaleItem : BaseEntity
     {
         public virtual Product Product { get; set; }
+        public virtual Sale Sale { get; set; }
         public virtual int Count { get; set; }
         public virtual double Price { get; set; }
 

@@ -31,6 +31,10 @@ namespace Pharmacy.Desktop.Module.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtForm = new DevExpress.XtraEditors.TextEdit();
+            this.txtBrand = new DevExpress.XtraEditors.TextEdit();
+            this.txtCategory = new DevExpress.XtraEditors.TextEdit();
+            this.txtType = new DevExpress.XtraEditors.TextEdit();
             this.txtCountOnWarehouse = new DevExpress.XtraEditors.SpinEdit();
             this.btnWriteOff = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnrollment = new DevExpress.XtraEditors.SimpleButton();
@@ -51,6 +55,10 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gsgsgsg = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,16 +68,12 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtType = new DevExpress.XtraEditors.TextEdit();
-            this.gsgsgsg = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtCategory = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtBrand = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtForm = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountOnWarehouse.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit.Properties)).BeginInit();
@@ -88,6 +92,10 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gsgsgsg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
@@ -97,14 +105,6 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gsgsgsg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -133,6 +133,38 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // txtForm
+            // 
+            this.txtForm.Location = new System.Drawing.Point(125, 143);
+            this.txtForm.Name = "txtForm";
+            this.txtForm.Size = new System.Drawing.Size(463, 20);
+            this.txtForm.StyleController = this.layoutControl1;
+            this.txtForm.TabIndex = 25;
+            // 
+            // txtBrand
+            // 
+            this.txtBrand.Location = new System.Drawing.Point(125, 119);
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Size = new System.Drawing.Size(463, 20);
+            this.txtBrand.StyleController = this.layoutControl1;
+            this.txtBrand.TabIndex = 24;
+            // 
+            // txtCategory
+            // 
+            this.txtCategory.Location = new System.Drawing.Point(125, 95);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(463, 20);
+            this.txtCategory.StyleController = this.layoutControl1;
+            this.txtCategory.TabIndex = 23;
+            // 
+            // txtType
+            // 
+            this.txtType.Location = new System.Drawing.Point(125, 71);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(463, 20);
+            this.txtType.StyleController = this.layoutControl1;
+            this.txtType.TabIndex = 22;
+            // 
             // txtCountOnWarehouse
             // 
             this.txtCountOnWarehouse.EditValue = new decimal(new int[] {
@@ -154,7 +186,7 @@ namespace Pharmacy.Desktop.Module.Forms
             // btnWriteOff
             // 
             this.btnWriteOff.Enabled = false;
-            this.btnWriteOff.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.btnWriteOff.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWriteOff.ImageOptions.Image")));
             this.btnWriteOff.Location = new System.Drawing.Point(307, 391);
             this.btnWriteOff.Name = "btnWriteOff";
             this.btnWriteOff.Size = new System.Drawing.Size(293, 36);
@@ -166,7 +198,7 @@ namespace Pharmacy.Desktop.Module.Forms
             // btnEnrollment
             // 
             this.btnEnrollment.Enabled = false;
-            this.btnEnrollment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnEnrollment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEnrollment.ImageOptions.Image")));
             this.btnEnrollment.Location = new System.Drawing.Point(12, 391);
             this.btnEnrollment.Name = "btnEnrollment";
             this.btnEnrollment.Size = new System.Drawing.Size(291, 36);
@@ -379,6 +411,42 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem2.Text = "Название";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(89, 13);
             // 
+            // gsgsgsg
+            // 
+            this.gsgsgsg.Control = this.txtType;
+            this.gsgsgsg.Location = new System.Drawing.Point(0, 24);
+            this.gsgsgsg.Name = "gsgsgsg";
+            this.gsgsgsg.Size = new System.Drawing.Size(568, 24);
+            this.gsgsgsg.Text = "Тип";
+            this.gsgsgsg.TextSize = new System.Drawing.Size(89, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtCategory;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(568, 24);
+            this.layoutControlItem4.Text = "Категория";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(89, 13);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.txtBrand;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(568, 24);
+            this.layoutControlItem8.Text = "Бренд";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(89, 13);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.txtForm;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(568, 24);
+            this.layoutControlItem9.Text = "Форма выпуска";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(89, 13);
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txtCountInReport;
@@ -455,74 +523,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem15.Text = "На складе:";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(89, 13);
             // 
-            // txtType
-            // 
-            this.txtType.Location = new System.Drawing.Point(125, 71);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(463, 20);
-            this.txtType.StyleController = this.layoutControl1;
-            this.txtType.TabIndex = 22;
-            // 
-            // gsgsgsg
-            // 
-            this.gsgsgsg.Control = this.txtType;
-            this.gsgsgsg.Location = new System.Drawing.Point(0, 24);
-            this.gsgsgsg.Name = "gsgsgsg";
-            this.gsgsgsg.Size = new System.Drawing.Size(568, 24);
-            this.gsgsgsg.Text = "Тип";
-            this.gsgsgsg.TextSize = new System.Drawing.Size(89, 13);
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.Location = new System.Drawing.Point(125, 95);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(463, 20);
-            this.txtCategory.StyleController = this.layoutControl1;
-            this.txtCategory.TabIndex = 23;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.txtCategory;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(568, 24);
-            this.layoutControlItem4.Text = "Категория";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(89, 13);
-            // 
-            // txtBrand
-            // 
-            this.txtBrand.Location = new System.Drawing.Point(125, 119);
-            this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Size = new System.Drawing.Size(463, 20);
-            this.txtBrand.StyleController = this.layoutControl1;
-            this.txtBrand.TabIndex = 24;
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.txtBrand;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(568, 24);
-            this.layoutControlItem8.Text = "Бренд";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(89, 13);
-            // 
-            // txtForm
-            // 
-            this.txtForm.Location = new System.Drawing.Point(125, 143);
-            this.txtForm.Name = "txtForm";
-            this.txtForm.Size = new System.Drawing.Size(463, 20);
-            this.txtForm.StyleController = this.layoutControl1;
-            this.txtForm.TabIndex = 25;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.txtForm;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(568, 24);
-            this.layoutControlItem9.Text = "Форма выпуска";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(89, 13);
-            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,6 +534,10 @@ namespace Pharmacy.Desktop.Module.Forms
             this.Load += new System.EventHandler(this.ReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCountOnWarehouse.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit.Properties)).EndInit();
@@ -552,6 +556,10 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gsgsgsg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
@@ -561,14 +569,6 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gsgsgsg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
 
         }

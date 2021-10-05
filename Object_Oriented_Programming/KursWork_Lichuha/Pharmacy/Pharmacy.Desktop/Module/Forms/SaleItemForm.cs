@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Pharmacy.Domain.Managers.Warehouse.Changes;
+using Pharmacy.Domain.Models.Cashbox;
 using Pharmacy.Domain.Models.Products;
-using Pharmacy.Domain.Models.Warehouse;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,26 +14,25 @@ using System.Windows.Forms;
 
 namespace Pharmacy.Desktop.Module.Forms
 {
-    public partial class ReportForm : DevExpress.XtraEditors.XtraForm
+    public partial class SaleItemForm : DevExpress.XtraEditors.XtraForm
     {
         Product product = null;
-        WareHouseReport report = null;
-        WareHouseReportManager manager = new WareHouseReportManager();
-        public ReportForm()
+        public SaleItem Item = null;
+        public SaleItemForm()
         {
             InitializeComponent();
         }
 
-        private void ReportForm_Load(object sender, EventArgs e)
+        private void SaleItemForm_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btnSelectProduct_Click(object sender, EventArgs e)
         {
             CatalogForm catalog = new CatalogForm();
             var result = catalog.ShowDialog();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 product = catalog.Product;
                 txtName.Text = product.Name;
@@ -44,54 +43,38 @@ namespace Pharmacy.Desktop.Module.Forms
                 txtCategory.Text = product.CategoryName;
                 txtForm.Text = product.FormName;
                 txtType.Text = product.Category.TypeName;
-
+                WareHouseReportManager manager = new WareHouseReportManager();
                 txtCountOnWarehouse.Value = manager.GetCountByProduct(product);
-
                 btnEnrollment.Enabled = true;
-                btnWriteOff.Enabled = true;
-            }     
+            }
         }
 
         private void saveData()
         {
             try
             {
-                report = new WareHouseReport()
+                Item = new SaleItem()
                 {
                     Product = product,
                     Count = (int)(txtCountInReport.Value != 0 ? txtCountInReport.Value : throw new Exception()),
-                    Description = txtInfo.Text,
-                    Date = dateEdit.DateTime,
                 };
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                report = null;
+                Item = null;
             }
         }
 
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
             saveData();
-            if (report != null)
+            if (Item != null && txtCountOnWarehouse.Value >= Item.Count)
             {
-                WareHouseEnrollmentManager man = new WareHouseEnrollmentManager();
-                report = man.Add(report);
-                manager.SetCountByReport(report);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
-            }                   
-        }
-
-        private void btnWriteOff_Click(object sender, EventArgs e)
-        {
-            saveData();
-            if (report != null && txtCountOnWarehouse.Value >= report.Count)
-            {
-                WareHouseWriteOffManager man = new WareHouseWriteOffManager();
-                report = man.Add(report);
-                manager.SetCountByReport(report);
-                this.Close();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Нельзя списать больше товара чем есть на складе");
             }

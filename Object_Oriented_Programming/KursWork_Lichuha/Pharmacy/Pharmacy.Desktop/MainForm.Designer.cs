@@ -189,7 +189,7 @@ namespace Pharmacy.Desktop
             this.ControlCashbox.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlNewSale,
             this.ControlCashBoxList});
-            this.ControlCashbox.Enabled = false;
+            this.ControlCashbox.Expanded = true;
             this.ControlCashbox.Name = "ControlCashbox";
             this.ControlCashbox.Text = "Касса";
             // 

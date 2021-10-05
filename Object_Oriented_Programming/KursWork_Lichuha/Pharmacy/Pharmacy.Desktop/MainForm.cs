@@ -105,12 +105,13 @@ namespace Pharmacy.Desktop
 
         private void ControlNewSale_Click(object sender, EventArgs e)
         {
-
+            SaleForm form = new SaleForm();
+            form.ShowDialog();
         }
 
-        private void ControlCashBoxList_Click(object sender, EventArgs e)
+        private async void ControlCashBoxList_Click(object sender, EventArgs e)
         {
-
+            await Loaduc("ucSales", "Pharmacy.Desktop.Module.Grids.ucSales");
         }
 
         private async Task Loaduc(string uc, string path)

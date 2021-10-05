@@ -29,7 +29,7 @@ namespace Pharmacy.Domain.Managers
 
         public T Add(T data)
         {
-            return repository.Save(data);
+            return repository.Add(data);
         }
 
         public T Update(T data)

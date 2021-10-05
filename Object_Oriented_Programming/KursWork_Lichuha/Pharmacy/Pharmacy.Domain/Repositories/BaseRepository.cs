@@ -49,6 +49,7 @@ namespace Pharmacy.Domain.Repositories
             entity.ID = (int)session.Save(entity);
             // entity.ID = (int)session.Save(entity);
             tr.Commit();
+            session.Flush();
             return entity;
         }
         public bool Delete(T entity)

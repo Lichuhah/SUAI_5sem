@@ -11,6 +11,6 @@ namespace Pharmacy.Domain.Models.Cashbox
         public virtual PharmacyModel Pharmacy { get; set; }
         public virtual double Price { get; set; }
         public virtual DateTime Date { get; set; }
-        public virtual List<SaleItem> Items { get; set; }
+        public virtual IList<SaleItem> Items { get; set; }
     }
 }

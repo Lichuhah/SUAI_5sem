@@ -48,6 +48,11 @@ namespace Pharmacy.Domain.NHibernate.Mappings
             return session.Save(entity);
         }
 
+        public void Flush()
+        {
+            session.Flush();
+        }
+
         public void Delete(object entity)
         {
             session.Delete(entity);
