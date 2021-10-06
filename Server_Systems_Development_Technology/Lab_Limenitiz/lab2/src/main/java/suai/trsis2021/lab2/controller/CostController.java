@@ -12,6 +12,7 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 
 @RestController
 @RequestMapping("/costs")
@@ -28,7 +29,9 @@ public class CostController {
             }
             throw new Exception("Cost don't save");
         }catch (Exception e){
-            return ResponseEntity.badRequest().body("CostController");
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body("CostController error -> " + e.getMessage() +
+                    "\n\n" + Arrays.toString(e.getStackTrace()));
         }
     }
 
@@ -52,7 +55,7 @@ public class CostController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity deleteCost(@PathVariable Long id){
         try {
             return ResponseEntity.ok(costService.deleteCost(id));

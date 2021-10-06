@@ -1,6 +1,7 @@
 package suai.trsis2021.lab2.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import suai.trsis2021.lab2.entity.CostEntity;
 import suai.trsis2021.lab2.exceptions.CostNotFoundException;
@@ -18,24 +19,21 @@ public class CostService {
 
     public boolean addCost(CostEntity cost){
         try {
-            CostEntity find_cost = costRepository.findByName(cost.getName());
-
-            if (find_cost != null){
-                for (var c : costRepository.findAll()) {
-                    if(c.equals(find_cost)){
-                        find_cost.setCount(find_cost.getCount()+1);
-                        return true;
-                    }
+            for (var c : costRepository.findAll()) {
+                if (equalsCosts(c, cost)) {
+                    int count = c.getCount();
+                    costRepository.delete(c);
+                    cost.setCount(count+1);
+                    costRepository.save(cost);
+                    return true;
                 }
             }
-            else{
-                costRepository.save(cost);
-                return true;
-            }
 
-            return false;
+            costRepository.save(cost);
+            return true;
         }
         catch (Exception e){
+            e.printStackTrace();
             return false;
         }
     }
@@ -61,5 +59,12 @@ public class CostService {
             throw new CostNotFoundException("Cost don't found");
         }
         return Cost.toModel(cost.get());
+    }
+
+    private boolean equalsCosts(CostEntity e1, CostEntity e2){
+        return e1.getName().equals(e2.getName()) &&
+                e1.getCustomer().equals(e2.getCustomer()) &&
+                e1.getPrice().equals(e2.getPrice()) &&
+                e1.getCategory().equals(e2.getCategory());
     }
 }
