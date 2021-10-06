@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Pharmacy.Desktop.LoginForm">
+    <Position X="20.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAACACAAAAAAABAAAA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.MainForm">
+    <Position X="24.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JABnQQEQADQQEEEIQgCAdKATQQIABwEKUAAABAANAAA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Program">
+    <Position X="25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.BrandForm">
+    <Position X="9.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gwgACQAAACAAACQAGBCEBAACIAAAAAAC0gAAAAAFCAQ=</HashCode>
+      <FileName>Module\Forms\BrandForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.CatalogForm">
+    <Position X="27.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUB6ABCAACIAACQAAgiAAAAGQAAAAECCgAAABAgCCAA=</HashCode>
+      <FileName>Module\Forms\CatalogForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.CategoryForm">
+    <Position X="32" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EwgAAQEAACAAACQAGBCABAACAAAACBACQgAAAAAECAQ=</HashCode>
+      <FileName>Module\Forms\CategoryForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.FormForm">
+    <Position X="29.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EwgAAUAAACAAACQAGBCQBAACAAAACgACQgAAAAAEAAQ=</HashCode>
+      <FileName>Module\Forms\FormForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.PharmacyForm">
+    <Position X="22.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwgAAQAAADAAACQAGhCABAACAAEAAAAyQgAAAAAEAAA=</HashCode>
+      <FileName>Module\Forms\PharmacyForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.ReportForm">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQwcAAAACiAgAHRgQpCCAAAGAAEQBjAAgAAAAAD4EQQ=</HashCode>
+      <FileName>Module\Forms\ReportForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.SaleForm">
+    <Position X="17.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQQEACAACAAACQAAAiAiAACAAAAAAAACAAAAAAQAAA=</HashCode>
+      <FileName>Module\Forms\SaleForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.SaleItemForm">
+    <Position X="20.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgQAAACCiAAAHRgQpCCAAAGAAAAABAAAAQAAAAYEQQ=</HashCode>
+      <FileName>Module\Forms\SaleItemForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.TypeForm">
+    <Position X="11.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwgAAQACACAAACQAGBCABEACAAAAAAACQwAAAAAEAAQ=</HashCode>
+      <FileName>Module\Forms\TypeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Forms.UserForm">
+    <Position X="16.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EwgRAQHgADAAACQAGBCABAACAAAAAAACQgAAAAAMAAQ=</HashCode>
+      <FileName>Module\Forms\UserForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.ProductForm">
+    <Position X="13.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EwggAQAAAiAIEGQAWBCABAACAAEQGYACQgAAAAAVAAQ=</HashCode>
+      <FileName>Module\Forms\ProductForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.ucBrand">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAARCBACIAACQAAACAFAACgAQAAACCUAAAAOAHAAE=</HashCode>
+      <FileName>Module\Grids\ucBrand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.ucCategory">
+    <Position X="15.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAAARCBACIAACQAAACAFAACgAAAAACCUAAAAAAHAAE=</HashCode>
+      <FileName>Module\Grids\ucCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.ucForm">
+    <Position X="20" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAARCBACIAACQAAACAFAACgAAAAACCUAAAAAAkAAE=</HashCode>
+      <FileName>Module\Grids\ucForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.ucProduct">
+    <Position X="31.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAARChACIAACQAAACAFAACgAAAAACCUAAAAAAEAAE=</HashCode>
+      <FileName>Module\Grids\ucProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.ucType">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAARCBACIAACQAAACAFAACgAAAAAiCUAAAAAAEAAE=</HashCode>
+      <FileName>Module\Grids\ucType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.ucUsers">
+    <Position X="13.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQABARCBACIAACQAAACABAACgAAAAACCUAAAABAEAAE=</HashCode>
+      <FileName>Module\Grids\ucUsers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Grids.ucPharmacy">
+    <Position X="7.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQAAARCBACIAACQAAACABAACgAAAAACCUAAAABAEAAk=</HashCode>
+      <FileName>Module\Grids\ucPharmacy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Grids.ucSales">
+    <Position X="29" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQBIARCBACoAACYAAACARAACgIAAAACC0AAAABAEAAE=</HashCode>
+      <FileName>Module\Grids\ucSales.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Grids.ucWarehouse">
+    <Position X="22" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAARCBACIAACQAAACABAACgAAAAACCUACAAAAEAAA=</HashCode>
+      <FileName>Module\Grids\ucWarehouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Module.Grids.ucWareHouseReports">
+    <Position X="26.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQBIAQiBUCIgACQgCICABAADgABAAAiC0AQAQBAEAAE=</HashCode>
+      <FileName>Module\Grids\ucWareHouseReports.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Properties.Resources">
+    <Position X="22" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Desktop.Properties.Settings">
+    <Position X="25" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

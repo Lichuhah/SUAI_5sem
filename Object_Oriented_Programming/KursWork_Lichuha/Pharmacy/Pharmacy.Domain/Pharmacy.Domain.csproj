@@ -126,6 +126,7 @@
     <Compile Include="Repositories\Warehouse\WareHouseReportRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
