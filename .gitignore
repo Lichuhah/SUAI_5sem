@@ -379,3 +379,8 @@ Fundamentals_of_Software_Engineering/front/lk/build/*
 Fundamentals_of_Software_Engineering/front/lk/gradl*
 Fundamentals_of_Software_Engineering/front/lk/.gradle/
 Fundamentals_of_Software_Engineering/front/lk/local.properties
+
+.settings
+.mvn
+mvnw*
+
