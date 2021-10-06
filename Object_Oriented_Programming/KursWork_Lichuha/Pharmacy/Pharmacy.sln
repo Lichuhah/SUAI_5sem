@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Pharmacy", "Pharmacy\Pharmacy.shproj", "{40D6DD3D-9A45-4B2C-B28B-085C5F889CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.Desktop", "Pharmacy.Desktop\Pharmacy.Desktop.csproj", "{23EDF31A-B393-4BBB-AF11-A946A38221CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A553516A-DEA8-4925-9B24-1F7AF3745861} = {A553516A-DEA8-4925-9B24-1F7AF3745861}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Test", "Pharmacy.Test\Pharmacy.Test.csproj", "{D7A633D8-F325-4FFD-99F4-0F4F743C2C3D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA} = {23EDF31A-B393-4BBB-AF11-A946A38221CA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.Domain", "Pharmacy.Domain\Pharmacy.Domain.csproj", "{A553516A-DEA8-4925-9B24-1F7AF3745861}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Pharmacy\Pharmacy.projitems*{40d6dd3d-9a45-4b2c-b28b-085c5f889cc5}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23EDF31A-B393-4BBB-AF11-A946A38221CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A633D8-F325-4FFD-99F4-0F4F743C2C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A633D8-F325-4FFD-99F4-0F4F743C2C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A633D8-F325-4FFD-99F4-0F4F743C2C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A633D8-F325-4FFD-99F4-0F4F743C2C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A553516A-DEA8-4925-9B24-1F7AF3745861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A553516A-DEA8-4925-9B24-1F7AF3745861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A553516A-DEA8-4925-9B24-1F7AF3745861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A553516A-DEA8-4925-9B24-1F7AF3745861}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2A34961-F4A8-4EF2-A6E0-D601AE929927}
+	EndGlobalSection
+EndGlobal
