@@ -21,12 +21,31 @@ namespace Pharmacy.Desktop
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (LoginUser.CreateUser(textEdit1.Text, textEdit2.Text))
+            lblError.Text = String.Empty;
+            if (LoginUser.CreateUser(txtLogin.Text, txtPassword.Text))
             {
                 MainForm form = new MainForm();
-                form.Show();
                 this.Hide();
+                form.ShowDialog();
+                if(form.DialogResult == DialogResult.Retry)
+                {
+                    this.Visible = true;
+                } else
+                {
+                    this.Close();
+                }
+                
+            } else
+            {
+                lblError.Text = "Ошибка, неудачная аутентификация, проверьте введенные данные.";
             }
+        }
+
+        private void LoginForm_VisibleChanged(object sender, EventArgs e)
+        {
+            txtLogin.Text = String.Empty;
+            txtPassword.Text = String.Empty;
+            lblError.Text = String.Empty;
         }
     }
 }

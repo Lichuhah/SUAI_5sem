@@ -16,6 +16,7 @@ namespace Pharmacy.Domain.Repositories
         public BaseRepository()
         {
             session = PharmacySession.GetInstance();
+            session.Clear();
         }
 
         ~BaseRepository()
@@ -24,7 +25,7 @@ namespace Pharmacy.Domain.Repositories
         }
         public List<T> All()
         {
-            return new List<T>(session.CreateCriteria(typeof(T)).List<T>());
+            return session.GetList<T>();
         }
 
         public T Get(int id)

@@ -171,7 +171,7 @@ namespace Pharmacy.Desktop.Module
             // 
             // barButtonItem1
             // 
-            this.barButtonItem1.Caption = "btnRefresh";
+            this.barButtonItem1.Caption = "Обновить";
             this.barButtonItem1.Id = 3;
             this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
             this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));

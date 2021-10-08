@@ -201,6 +201,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.cmbPharmacy.Size = new System.Drawing.Size(345, 20);
             this.cmbPharmacy.StyleController = this.layoutControl1;
             this.cmbPharmacy.TabIndex = 8;
+            this.cmbPharmacy.Visible = false;
             // 
             // cmbRole
             // 
@@ -314,6 +315,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem5.Size = new System.Drawing.Size(455, 24);
             this.layoutControlItem5.Text = "Аптека";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem5.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem6
             // 

@@ -18,13 +18,13 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Warehouse
                 .Table("WarehouseChanges")
                 .KeyColumn("Warehouse_ID")
                 .Inverse()
-                .Cascade.DeleteOrphan();
+                .Cascade.DeleteOrphan().Not.LazyLoad();
 
             HasMany(x => x.Changes)
                 .Table("WarehouseItem")
                 .KeyColumn("Warehouse_ID")
                 .Inverse()
-                .Cascade.DeleteOrphan();
+                .Cascade.DeleteOrphan().Not.LazyLoad();
         }
     }
 }

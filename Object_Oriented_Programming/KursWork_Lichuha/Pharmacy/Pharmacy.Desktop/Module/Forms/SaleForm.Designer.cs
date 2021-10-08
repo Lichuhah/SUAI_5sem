@@ -79,19 +79,19 @@ namespace Pharmacy.Desktop.Module.Forms
             this.btnCreateSale.Size = new System.Drawing.Size(601, 22);
             this.btnCreateSale.StyleController = this.layoutControl1;
             this.btnCreateSale.TabIndex = 8;
-            this.btnCreateSale.Text = "simpleButton2";
+            this.btnCreateSale.Text = "Создать покупку";
             this.btnCreateSale.Click += new System.EventHandler(this.btnCreateSale_Click);
             // 
             // dateEdit
             // 
             this.dateEdit.EditValue = null;
-            this.dateEdit.Location = new System.Drawing.Point(117, 423);
+            this.dateEdit.Location = new System.Drawing.Point(90, 423);
             this.dateEdit.Name = "dateEdit";
             this.dateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit.Size = new System.Drawing.Size(496, 20);
+            this.dateEdit.Size = new System.Drawing.Size(523, 20);
             this.dateEdit.StyleController = this.layoutControl1;
             this.dateEdit.TabIndex = 7;
             // 
@@ -102,7 +102,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.btnSelectItem.Size = new System.Drawing.Size(601, 22);
             this.btnSelectItem.StyleController = this.layoutControl1;
             this.btnSelectItem.TabIndex = 6;
-            this.btnSelectItem.Text = "simpleButton1";
+            this.btnSelectItem.Text = "Выбрать продукт";
             this.btnSelectItem.Click += new System.EventHandler(this.btnSelectItem_Click);
             // 
             // txtPrice
@@ -112,11 +112,11 @@ namespace Pharmacy.Desktop.Module.Forms
             0,
             0,
             0});
-            this.txtPrice.Location = new System.Drawing.Point(117, 399);
+            this.txtPrice.Location = new System.Drawing.Point(90, 399);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtPrice.Size = new System.Drawing.Size(496, 20);
+            this.txtPrice.Size = new System.Drawing.Size(523, 20);
             this.txtPrice.StyleController = this.layoutControl1;
             this.txtPrice.TabIndex = 5;
             // 
@@ -161,10 +161,12 @@ namespace Pharmacy.Desktop.Module.Forms
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtPrice;
+            this.layoutControlItem2.Enabled = false;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 387);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(605, 24);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem2.Text = "Общая цена:";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(66, 13);
             // 
             // layoutControlItem3
             // 
@@ -181,7 +183,8 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 411);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(605, 24);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem4.Text = "Дата:";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(66, 13);
             // 
             // layoutControlItem5
             // 

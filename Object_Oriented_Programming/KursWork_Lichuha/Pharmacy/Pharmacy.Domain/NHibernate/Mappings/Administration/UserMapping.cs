@@ -10,7 +10,6 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Administration
             Map(x => x.Login).Column("Login");
             Map(x => x.Password).Column("Password");
             Map(x => x.Role).Column("Role").CustomType<UserRole>();
-            References<PharmacyModel>(x => x.Pharmacy, "Pharmacy_ID");
         }
     }
 }

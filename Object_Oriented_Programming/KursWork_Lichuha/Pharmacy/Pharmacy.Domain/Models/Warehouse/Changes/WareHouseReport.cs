@@ -21,5 +21,8 @@ namespace Pharmacy.Domain.Models.Warehouse
         public virtual string Description { get; set; }
         [DisplayName("Дaта")]
         public virtual DateTime Date { get; set; }
+
+        [DisplayName("Название продукта")]
+        public virtual string ProductName { get { return Product != null ? Product.Name : string.Empty; } }
     }
 }

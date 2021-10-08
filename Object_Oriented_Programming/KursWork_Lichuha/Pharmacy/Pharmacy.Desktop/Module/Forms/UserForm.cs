@@ -91,8 +91,8 @@ namespace Pharmacy.Desktop.Module.Forms
                     Name = txtName.Text != null ? txtName.Text : throw new Exception(),
                     Login = txtLogin.Text != null ? txtLogin.Text : throw new Exception(),
                     Password = txtPas1.Text != null && txtPas1.Text == txtPas2.Text ? txtPas1.Text : throw new Exception(),
-                    Role = (UserRole)cmbRole.SelectedIndex,
-                    Pharmacy = Pharmacies[cmbPharmacy.SelectedIndex]
+                    Role = cmbRole.SelectedIndex!=-1 ? (UserRole)cmbRole.SelectedIndex : throw new Exception(),
+                    //Pharmacy = Pharmacies[cmbPharmacy.SelectedIndex]
                 };
             }
             catch (Exception ex)

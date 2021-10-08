@@ -31,6 +31,7 @@ namespace Pharmacy.Desktop.Module.Forms
         private void btnSelectProduct_Click(object sender, EventArgs e)
         {
             CatalogForm catalog = new CatalogForm();
+            catalog.withCatalog = false;
             var result = catalog.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -57,6 +58,7 @@ namespace Pharmacy.Desktop.Module.Forms
                 {
                     Product = product,
                     Count = (int)(txtCountInReport.Value != 0 ? txtCountInReport.Value : throw new Exception()),
+                    Price = txtCountInReport.Value != 0 ? (int)txtCountInReport.Value * product.Price : throw new Exception()
                 };
             }
             catch (Exception ex)

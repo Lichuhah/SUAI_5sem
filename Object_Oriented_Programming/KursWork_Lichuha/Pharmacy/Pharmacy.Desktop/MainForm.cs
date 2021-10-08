@@ -1,19 +1,10 @@
 ﻿using DevExpress.XtraBars;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.DXperience.Demos;
-using Pharmacy.Desktop.Module;
 using Pharmacy.Desktop.Module.Forms;
 using Pharmacy.Domain.Models;
-using Pharmacy.Domain.Managers.Administration;
-using DevExpress.XtraEditors;
 using Pharmacy.Domain.Models.Administration;
 using Pharmacy.Domain.Login;
 
@@ -22,39 +13,38 @@ namespace Pharmacy.Desktop
     public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         User User = LoginUser.GetUser();
-        PharmacyModel Pharmacy = null;
-        List<PharmacyModel> Pharmacies = new List<PharmacyModel>();
         public MainForm()
         {
             InitializeComponent();
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            barHeaderItem1.Caption = User.Login;
-            if (User.Pharmacy == null)
-            {
-                PharmacyManager manager = new PharmacyManager();
-                Pharmacies = manager.All();
-                barPharmacy.Items.AddRange(Pharmacies);
-            }
-            if (User.Role != UserRole.Admin) { Pharmacy = User.Pharmacy; bar3.Enabled = false; barPharmacy.NullText = Pharmacy.Address; }
+            barHeaderItem1.Caption = User.Name;
             switch (User.Role)
             {
                 case UserRole.Admin:
-                    ControlCash.Enabled = false;
-                    ControlWarehouse.Enabled = false;
+                    ControlAdmins.Enabled = true;
+                    ControlCatalog.Enabled = true;
+                    ControlWarehouse.Enabled = true;
+                    ControlCashbox.Enabled = true;
                     break;
                 case UserRole.Manager:
                     ControlAdmins.Enabled = false;
+                    ControlCatalog.Enabled = true;
+                    ControlCashbox.Enabled = false;
+                    ControlWarehouse.Enabled = false;
                     break;
                 case UserRole.Cashier:
                     ControlAdmins.Enabled = false;
                     ControlCatalog.Enabled = false;
-                    ControlWarehouse.Enabled = false; break;
+                    ControlWarehouse.Enabled = false;
+                    ControlCashbox.Enabled = true;
+                    break;
                 case UserRole.Warehouse:
                     ControlAdmins.Enabled = false;
                     ControlCatalog.Enabled = false;
-                    ControlCash.Enabled = false;
+                    ControlCashbox.Enabled = false;
+                    ControlWarehouse.Enabled = true;
                     break;
             }
         }
@@ -154,13 +144,15 @@ namespace Pharmacy.Desktop
             await LoadModuleAsync(ModulesInfo.GetItem(uc));
         }
 
-        private void barPharmacy_SelectedIndexChanged(object sender, EventArgs e)
+        private void barLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = sender as ComboBoxEdit;
-            Pharmacy = Pharmacies[item.SelectedIndex];
-            LoginUser.SetPharmacy(Pharmacy);
-            ControlCash.Enabled = true;
-            ControlWarehouse.Enabled = true;
+            this.DialogResult = DialogResult.Retry;
+            this.Close();           
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

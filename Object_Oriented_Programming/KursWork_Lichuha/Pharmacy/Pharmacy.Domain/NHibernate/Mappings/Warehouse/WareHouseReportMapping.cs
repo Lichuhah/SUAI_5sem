@@ -17,8 +17,8 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Warehouse
             Map(x => x.Type).Column("Type");
             Map(x => x.Description).Column("Description");
             Map(x => x.Date).Column("Date").CustomType<DateTime>();
-            References<Product>(x => x.Product, "Product_ID");
-            References<WareHouse>(x => x.WareHouse, "WareHouse_ID");
+            References<Product>(x => x.Product, "Product_ID").Not.LazyLoad();
+            References<WareHouse>(x => x.WareHouse, "WareHouse_ID").Not.LazyLoad();
         }
     }
 }

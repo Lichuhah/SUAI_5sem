@@ -25,7 +25,8 @@ namespace Pharmacy.Domain.Managers.Warehouse.Changes
         }
         public int GetCountByProduct(Product product)
         {
-            var result = this.All().Where(x => x.Product.ID == product.ID);
+            WareHouseItemManager man = new WareHouseItemManager();
+            var result = man.All().Where(x => x.Product.ID == product.ID);
             return result.Count() > 0 ? result.First().Count : 0;
         }
 

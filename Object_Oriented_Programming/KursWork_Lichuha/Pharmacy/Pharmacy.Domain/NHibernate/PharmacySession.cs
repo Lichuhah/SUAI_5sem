@@ -23,6 +23,15 @@ namespace Pharmacy.Domain.NHibernate.Mappings
             return _instance;
         }
 
+        public List<T> GetList<T>()
+        {
+            return session.Query<T>().ToList();
+        }
+
+        public void Clear()
+        {
+            session.Clear();
+        }
         public ICriteria CreateCriteria(Type type)
         {
             return session.CreateCriteria(type);

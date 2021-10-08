@@ -31,7 +31,7 @@ namespace Pharmacy.Desktop
         {
             this.components = new System.ComponentModel.Container();
             this.fluentDesignFormContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
-            this.ControlCash = new DevExpress.XtraBars.Navigation.AccordionControl();
+            this.Control = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.ControlCatalog = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCatalogProducts = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCatalogTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -52,15 +52,16 @@ namespace Pharmacy.Desktop
             this.fluentFormDefaultManager = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
-            this.bar3 = new DevExpress.XtraBars.BarEditItem();
-            this.barPharmacy = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            ((System.ComponentModel.ISupportInitialize)(this.ControlCash)).BeginInit();
+            this.bar3 = new DevExpress.XtraBars.BarEditItem();
+            this.barPharmacy = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            ((System.ComponentModel.ISupportInitialize)(this.Control)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -75,20 +76,20 @@ namespace Pharmacy.Desktop
             this.fluentDesignFormContainer.Size = new System.Drawing.Size(776, 531);
             this.fluentDesignFormContainer.TabIndex = 0;
             // 
-            // ControlCash
+            // Control
             // 
-            this.ControlCash.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ControlCash.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.Control.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Control.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlCatalog,
             this.ControlAdmins,
             this.ControlWarehouse,
             this.ControlCashbox});
-            this.ControlCash.Location = new System.Drawing.Point(0, 51);
-            this.ControlCash.Name = "ControlCash";
-            this.ControlCash.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.ControlCash.Size = new System.Drawing.Size(260, 531);
-            this.ControlCash.TabIndex = 1;
-            this.ControlCash.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
+            this.Control.Location = new System.Drawing.Point(0, 51);
+            this.Control.Name = "Control";
+            this.Control.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
+            this.Control.Size = new System.Drawing.Size(260, 531);
+            this.Control.TabIndex = 1;
+            this.Control.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
             // ControlCatalog
             // 
@@ -98,7 +99,6 @@ namespace Pharmacy.Desktop
             this.ControlCatalogCategories,
             this.ControlCatalogForms,
             this.ControlCatalogBrands});
-            this.ControlCatalog.Expanded = true;
             this.ControlCatalog.Name = "ControlCatalog";
             this.ControlCatalog.Text = "Каталог";
             // 
@@ -147,7 +147,6 @@ namespace Pharmacy.Desktop
             this.ControlAdmins.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlUserList,
             this.ControlPharmacyList});
-            this.ControlAdmins.Expanded = true;
             this.ControlAdmins.Name = "ControlAdmins";
             this.ControlAdmins.Text = "Администрирование";
             // 
@@ -163,6 +162,7 @@ namespace Pharmacy.Desktop
             this.ControlPharmacyList.Name = "ControlPharmacyList";
             this.ControlPharmacyList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlPharmacyList.Text = "Список аптек";
+            this.ControlPharmacyList.Visible = false;
             this.ControlPharmacyList.Click += new System.EventHandler(this.ControlPharmacyList_Click);
             // 
             // ControlWarehouse
@@ -171,7 +171,6 @@ namespace Pharmacy.Desktop
             this.ControlWarehouseItems,
             this.ControlWarehouseReport,
             this.ControleWarehouseChanges});
-            this.ControlWarehouse.Expanded = true;
             this.ControlWarehouse.Name = "ControlWarehouse";
             this.ControlWarehouse.Text = "Склад";
             // 
@@ -201,7 +200,6 @@ namespace Pharmacy.Desktop
             this.ControlCashbox.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.ControlNewSale,
             this.ControlCashBoxList});
-            this.ControlCashbox.Expanded = true;
             this.ControlCashbox.Name = "ControlCashbox";
             this.ControlCashbox.Text = "Касса";
             // 
@@ -245,8 +243,9 @@ namespace Pharmacy.Desktop
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bar3,
             this.barButtonItem1,
-            this.barHeaderItem1});
-            this.barManager1.MaxItemId = 3;
+            this.barHeaderItem1,
+            this.barLogout});
+            this.barManager1.MaxItemId = 4;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.barPharmacy});
             // 
@@ -257,16 +256,10 @@ namespace Pharmacy.Desktop
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar3)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barLogout)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
             this.bar1.Text = "Сервис";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Out";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barHeaderItem1
             // 
@@ -274,20 +267,12 @@ namespace Pharmacy.Desktop
             this.barHeaderItem1.Id = 2;
             this.barHeaderItem1.Name = "barHeaderItem1";
             // 
-            // bar3
+            // barLogout
             // 
-            this.bar3.Caption = "Аптека:";
-            this.bar3.Edit = this.barPharmacy;
-            this.bar3.Id = 0;
-            this.bar3.Name = "bar3";
-            // 
-            // barPharmacy
-            // 
-            this.barPharmacy.AutoHeight = false;
-            this.barPharmacy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.barPharmacy.Name = "barPharmacy";
-            this.barPharmacy.SelectedIndexChanged += new System.EventHandler(this.barPharmacy_SelectedIndexChanged);
+            this.barLogout.Caption = "Выйти из системы";
+            this.barLogout.Id = 3;
+            this.barLogout.Name = "barLogout";
+            this.barLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLogout_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -321,6 +306,26 @@ namespace Pharmacy.Desktop
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 531);
             // 
+            // bar3
+            // 
+            this.bar3.Caption = "Аптека:";
+            this.bar3.Edit = this.barPharmacy;
+            this.bar3.Id = 0;
+            this.bar3.Name = "bar3";
+            // 
+            // barPharmacy
+            // 
+            this.barPharmacy.AutoHeight = false;
+            this.barPharmacy.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.barPharmacy.Name = "barPharmacy";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Out";
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,7 +333,7 @@ namespace Pharmacy.Desktop
             this.ClientSize = new System.Drawing.Size(1036, 582);
             this.ControlContainer = this.fluentDesignFormContainer;
             this.Controls.Add(this.fluentDesignFormContainer);
-            this.Controls.Add(this.ControlCash);
+            this.Controls.Add(this.Control);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -336,10 +341,11 @@ namespace Pharmacy.Desktop
             this.Controls.Add(this.fluentDesignFormControl);
             this.FluentDesignFormControl = this.fluentDesignFormControl;
             this.Name = "MainForm";
-            this.NavigationControl = this.ControlCash;
+            this.NavigationControl = this.Control;
             this.Text = "FluentDesignForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ControlCash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Control)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -351,7 +357,7 @@ namespace Pharmacy.Desktop
 
         #endregion
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fluentDesignFormContainer;
-        private DevExpress.XtraBars.Navigation.AccordionControl ControlCash;
+        private DevExpress.XtraBars.Navigation.AccordionControl Control;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ControlCatalog;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager;
@@ -380,5 +386,6 @@ namespace Pharmacy.Desktop
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem barLogout;
     }
 }

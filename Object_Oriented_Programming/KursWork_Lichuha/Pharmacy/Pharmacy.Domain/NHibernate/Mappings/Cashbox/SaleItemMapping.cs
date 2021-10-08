@@ -15,9 +15,9 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Cashbox
             Table("SaleItem");
             Map(x => x.Price);
             Map(x => x.Count);
-            References<Product>(x => x.Product, "Product_ID");
+            References<Product>(x => x.Product, "Product_ID").Not.LazyLoad();
             //HasOne<Sale>(x => x.Sale).ForeignKey("Sale_ID").Cascade.All().Not.LazyLoad();
-            References(x => x.Sale);
+            References(x => x.Sale).Not.LazyLoad();
         }
     }
 }

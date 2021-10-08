@@ -22,6 +22,7 @@ namespace Pharmacy.Desktop.Module.Forms
         List<Product> products = new List<Product>();
         List<WareHouseItem> warehouse = new List<WareHouseItem>();
         public WareHouseItem Item = null;
+        public bool withCatalog = true;
         public CatalogForm()
         {
             InitializeComponent();
@@ -73,6 +74,11 @@ namespace Pharmacy.Desktop.Module.Forms
                 MaxWidth = 40
             });
             gridView1.Columns.ColumnByName("btnColumnView").VisibleIndex = 0;
+
+            if (!withCatalog)
+            {
+                xtraTabPage2.PageVisible = false;
+            }
         }
 
         private void btnSelectProduct_Click_1(object sender, EventArgs e)

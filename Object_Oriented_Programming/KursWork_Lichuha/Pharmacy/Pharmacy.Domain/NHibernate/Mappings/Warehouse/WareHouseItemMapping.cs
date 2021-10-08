@@ -13,8 +13,8 @@ namespace Pharmacy.Domain.NHibernate.Mappings.Warehouse
         public WareHouseItemMapping()
         {
             Table("WareHouseItem");
-            References<Product>(x => x.Product, "Product_ID");
-            References<WareHouse>(x => x.WareHouse, "Warehouse_ID");
+            References<Product>(x => x.Product, "Product_ID").Not.LazyLoad();
+            References<WareHouse>(x => x.WareHouse, "Warehouse_ID").Not.LazyLoad();
             Map(x => x.Count).Column("Count");
         }
     }

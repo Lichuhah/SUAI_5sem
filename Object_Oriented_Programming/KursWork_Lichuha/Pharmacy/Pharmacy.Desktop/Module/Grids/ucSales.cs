@@ -35,12 +35,18 @@ namespace Pharmacy.Desktop.Module.Grids
 
         private void barBtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+           
         }
 
         private void ucSales_Load(object sender, EventArgs e)
         {
             loadData();
+            gridView.Columns.ColumnByFieldName("Pharmacy").Visible = false;
+            gridView.Columns.ColumnByFieldName("Items").Visible = false;
+            gridView.Columns.ColumnByFieldName("ID").Visible = false;
+            gridView1.Columns.ColumnByFieldName("Sale").Visible = false;
+            gridView1.Columns.ColumnByFieldName("Product").Visible = false;
+            gridView1.Columns.ColumnByFieldName("ID").Visible = false;
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

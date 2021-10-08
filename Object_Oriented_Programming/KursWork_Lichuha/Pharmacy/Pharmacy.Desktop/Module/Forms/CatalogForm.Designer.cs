@@ -100,7 +100,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.xtraTabPage1.Controls.Add(this.layoutControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(658, 381);
-            this.xtraTabPage1.Text = "xtraTabPage1";
+            this.xtraTabPage1.Text = "Склад";
             // 
             // layoutControl1
             // 
@@ -183,7 +183,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.xtraTabPage2.Controls.Add(this.layoutControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(658, 381);
-            this.xtraTabPage2.Text = "xtraTabPage2";
+            this.xtraTabPage2.Text = "Каталог";
             // 
             // layoutControl2
             // 

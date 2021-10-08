@@ -62,6 +62,8 @@ namespace Pharmacy.Desktop.Module
                 LoadForms();
                 cmbBoxCategory.SelectedIndex = Categories.FindIndex(x => x.Name == product.Category.Name);
                 cmbBoxForm.SelectedIndex = Forms.FindIndex(x => x.Name == product.Form.Name);
+                var a = (Forms.Find(x => x.Name == product.Form.Name)).Unit;
+                layoutControlItem6.Text = "Кол-во (" + (Forms.Find(x => x.Name == product.Form.Name)).Unit +")";
             }
             
         }
