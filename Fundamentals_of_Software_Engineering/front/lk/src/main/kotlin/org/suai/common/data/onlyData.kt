@@ -1,13 +1,15 @@
 package org.suai.common.data
 
-import androidx.compose.runtime.mutableStateListOf
 import org.suai.common.model.*
 import org.suai.common.model.role.deanatModel
 import org.suai.common.model.role.lecturerModel
 import org.suai.common.model.role.studentModel
+import org.suai.common.model.role.userModel
 
 /**
  * синглтон для хранения данных, локальная замена БД
+ * студент: все задания для меня
+ * препод
  */
 open class onlyData {
     open val groups       = mutableListOf<groupModel>       ()  // список всех групп известных клиенту

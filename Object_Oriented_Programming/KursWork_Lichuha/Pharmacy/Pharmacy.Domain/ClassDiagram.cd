@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Pharmacy.Domain.Managers.Administration.PharmacyManager">
+    <Position X="49.75" Y="18.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Administration\PharmacyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Administration.UserManager">
+    <Position X="46" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Administration\UserManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.BaseManager&lt;T&gt;">
+    <Position X="46.75" Y="13.75" Width="1.75" />
+    <InheritanceLine Type="System.Object" ManuallyRouted="true">
+      <Path>
+        <Point X="37.5" Y="17.75" />
+        <Point X="37.5" Y="16.371" />
+        <Point X="47.625" Y="16.371" />
+        <Point X="47.625" Y="15.815" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAACAABAAAAAAAAAAAEAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Managers\BaseManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Cashbox.SaleItemManager">
+    <Position X="42.25" Y="15" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Cashbox\SaleItemManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Cashbox.SaleManager">
+    <Position X="51" Y="15.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAgA=</HashCode>
+      <FileName>Managers\Cashbox\SaleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Login.LoginUser">
+    <Position X="13.5" Y="35.75" Width="3.25" />
+    <InheritanceLine Type="System.Object" ManuallyRouted="true">
+      <Path>
+        <Point X="37.5" Y="18.312" />
+        <Point X="37.5" Y="5.806" />
+        <Point X="14.487" Y="5.806" />
+        <Point X="14.487" Y="36.642" />
+        <Point X="15.125" Y="36.642" />
+        <Point X="15.125" Y="35.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAIAAAAAAAAAAAAAAAAAAAAEAAAAAAAAQA=</HashCode>
+      <FileName>Managers\LoginUser.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="user" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Products.BrandManager">
+    <Position X="53" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Products\BrandManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Products.CategoryProductManager">
+    <Position X="59.25" Y="15" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Products\CategoryProductManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Products.FormProductManager">
+    <Position X="48.5" Y="20.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Products\FormProductManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Products.ProductManager">
+    <Position X="43.75" Y="18.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Products\ProductManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Products.TypeProductManager">
+    <Position X="42.25" Y="16.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Managers\Products\TypeProductManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Warehouse.Changes.WareHouseEnrollmentManager">
+    <Position X="53.25" Y="18.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Managers\Warehouse\Changes\WareHouseEnrollmentManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Warehouse.Changes.WareHouseReportManager">
+    <Position X="54.75" Y="15.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAEIAAAAAAAAA=</HashCode>
+      <FileName>Managers\Warehouse\Changes\WareHouseReportManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Warehouse.Changes.WareHouseWriteOffManager">
+    <Position X="58.5" Y="18.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Managers\Warehouse\Changes\WareHouseWriteOffManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Managers.Warehouse.WareHouseItemManager">
+    <Position X="56.5" Y="13.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Managers\Warehouse\WareHouseItemManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.PharmacyModel">
+    <Position X="43.75" Y="29.25" Width="2.25" />
+    <AssociationLine Name="WareHouse" Type="Pharmacy.Domain.Models.Warehouse.WareHouse" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="44.875" Y="30.483" />
+        <Point X="44.875" Y="31.803" />
+        <Point X="44.646" Y="31.803" Type="JumpStart" />
+        <Point X="44.479" Y="31.803" Type="JumpEnd" />
+        <Point X="42.208" Y="31.803" Type="JumpStart" />
+        <Point X="42.042" Y="31.803" Type="JumpEnd" />
+        <Point X="41.646" Y="31.803" Type="JumpStart" />
+        <Point X="41.479" Y="31.803" Type="JumpEnd" />
+        <Point X="37.562" Y="31.803" />
+        <Point X="37.562" Y="30.247" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Sales" Type="Pharmacy.Domain.Models.Cashbox.Sale" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="45.25" Y="30.483" />
+        <Point X="45.25" Y="32.367" />
+        <Point X="44.646" Y="32.367" Type="JumpStart" />
+        <Point X="44.479" Y="32.367" Type="JumpEnd" />
+        <Point X="42.208" Y="32.367" Type="JumpStart" />
+        <Point X="42.042" Y="32.367" Type="JumpEnd" />
+        <Point X="41.646" Y="32.367" Type="JumpStart" />
+        <Point X="41.479" Y="32.367" Type="JumpEnd" />
+        <Point X="37.396" Y="32.367" Type="JumpStart" />
+        <Point X="37.229" Y="32.367" Type="JumpEnd" />
+        <Point X="37.146" Y="32.367" Type="JumpStart" />
+        <Point X="36.979" Y="32.367" Type="JumpEnd" />
+        <Point X="35.281" Y="32.367" />
+        <Point X="35.281" Y="30.675" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAACAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Administration\PharmacyModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="WareHouse" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Sales" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.User">
+    <Position X="16" Y="29.5" Width="2.5" />
+    <AssociationLine Name="Pharmacy" Type="Pharmacy.Domain.Models.PharmacyModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.25" Y="31.117" />
+        <Point X="17.25" Y="31.211" />
+        <Point X="17.107" Y="31.211" />
+        <Point X="17.107" Y="35.899" />
+        <Point X="25.188" Y="35.899" />
+        <Point X="25.188" Y="34.838" />
+        <Point X="44.562" Y="34.838" />
+        <Point X="44.562" Y="30.483" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAEgAAAAAAAAAAAAACAAAQAAAAAAA=</HashCode>
+      <FileName>Models\Administration\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Role" />
+      <Property Name="Pharmacy" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.BaseEntity">
+    <Position X="30" Y="25.75" Width="1.75" />
+    <InheritanceLine Type="System.Object" ManuallyRouted="true">
+      <Path>
+        <Point X="37.5" Y="18.312" />
+        <Point X="37.5" Y="22.313" />
+        <Point X="30.955" Y="22.313" />
+        <Point X="30.955" Y="23.635" />
+        <Point X="30.875" Y="23.635" />
+        <Point X="30.875" Y="25.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.BaseNamedEntity">
+    <Position X="24" Y="29" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseNamedEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Cashbox.Sale">
+    <Position X="34.25" Y="29.25" Width="2.25" />
+    <AssociationLine Name="Items" Type="Pharmacy.Domain.Models.Cashbox.SaleItem" ManuallyRouted="true">
+      <Path>
+        <Point X="35.984" Y="29.25" />
+        <Point X="35.984" Y="28.495" />
+        <Point X="37.417" Y="28.495" Type="JumpStart" />
+        <Point X="37.583" Y="28.495" Type="JumpEnd" />
+        <Point X="37.823" Y="28.495" Type="JumpStart" />
+        <Point X="37.99" Y="28.495" Type="JumpEnd" />
+        <Point X="39.625" Y="28.495" />
+        <Point X="39.625" Y="29.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Pharmacy" Type="Pharmacy.Domain.Models.PharmacyModel" ManuallyRouted="true">
+      <Path>
+        <Point X="35.527" Y="29.25" />
+        <Point X="35.527" Y="28.083" />
+        <Point X="44.875" Y="28.083" />
+        <Point X="44.875" Y="29.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAACAAAAgAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Cashbox\Sale.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pharmacy" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Cashbox.SaleItem">
+    <Position X="38.5" Y="29.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Cashbox\SaleItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Products.Brand">
+    <Position X="27.5" Y="31.25" Width="1.5" />
+    <InheritanceLine Type="Pharmacy.Domain.Models.BaseNamedEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="25" Y="30.233" />
+        <Point X="25" Y="30.482" />
+        <Point X="28.25" Y="30.482" />
+        <Point X="28.25" Y="31.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Products\Brand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Products.CategoryProduct">
+    <Position X="29.75" Y="31.25" Width="2" />
+    <InheritanceLine Type="Pharmacy.Domain.Models.BaseNamedEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="25" Y="30.233" />
+        <Point X="25" Y="30.384" />
+        <Point X="30.75" Y="30.384" />
+        <Point X="30.75" Y="31.25" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Type" Type="Pharmacy.Domain.Models.Products.TypeProduct" ManuallyRouted="true">
+      <Path>
+        <Point X="30.75" Y="31.25" />
+        <Point X="30.75" Y="30.677" />
+        <Point X="28.333" Y="30.677" Type="JumpStart" />
+        <Point X="28.167" Y="30.677" Type="JumpEnd" />
+        <Point X="26.406" Y="30.677" />
+        <Point X="26.406" Y="31.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Products\CategoryProduct.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Products.FormProduct">
+    <Position X="19.25" Y="31" Width="2" />
+    <InheritanceLine Type="Pharmacy.Domain.Models.BaseNamedEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="25" Y="30.233" />
+        <Point X="25" Y="30.45" />
+        <Point X="22.656" Y="30.45" Type="JumpStart" />
+        <Point X="22.49" Y="30.45" Type="JumpEnd" />
+        <Point X="20.25" Y="30.45" />
+        <Point X="20.25" Y="31" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Type" Type="Pharmacy.Domain.Models.Products.TypeProduct" ManuallyRouted="true">
+      <Path>
+        <Point X="20.792" Y="31" />
+        <Point X="20.792" Y="30.68" />
+        <Point X="22.49" Y="30.68" Type="JumpStart" />
+        <Point X="22.656" Y="30.68" Type="JumpEnd" />
+        <Point X="23.167" Y="30.68" Type="JumpStart" />
+        <Point X="23.333" Y="30.68" Type="JumpEnd" />
+        <Point X="25.594" Y="30.68" />
+        <Point X="25.594" Y="31.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Products\FormProduct.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Products.Product">
+    <Position X="22" Y="31" Width="2.5" />
+    <InheritanceLine Type="Pharmacy.Domain.Models.BaseNamedEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="25" Y="30.233" />
+        <Point X="25" Y="30.401" />
+        <Point X="23.25" Y="30.401" />
+        <Point X="23.25" Y="31" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAABAAQAACAAAABAAAAAAQEBCAE=</HashCode>
+      <FileName>Models\Products\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Brand" />
+      <Property Name="Category" />
+      <Property Name="Form" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Products.TypeProduct">
+    <Position X="25.25" Y="31.25" Width="1.5" />
+    <InheritanceLine Type="Pharmacy.Domain.Models.BaseNamedEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="25" Y="30.233" />
+        <Point X="25" Y="30.564" />
+        <Point X="26" Y="30.564" />
+        <Point X="26" Y="31.25" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Categories" Type="Pharmacy.Domain.Models.Products.CategoryProduct" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="26.75" Y="31.75" />
+        <Point X="27.25" Y="31.75" />
+        <Point X="27.25" Y="33.696" />
+        <Point X="30.583" Y="33.696" />
+        <Point X="30.583" Y="32.483" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Forms" Type="Pharmacy.Domain.Models.Products.FormProduct" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="26" Y="32.247" />
+        <Point X="26" Y="33.887" />
+        <Point X="23.229" Y="33.887" Type="JumpStart" />
+        <Point X="23.062" Y="33.887" Type="JumpEnd" />
+        <Point X="20.25" Y="33.887" />
+        <Point X="20.25" Y="32.425" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Products\TypeProduct.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Categories" />
+      <Property Name="Forms" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Warehouse.WareHouseReport">
+    <Position X="31.5" Y="29.25" Width="2.25" />
+    <AssociationLine Name="WareHouse" Type="Pharmacy.Domain.Models.Warehouse.WareHouse" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="32.438" Y="31.06" />
+        <Point X="32.438" Y="33.364" />
+        <Point X="37.062" Y="33.364" />
+        <Point X="37.062" Y="30.247" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Product" Type="Pharmacy.Domain.Models.Products.Product" ManuallyRouted="true">
+      <Path>
+        <Point X="31.5" Y="30.777" />
+        <Point X="31.057" Y="30.777" />
+        <Point X="31.057" Y="29.421" />
+        <Point X="29.143" Y="29.421" />
+        <Point X="29.143" Y="28.491" />
+        <Point X="22.573" Y="28.491" />
+        <Point X="22.573" Y="31" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAABAQAAIAAAAAA=</HashCode>
+      <FileName>Models\Warehouse\Changes\WareHouseReport.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="WareHouse" />
+      <Property Name="Product" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Warehouse.WareHouse">
+    <Position X="36.75" Y="29.25" Width="1.5" />
+    <AssociationLine Name="Changes" Type="Pharmacy.Domain.Models.Warehouse.WareHouseReport" ManuallyRouted="true">
+      <Path>
+        <Point X="37.5" Y="29.25" />
+        <Point X="37.5" Y="28.31" />
+        <Point X="35.611" Y="28.31" Type="JumpStart" />
+        <Point X="35.444" Y="28.31" Type="JumpEnd" />
+        <Point X="32.625" Y="28.31" />
+        <Point X="32.625" Y="29.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Items" Type="Pharmacy.Domain.Models.Warehouse.WareHouseItem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="37.312" Y="30.247" />
+        <Point X="37.312" Y="33.21" />
+        <Point X="41.562" Y="33.21" />
+        <Point X="41.562" Y="31.252" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Pharmacy" Type="Pharmacy.Domain.Models.PharmacyModel" ManuallyRouted="true">
+      <Path>
+        <Point X="37.906" Y="29.25" />
+        <Point X="37.906" Y="28.356" />
+        <Point X="44.266" Y="28.356" />
+        <Point X="44.266" Y="29.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAgAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Warehouse\WareHouse.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pharmacy" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Changes" />
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Models.Warehouse.WareHouseItem">
+    <Position X="41" Y="29.25" Width="2.25" />
+    <AssociationLine Name="Product" Type="Pharmacy.Domain.Models.Products.Product" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="42.125" Y="31.252" />
+        <Point X="42.125" Y="34.262" />
+        <Point X="23.146" Y="34.262" />
+        <Point X="23.146" Y="33.387" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAACAAAABAAAAAIAAIAAE=</HashCode>
+      <FileName>Models\Warehouse\WareHouseItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Product" />
+      <Property Name="WareHouse" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Administration.PharmacyMapping">
+    <Position X="63.5" Y="25.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Administration\PharmacyMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Administration.UserMapping">
+    <Position X="62" Y="31.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Administration\UserMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.BaseEntityMapping&lt;T&gt;">
+    <Position X="58.25" Y="27.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\BaseEntityMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.BaseNamedEntityMapping&lt;T&gt;">
+    <Position X="57.25" Y="29.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\BaseNamedEntityMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.PharmacySession">
+    <Position X="49" Y="8" Width="2.5" />
+    <InheritanceLine Type="System.Object" ManuallyRouted="true">
+      <Path>
+        <Point X="37.5" Y="18.312" />
+        <Point X="37.5" Y="5.303" />
+        <Point X="50.25" Y="5.303" />
+        <Point X="50.25" Y="8" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAIABAAAAAABAAAEAAAAABAEAAQAAAAAAQAAIAAA=</HashCode>
+      <FileName>NHibernate\PharmacySession.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Cashbox.SaleItemMapping">
+    <Position X="52" Y="25.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Cashbox\SaleItemMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Cashbox.SaleMapping">
+    <Position X="57.75" Y="25.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Cashbox\SaleMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Products.BrandMapping">
+    <Position X="55.5" Y="31.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Products\BrandMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Products.CategoryProductMapping">
+    <Position X="58.5" Y="31.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Products\CategoryProductMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Products.FormProductMapping">
+    <Position X="64.75" Y="31.75" Width="2.5" />
+    <InheritanceLine Type="Pharmacy.Domain.NHibernate.Mappings.BaseNamedEntityMapping&lt;T&gt;" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="58.375" Y="30.983" />
+        <Point X="58.375" Y="31.375" />
+        <Point X="66" Y="31.375" />
+        <Point X="66" Y="31.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Products\FormProductMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Products.ProductMapping">
+    <Position X="49.25" Y="31.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Products\ProductMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Products.TypeProductMapping">
+    <Position X="52.25" Y="31.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Products\TypeProductMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Warehouse.WareHouseItemMapping">
+    <Position X="49" Y="25.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Warehouse\WareHouseItemMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Warehouse.WareHouseMapping">
+    <Position X="54.75" Y="25.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Warehouse\WareHouseMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.Mappings.Warehouse.WareHouseReportMapping">
+    <Position X="60.25" Y="25.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NHibernate\Mappings\Warehouse\WareHouseReportMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.NHibernate.NHibernateHelper">
+    <Position X="51.75" Y="7" Width="2.5" />
+    <InheritanceLine Type="System.Object" ManuallyRouted="true">
+      <Path>
+        <Point X="37.5" Y="18.312" />
+        <Point X="37.5" Y="4.778" />
+        <Point X="53" Y="4.778" />
+        <Point X="53" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAgAAAAAAAAZAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>NHibernate\NHibernateHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Administration.PharmacyRepository">
+    <Position X="31.25" Y="15.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Administration\PharmacyRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Administration.UserRepository">
+    <Position X="23.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Administration\UserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.BaseRepository&lt;T&gt;">
+    <Position X="25.75" Y="15.75" Width="1.75" />
+    <AssociationLine Name="session" Type="Pharmacy.Domain.NHibernate.Mappings.PharmacySession" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="26.938" Y="15.75" />
+        <Point X="26.938" Y="13.677" />
+        <Point X="27.092" Y="13.677" />
+        <Point X="27.092" Y="9.469" />
+        <Point X="37.417" Y="9.469" Type="JumpStart" />
+        <Point X="37.583" Y="9.469" Type="JumpEnd" />
+        <Point X="49" Y="9.469" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAIAAAAAAAABAAAEAAAAAAAEAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Repositories\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="session" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Cashbox.SaleItemRepository">
+    <Position X="19.25" Y="16.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Cashbox\SaleItemRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Cashbox.SaleRepository">
+    <Position X="24.25" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Cashbox\SaleRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Products.BrandRepository">
+    <Position X="27.25" Y="19.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Products\BrandRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Products.CategoryProductRepository">
+    <Position X="29" Y="18.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Products\CategoryProductRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Products.FormProductRepository">
+    <Position X="29.75" Y="16.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Products\FormProductRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Products.ProductRepository">
+    <Position X="18.75" Y="18.5" Width="1.75" />
+    <InheritanceLine Type="Pharmacy.Domain.Repositories.BaseRepository&lt;T&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="26.625" Y="18.007" />
+        <Point X="19.625" Y="18.007" />
+        <Point X="19.625" Y="18.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Products\ProductRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Products.TypeProductRepository">
+    <Position X="17" Y="15.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Products\TypeProductRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Warehouse.WareHouseItemRepository">
+    <Position X="19.75" Y="14" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Warehouse\WareHouseItemRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pharmacy.Domain.Repositories.Warehouse.WareHouseReportRepository">
+    <Position X="21.25" Y="18.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Warehouse\WareHouseReportRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="36.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Enum Name="Pharmacy.Domain.Models.Administration.UserRole">
+    <Position X="17.75" Y="32.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAQAAAAAABAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\Administration\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

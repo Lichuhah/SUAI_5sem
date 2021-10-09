@@ -1,4 +1,4 @@
-package org.suai.common.screen.role
+package orgDelphi.suai.common.screen.role
 
 import androidx.compose.runtime.Composable
 

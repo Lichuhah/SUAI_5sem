@@ -18,10 +18,14 @@ import org.suai.common.manager.LoginManager.findLogin
 import org.suai.common.model.systm.loginModel
 import org.suai.common.enum_.Role
 import mu.KotlinLogging
+import org.suai.common.model.fullName
+import org.suai.common.model.role.studentModel
+import org.suai.common.model.role.userModel
 
+val logger = KotlinLogging.logger{}
 @Composable
-fun LoginScreen() {
-    KotlinLogging.logger{}.info { "recompose LoginScreen" }
+fun LoginScreen(user: MutableState<userModel?>) {
+    logger.info { "recompose LoginScreen" }
 
     var login              by remember { mutableStateOf("") }
     var password           by remember { mutableStateOf("") }
@@ -137,18 +141,35 @@ fun LoginScreen() {
             ) {
                 Button(
                     onClick = {
+                        // TODO()
+                        val user_ = studentModel(1)
+                        user_.id         = 1
+                        user_.login      = "vasa"
+                        user_.mail       = "spam@mainl"
+                        user_.name       = fullName("ivan", "ivanov", "ivanovich" )
+                        user_.password   = "123456"
+                        user_.phone      = "+7 800 555 35 35"
+                        user.value = user_
+                        // TODO()
                         if ( registerOn && (first_name.isNotEmpty() || second_name.isNotEmpty() || other_name.isNotEmpty() || second_name.isNotEmpty()) ) {
-                            KotlinLogging.logger {}.info { "register login=$login pas=$password first_name=$first_name second_name=$second_name other_name=$other_name" }
-
+                            logger.info { "register login=$login pas=$password first_name=$first_name second_name=$second_name other_name=$other_name" }
                         } else {
-                            KotlinLogging.logger {}.info { "login login=$login pas=$password" }
+                            logger.info { "login login=$login pas=$password" }
                             val response = findLogin( loginModel(login, password) )
+
                             when ( response.role ) {
                                 Role.NONE -> {
                                     KotlinLogging.logger{}.info { "error ${response.message}" }
                                     errorText = response.message
                                 }
-                                else -> KotlinLogging.logger{}.info { "login as ${response.role}" }
+                                Role.STUDENT -> {
+                                    logger.info { "logging at student" }
+                                    //user.value. TODO() TODO()TODO() TODO()TODO() TODO()TODO() TODO()TODO() TODO() некоректный возврат данных, п.с. мне нужен id
+                                }
+                                else -> {
+                                    logger.info { "Not support" }
+
+                                }
                             }
                         }
                     },

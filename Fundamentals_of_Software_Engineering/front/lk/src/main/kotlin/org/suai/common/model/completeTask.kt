@@ -15,7 +15,8 @@ data class completeTaskModel(
     val taskId:         Int,
     val studentId:      Int,
     val mark:           Int
-) :uuId {
+) :uuId
+{
     val passList = mutableListOf<passTaskModel>()
 
     /**
