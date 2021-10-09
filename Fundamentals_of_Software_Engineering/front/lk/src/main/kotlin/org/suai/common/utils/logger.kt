@@ -1,4 +1,24 @@
 package org.suai.common.utils
 
-class logger {
+import mu.KotlinLogging
+
+/**
+ * объект прокладка для вызова Klogger из java
+ */
+object klogger {
+
+    /**
+     * info не дать не взять
+     */
+    fun info(msg: () -> Any?) {
+        KotlinLogging.logger { }.info {  }
+    }
+
+
+    /**
+     * error не дать не взять
+     */
+    fun error(msg: () -> Any?) {
+        KotlinLogging.logger { }.error {  }
+    }
 }

@@ -7,7 +7,6 @@ import org.suai.common.model.*
 import org.suai.common.model.role.lecturerModel
 import org.suai.common.model.role.studentModel
 import java.util.*
-import javax.xml.crypto.Data
 
 /**
  * Заполнение тестовыми данными
