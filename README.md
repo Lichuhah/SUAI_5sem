@@ -1,4 +1,4 @@
-# SUAI_5sem
+# SUAI (5sem)
 - Computer_architecture_and_systems - Архитектура ЭВМ и систем
 - Fundamentals_of_Software_Engineering - Основы программной инженерии
 - Database_design - Проектирование баз данных
