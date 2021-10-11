@@ -4,14 +4,16 @@ create table if not exists Clothes (
     nameClothes varchar(20) not null,
     dataCreate date not null ,
     sizeClothes int not null
-);
+)
+AUTO_INCREMENT = 1;
 
 create table if not exists Performance(
     id_performance int not null auto_increment primary key,
 
     namePerformance varchar(20) not null,
     datePerformance date not null
-);
+)
+AUTO_INCREMENT = 1;
 
 create table if not exists Role (
     id_role int not null auto_increment primary key,
@@ -22,7 +24,8 @@ create table if not exists Role (
         on update restrict,
 
     nameRole varchar(20)
-);
+)
+AUTO_INCREMENT = 1;
 
 create table if not exists Author (
     id_author int not null auto_increment primary key,
@@ -39,7 +42,8 @@ create table if not exists Type_Detail (
     id_type_detail int not null auto_increment primary key,
 
     nameType varchar(10)
-);
+)
+AUTO_INCREMENT = 1;
 
 create table if not exists Concrete_Detail (
     id_concrete_detail int not null auto_increment primary key,
@@ -50,8 +54,9 @@ create table if not exists Concrete_Detail (
         on delete cascade
         on update cascade,
 
-    colorDetail varchar(6) #hex
-);
+    colorDetail varchar(20)
+)
+AUTO_INCREMENT = 1;
 
 create table if not exists Clothes_Role (
     id_clothes int not null ,
@@ -63,7 +68,8 @@ create table if not exists Clothes_Role (
     FOREIGN KEY (id_role) REFERENCES Role (id_role)
         on delete cascade
         on update cascade
-);
+)
+AUTO_INCREMENT = 1;
 
 create table if not exists Clothes_Author (
     id_clothes int not null,
@@ -75,7 +81,8 @@ create table if not exists Clothes_Author (
     FOREIGN KEY (id_author) REFERENCES Author (id_author)
         on delete restrict
         on update restrict
-);
+)
+AUTO_INCREMENT = 1;
 
 create table if not exists Clothes_Concrete_Detail (
     id_clothes int not null,
@@ -87,7 +94,8 @@ create table if not exists Clothes_Concrete_Detail (
     FOREIGN KEY (id_concrete_detail) REFERENCES Concrete_Detail (id_concrete_detail)
         on delete cascade
         on update cascade
-);
+)
+AUTO_INCREMENT = 1;
 
 # SELECT default_character_set_name
 # FROM information_schema.SCHEMATA
