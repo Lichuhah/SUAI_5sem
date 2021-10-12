@@ -25,7 +25,7 @@ public class CostController {
     public ResponseEntity<String> addCost(@RequestBody CostEntity cost){
         try {
             if(costService.addCost(cost)) {
-                return ResponseEntity.ok("Cost save");
+                return ResponseEntity.status(201).body("Cost save");
             }
             throw new Exception("Cost don't save");
         }catch (Exception e){
@@ -36,7 +36,7 @@ public class CostController {
     }
 
     @GetMapping("table-view")
-    public ResponseEntity getCostTable(){
+    public ResponseEntity getCostList(){
         try {
             return ResponseEntity.ok(costService.getCosts());
         }catch (Exception e){
@@ -64,6 +64,3 @@ public class CostController {
         }
     }
 }
-
-
-// TODO: rewrite catch
