@@ -1,0 +1,1 @@
+data class Obj(val name: String, val count: Int)
