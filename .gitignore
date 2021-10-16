@@ -384,3 +384,5 @@ Fundamentals_of_Software_Engineering/front/lk/local.properties
 mvnw*
 *Spring-boot-course-master*
 *.mp4
+
+application.yaml
