@@ -2,9 +2,9 @@
 _c_int00:
 	.data
 	
-array1:		.short 1,1,1
-array2: 	.short 1,2,3
-arrayRes:	.short 0,0,0
+array1:		.int 1,1,1
+array2: 	.int 1,2,3
+arrayRes:	.int 0,0,0
 size	.set 3	
 
 	.text

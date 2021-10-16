@@ -6,16 +6,14 @@ _c_int00:
 
 	.text
 	
-		MVK .S1 1,A0 		;A = -8   	
+		MVK .S1 6,A0 		;A = 6   	
  		MVK .S1 2,A1 		;B = 2 	
- 		MVK .S1 3,A2 		;C = 6 	
+ 		MVK .S1 1,A2 		;C = 1 	
  		
  	
  		MPY .M1 A1,A2,A1   	;умножение BxC, результат в A1
- 		NOP 
 	
 		ADD .L1 A0,A2,A0	;сложение A+C, результат в А0
 
 		SUB .L1 A0,A1,A0	;вычитание A+C-B*C, результат в А0
-		NOP
 	.end
