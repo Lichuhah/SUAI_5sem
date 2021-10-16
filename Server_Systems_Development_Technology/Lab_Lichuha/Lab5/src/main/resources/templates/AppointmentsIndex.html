@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        refresh();
+    })
+
+    function refresh(){
+        $.get('appointments/all',function (data){
+            console.log(data);
+            let table = "<table border='1'>";
+            table = table+"<caption><h2>List of Appointment</h2></caption>\n" +
+                "        <tr>\n" +
+                "            <th>Name Doctor</th>\n" +
+                "            <th>Name Patient</th>\n" +
+                "            <th>Info</th>\n" +
+                "        </tr>";
+            for(i=0; i<data.length; i++){
+                //table=table+"<tr><td>"+data[i].name+"</td><td>"+data[i].surname+"</td><td><button onclick='deleteDoc("+data[i].id+")'>DELETE</button></td></tr>";
+                table = table +"<tr>\n" +
+                    "                <td>"+data[i].doc.name+"</td>\n" +
+                    "                <td>"+data[i].pat.name+"</td>\n" +
+                    "                <td>"+data[i].info+"</td>\n" +
+                    "                <td>\n" +
+                    "                    <button onclick='deleteApp("+data[i].id+")'>Delete</button>\n" +
+                    "                </td>\n" +
+                    "        </tr>";
+            }
+
+            table = table + "</table>";
+
+            $("#test_app").html(table);
+        })
+    }
+
+    function deleteApp(idDel){
+        $.ajax({
+            url:'appointments/delete'+idDel,
+            type: "DELETE",
+            contentType: "application/json; charset=utf-8",
+            success: function (){
+                refresh();
+            },
+            error: function (error){
+                console.log(error);
+            }
+        })
+
+    }
+</script>
+
+<body>
+<center>
+    <h1>App Management</h1>
+    <h2>
+        <a th:href="@{/appointments/view}">Add New App</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{/appointments}"></a>
+        &nbsp;
+        <a th:href="@{/}">Main menu</a>
+    </h2>
+</center>
+<div align="center" id="test_app">
+    <form>
+        <input type="">
+    </form>
+</div>
+</body>
+</html>
