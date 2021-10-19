@@ -1,26 +1,22 @@
-# Допустим мы создали новую таблицу author_new
-# и в нее добавили отношение date_born и заполнили таблицу
+#create table if not exists authors2020 (
+#    id_author int not null auto_increment primary key,
 #
-# затем мы изменяем старую таблицу и добавляем туда новые изменения
-
-create table if not exists author_new (
-    id_author int not null auto_increment primary key,
-
-    firstNameAuthor varchar(20) default null,
-    secondNameAuthor varchar(20) default null,
-    thirdNameAuthor varchar(20) default null,
-
-    # new column
-    date_born date default null;
-)
-AUTO_INCREMENT = 1;
-
-alter table clothes
-add column date_born date default null;
-
-merge into clothes as c
-    using clothes_new as cn
-    on c.id_clothes = cn.id_clothes
-
-    when NOT MATCHED then update
-    set c.date_born = cn.date_born;
+#    firstNameAuthor varchar(20) default null,
+#    secondNameAuthor varchar(20) default null,
+#    thirdNameAuthor varchar(20) default null;
+#)
+#AUTO_INCREMENT = 1;
+#
+#
+#merge into author as a
+#    using authors2020 as an
+#    on a.id_author = an.id_author
+#
+#    when NOT MATCHED then
+#        insert values (an.firstNameAuthor, an.secondNameAuthor, an.thirdNameAuthor)
+#
+#    when MATCHED then
+#        update set a.firstNameAuthor = an.firstNameAuthor,
+#            a.secondNameAuthor = an.secondNameAuthor,
+#            a.thirdNameAuthor = an.thirdNameAuthor
+#;

@@ -1,7 +1,7 @@
 create table if not exists Clothes (
     id_clothes int not null auto_increment primary key,
 
-    nameClothes varchar(20) not null,
+    nameClothes varchar(40) not null,
     dataCreate date not null ,
     sizeClothes int not null
 )
@@ -10,7 +10,7 @@ AUTO_INCREMENT = 1;
 create table if not exists Performance(
     id_performance int not null auto_increment primary key,
 
-    namePerformance varchar(20) not null,
+    namePerformance varchar(40) not null,
     datePerformance date not null
 )
 AUTO_INCREMENT = 1;
@@ -23,16 +23,16 @@ create table if not exists Role (
         on delete cascade
         on update restrict,
 
-    nameRole varchar(20)
+    nameRole varchar(40)
 )
 AUTO_INCREMENT = 1;
 
 create table if not exists Author (
     id_author int not null auto_increment primary key,
 
-    firstNameAuthor varchar(20) default null,
-    secondNameAuthor varchar(20) default null,
-    thirdNameAuthor varchar(20) default null
+    firstNameAuthor varchar(40) default null,
+    secondNameAuthor varchar(40) default null,
+    thirdNameAuthor varchar(40) default null
 )
 ENGINE = InnoDB
 #DEFAULT CHARSET = utf8bm4
@@ -41,7 +41,7 @@ AUTO_INCREMENT = 1;
 create table if not exists Type_Detail (
     id_type_detail int not null auto_increment primary key,
 
-    nameType varchar(10)
+    nameType varchar(20)
 )
 AUTO_INCREMENT = 1;
 
