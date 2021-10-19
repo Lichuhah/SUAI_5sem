@@ -1,15 +1,8 @@
 update author
     set firstNameAuthor = 'upd'
-    where firstNameAuthor = 'Анна'
-    limit 1;
+    where firstNameAuthor = 'Анна';
 
-
-select * from author;
 
 update author
     set firstNameAuthor = 'Анна'
-    where firstNameAuthor = 'upd'
-    limit 1;
-
-
-select * from author;
+    where firstNameAuthor = 'upd';
