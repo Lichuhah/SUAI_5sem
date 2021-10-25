@@ -51,6 +51,8 @@ select namePerformance
     where ISNULL(r.id_performance);
 
 
+# =======================================
+
 # select г
 select nameRole, nameClothes, dataCreate from clothes_role
     inner join clothes c
