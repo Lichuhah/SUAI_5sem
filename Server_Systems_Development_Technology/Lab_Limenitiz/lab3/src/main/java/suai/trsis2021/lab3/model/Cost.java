@@ -16,7 +16,7 @@ public class Cost {
         return cost;
     }
 
-    @Getter         private Long id;
+    @Getter @Setter private Long id;
     @Getter @Setter private String name;
     @Getter @Setter private Integer price;
     @Getter @Setter private String category;
@@ -26,4 +26,13 @@ public class Cost {
     public Cost() {
         count = 1;
     }
+
+    public void countUp(){
+        count += 1;
+    }
+
+    public void countDown(){
+        count -= 1;
+    }
+
 }

@@ -9,11 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "cost_entity")
 public class CostEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter         private Long id;
+    @Getter @Setter private Long id;
     @Getter @Setter private String name;
     @Getter @Setter private Integer price;
     @Getter @Setter private String category;
@@ -24,16 +24,11 @@ public class CostEntity {
         count = 1;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        CostEntity that = (CostEntity) o;
-        return id != null && Objects.equals(id, that.id);
+    public void countUp(){
+        count += 1;
     }
 
-    @Override
-    public int hashCode() {
-        return 0;
+    public void countDown(){
+        count -= 1;
     }
 }

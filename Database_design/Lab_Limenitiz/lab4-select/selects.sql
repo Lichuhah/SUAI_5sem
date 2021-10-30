@@ -16,42 +16,52 @@ from concrete_detail cd
     on cd.id_type_detail = td.id_type_detail
 group by cd.id_concrete_detail;
 
+# ================================================
 
 # select а
 select p.namePerformance, r.nameRole, c.nameClothes
     from clothes_role cr
-        right join clothes c
+        join clothes c
             on cr.id_clothes = c.id_clothes
-        right join role r
+        join role r
             on cr.id_role = r.id_role
-        right join performance p
+        join performance p
             on r.id_performance = p.id_performance
     where LOWER(nameClothes) LIKE '%принц%'
 ;
 
-
 # select б
-select c.nameClothes, cd.colorDetail, td.nameType
+select c.nameClothes, cd.colorDetail, td.nameType, td2.nameType
     from clothes c
-        inner join clothes_concrete_detail ccd
+        join clothes_concrete_detail ccd
             on c.id_clothes = ccd.id_clothes
-        inner join concrete_detail cd
+        join concrete_detail cd
             on ccd.id_concrete_detail = cd.id_concrete_detail
-        inner join type_detail td
+        join type_detail td
             on cd.id_type_detail = td.id_type_detail
-    where LOWER(nameType) LIKE '%плащ%' or
-          LOWER(nameType) LIKE '%штаны%';
 
+        join clothes_concrete_detail ccd2
+            on c.id_clothes = ccd2.id_clothes
+        join concrete_detail cd2
+            on ccd2.id_concrete_detail = cd2.id_concrete_detail
+        join type_detail td2
+            on cd2.id_type_detail = td2.id_type_detail
+    where LOWER(TD.nameType) like '%плащ%' and
+          LOWER(TD2.nameType) like '%штаны%'
+;
 
 # select в
 select namePerformance
     from performance
         left outer join role r
             on performance.id_performance = r.id_performance
-    where ISNULL(r.id_performance);
+        left outer join clothes_role cr
+            on r.id_role = cr.id_role
+        left outer join clothes c
+            on cr.id_clothes = c.id_clothes
+    where r.id_performance is null or c.id_clothes is null;
 
-
-# =======================================
+# ================================================
 
 # select г
 select nameRole, nameClothes, dataCreate from clothes_role

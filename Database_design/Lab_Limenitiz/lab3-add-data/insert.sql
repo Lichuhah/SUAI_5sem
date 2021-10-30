@@ -3,9 +3,10 @@ use database_design_course;
 insert into performance (namePerformance, datePerformance)
     values ('Представление с принцем', '2021-10-11'),
            ('Представление с королем', '2021-10-12'),
-           ('Представление (пустое)', '2021-10-13'),
+           ('Представление (без ролей и одежды)', '2021-10-13'),
            ('Золушка', '2021-10-18'),
-           ('Мастер и Маргарита', '2021-10-19');
+           ('Мастер и Маргарита', '2021-10-19'),
+           ('Представление (с ролями и без одежды)', '2021-10-20');
 
 
 insert into author (firstNameAuthor)
@@ -27,7 +28,8 @@ insert into role (id_performance, nameRole)
            (2, 'Роль короля'),
            (4, 'Золушка'),
            (5, 'Мастер'),
-           (5, 'Маргарита');
+           (5, 'Маргарита'),
+           (6, 'Роль для пустого представления');
 
 
 insert into type_detail (nameType)
@@ -58,9 +60,13 @@ insert into clothes_author (id_clothes, id_author)
 
 
 insert into clothes_concrete_detail (id_clothes, id_concrete_detail)
-values (2, 2), (2, 8), (2, 17), (2, 5),
-
-       (1,1), (1,4), (1,7), (1,10), (1,13), (1,16);
+values
+       (1,1), (1,4), (1,7), (1,10), (1,13), (1,16),
+       (2, 2), (2, 8), (2, 17), (2, 5),
+       (3, 3),
+       (4,4),
+       (5,6)
+       ;
 
 
 insert into clothes_role (id_clothes, id_role)

@@ -32,9 +32,4 @@ public class WebController {
     public String getList(){
         return "TableView";
     }
-
-    @GetMapping("/add-cost")
-    public String addCost() {
-        return "";
-    }
 }
