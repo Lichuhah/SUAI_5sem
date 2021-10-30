@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,16 @@ namespace KursWork
 {
     public partial class SelectForm : Form
     {
-        public SelectForm()
+        public SelectForm(Workbook ObjWorkBook)
         {
             InitializeComponent();
+            this.ObjWorkBook = ObjWorkBook;
         }
+        Workbook ObjWorkBook;
         public string Result = string.Empty;
         private void SelectForm_Load(object sender, EventArgs e)
         {
-            TimesManager TimesManager = new TimesManager();
+            TimesManager TimesManager = new TimesManager(ObjWorkBook);
             TimesManager.Load();
             foreach(var item in TimesManager.Times) { comboBox1.Items.Add(item.Period); }
         }

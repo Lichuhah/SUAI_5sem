@@ -9,17 +9,17 @@ namespace KursWork
 {
     public class TimesManager
     {
-        public TimesManager()
+        public TimesManager(Workbook ObjWorkBook)
         {
             Times = new List<Time>();
+            this.ObjWorkBook = ObjWorkBook;
         }
 
+        Workbook ObjWorkBook;
         public List<Time> Times { get; set; }
 
         public void Load()
         {
-            Application ObjExcel = new Application();
-            Workbook ObjWorkBook = ObjExcel.Workbooks.Open(@"D:\Study\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsx", 0, true, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
             Worksheet ObjWorkSheet = (Worksheet)ObjWorkBook.Sheets[2];
             char c = 'C';
             for (int i = 0; i < 3; i++)
@@ -32,13 +32,10 @@ namespace KursWork
                 Times.Add(time);
                 c++;
             }
-            ObjExcel.Quit();
         }
 
         public void Save()
         {
-            Application ObjExcel = new Application();
-            Workbook ObjWorkBook = ObjExcel.Workbooks.Open(@"D:\Study\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsx", 0, false, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
             Worksheet ObjWorkSheet = (Worksheet)ObjWorkBook.Sheets[2];
             char c = 'C';
             for (int i = 0; i < 3; i++)
@@ -51,7 +48,6 @@ namespace KursWork
                 c++;
             }
             ObjWorkBook.Save();
-            ObjExcel.Quit();
         }
     }
 }

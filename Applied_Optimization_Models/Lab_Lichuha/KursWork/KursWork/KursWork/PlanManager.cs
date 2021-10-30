@@ -9,7 +9,7 @@ namespace KursWork
 {
     public class PlanManager
     {
-        public PlanManager(EmployesManager employesManager, TimesManager timesManager, DepartamentManager departamentManager)
+        public PlanManager(Workbook ObjWorkBook, EmployesManager employesManager, TimesManager timesManager, DepartamentManager departamentManager)
         {
             this.DepartamentManager = departamentManager;
             this.EmployesManager = employesManager;
@@ -17,8 +17,10 @@ namespace KursWork
             Plans = new List<Plan>();
             PlanDeps = new List<PlanDep>();
             PlanMFs = new List<PlanMF>();
+            this.ObjWorkBook = ObjWorkBook;
         }
 
+        Workbook ObjWorkBook;
         EmployesManager EmployesManager;
         TimesManager TimesManager;
         DepartamentManager DepartamentManager;
@@ -40,8 +42,6 @@ namespace KursWork
         }
         public void Save()
         {
-            Application ObjExcel = new Application();
-            Workbook ObjWorkBook = ObjExcel.Workbooks.Open(@"D:\Study\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsx", 0, false, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
             Worksheet ObjWorkSheet = (Worksheet)ObjWorkBook.Sheets[2];
             for(int i = 5; i<18; i++)
             {
@@ -54,12 +54,9 @@ namespace KursWork
                 range3.Value = plan.TimePeriod == TimesManager.Times[2].Period ? 1 : 0;
             }
             ObjWorkBook.Save();
-            ObjExcel.Quit();
         }
         public void setTimes()
         {
-            Application ObjExcel = new Application();
-            Workbook ObjWorkBook = ObjExcel.Workbooks.Open(@"D:\Study\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsx", 0, false, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
             Worksheet ObjWorkSheet = (Worksheet)ObjWorkBook.Sheets[2];
             for (int i = 0; i < this.Plans.Count; i++)
             {
@@ -67,7 +64,8 @@ namespace KursWork
                 char c = 'E';
                 for (int j = 0; j < 3; j++)
                 {
-                    Range range = ObjWorkSheet.get_Range(c + (i + 5).ToString());
+                    string adres = c + (i + 5).ToString();
+                    Range range = ObjWorkSheet.get_Range(adres);
                     if (range.Value != 0)
                     {
                         plan.Time = TimesManager.Times[j];
@@ -84,7 +82,6 @@ namespace KursWork
             Result = rang.Value;
 
             ObjWorkBook.Save();
-            ObjExcel.Quit();
         }
 
         public void createPlanDeps()
@@ -101,6 +98,12 @@ namespace KursWork
             }
         }
 
+        public void Clear()
+        {
+            this.PlanDeps.Clear();
+            this.PlanMFs.Clear();
+            this.Plans.Clear();
+        }
         public void createPlanMFs()
         {
             for(int i=0; i<TimesManager.Times.Count; i++)
