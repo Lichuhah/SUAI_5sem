@@ -24,9 +24,19 @@ fun App() {
 }
 
 fun main() = application {
+
+    val l = listOf<String>()
+    for (i in 1..7) {
+        for (j in 1..11)
+            print("{y_$i,$j} over {x_$i,$j} +")
+        print("<= c_$i #")
+    }
+
+
+/*
     Window(onCloseRequest = ::exitApplication) {
         DesktopMaterialTheme() {
             App()
         }
-    }
+    }*/
 }
