@@ -25,12 +25,21 @@ namespace Pharmacy.Desktop.Module.Grids
         {
             InitializeComponent();
 
+            TypeProductManager TypeManager = new TypeProductManager();
+            cmbType.Properties.Items.Clear();
+            cmbType.Text = null;
+            Types = TypeManager.All();
+            cmbType.Properties.Items.Add("Без фильтра");
+            cmbType.Properties.Items.AddRange(Types.Select(x => x.Name).ToList());
+
+            
+
             Statistic = new DataTable("Table1");
             Statistic.Columns.Add("Argument");
             Statistic.Columns.Add("Value", typeof(Int32));
 
             FilterByTime = 0;
-            FilterByType = 0;
+            FilterByValue = 0;
             CreateStatisctic();
             //DataRow row = table.NewRow();
             //row["Argument"] = "Зима";
@@ -58,15 +67,20 @@ namespace Pharmacy.Desktop.Module.Grids
 
         DataTable Statistic;
         int FilterByTime;
-        int FilterByType;
+        int FilterByValue;
+        bool isFilterByCategory = false;
+        bool isFilterByType = false;
+        CategoryProduct FilterByCategory;
+        TypeProduct FilterByType;
+        List<TypeProduct> Types = new List<TypeProduct>();
+        List<CategoryProduct> Categories = new List<CategoryProduct>();
 
         public void CreateStatisctic()
         {
             Statistic.Rows.Clear();
-            var manager = new SaleManager();
-            List<Sale> Sales = manager.All();
+            List<Sale> Sales = getSales();
             List<int> Data = new List<int>();
-            switch (FilterByType)
+            switch (FilterByValue)
             {
                 case 0: Data = getByCount(); break;
                 case 1: Data = getByPrice(); break;
@@ -105,7 +119,7 @@ namespace Pharmacy.Desktop.Module.Grids
 
         private void rbtnType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FilterByType = ((RadioGroup)sender).SelectedIndex;
+            FilterByValue = ((RadioGroup)sender).SelectedIndex;
             CreateStatisctic();
         }
 
@@ -116,8 +130,7 @@ namespace Pharmacy.Desktop.Module.Grids
         }
         public List<int> getByCount()
         {
-            var manager = new SaleManager();
-            List<Sale> Sales = manager.All();
+            List<Sale> Sales = getSales();
             List<int> Month = new List<int>();
             for (int i = 0; i < 12; i++) { Month.Add(0); }
             var listByMonth = Sales.GroupBy(x => x.Date.Month);
@@ -142,8 +155,7 @@ namespace Pharmacy.Desktop.Module.Grids
 
         public List<int> getByPrice()
         {
-            var manager = new SaleManager();
-            List<Sale> Sales = manager.All();
+            List<Sale> Sales = getSales();
             List<int> Month = new List<int>();
             for (int i = 0; i < 12; i++) { Month.Add(0); }
             var listByMonth = Sales.GroupBy(x => x.Date.Month);
@@ -168,6 +180,86 @@ namespace Pharmacy.Desktop.Module.Grids
                     return TimeOfYear;
                 default: return Month;
             }
+        }
+
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbCat.Enabled = true;
+            cmbCat.Properties.Items.Clear();
+            cmbCat.Text = null;
+            if (cmbType.SelectedIndex != 0)
+            {
+                isFilterByType = true;
+                FilterByType = Types[cmbType.SelectedIndex - 1];
+                Categories = Types[cmbType.SelectedIndex-1].Categories.ToList();
+                cmbCat.Properties.Items.Add("Все");
+                cmbCat.Properties.Items.AddRange(Categories.Select(x => x.Name).ToList());
+            } else
+            {
+                isFilterByCategory = false;
+                isFilterByType = false;
+            }
+            CreateStatisctic();
+        }
+
+        private void cmbCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCat.SelectedIndex != 0)
+            {
+                isFilterByCategory = true;
+                FilterByCategory = Categories[cmbCat.SelectedIndex - 1];
+            }
+            else
+            {
+                isFilterByCategory = false;
+            }
+            CreateStatisctic();
+        }
+
+        public List<Sale> getSales()
+        {
+            var manager = new SaleManager();
+            List<Sale> Sales = manager.All();
+            if (isFilterByCategory)
+            {
+                foreach (var sale in Sales)
+                {
+                    List<SaleItem> RemoveList = new List<SaleItem>();
+                    foreach (var item in sale.Items)
+                    {
+                        if (item.Product.Category.ID != FilterByCategory.ID)
+                        {
+                            sale.Price -= item.Price;
+                            RemoveList.Add(item);
+                        }
+                    }
+                    foreach(var item in RemoveList)
+                    {
+                        sale.Items.Remove(item);
+                    }
+                }
+            } else {
+                if (isFilterByType)
+                {
+                    foreach (var sale in Sales)
+                    {
+                        List<SaleItem> RemoveList = new List<SaleItem>();
+                        foreach (var item in sale.Items)
+                        {
+                            if (item.Product.Category.Type.ID != FilterByType.ID)
+                            {
+                                sale.Price -= item.Price;
+                                RemoveList.Add(item);
+                            }
+                        }
+                        foreach (var item in RemoveList)
+                        {
+                            sale.Items.Remove(item);
+                        }
+                    }
+                }
+            }
+            return Sales;
         }
     }
 }

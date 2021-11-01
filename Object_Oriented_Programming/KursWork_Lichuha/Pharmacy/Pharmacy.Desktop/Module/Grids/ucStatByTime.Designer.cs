@@ -30,6 +30,8 @@ namespace Pharmacy.Desktop.Module.Grids
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbCat = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.rbtnType = new DevExpress.XtraEditors.RadioGroup();
             this.rbtnTime = new DevExpress.XtraEditors.RadioGroup();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
@@ -37,8 +39,12 @@ namespace Pharmacy.Desktop.Module.Grids
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtnType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtnTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
@@ -46,10 +52,14 @@ namespace Pharmacy.Desktop.Module.Grids
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.cmbCat);
+            this.layoutControl1.Controls.Add(this.cmbType);
             this.layoutControl1.Controls.Add(this.rbtnType);
             this.layoutControl1.Controls.Add(this.rbtnTime);
             this.layoutControl1.Controls.Add(this.chartControl1);
@@ -61,6 +71,30 @@ namespace Pharmacy.Desktop.Module.Grids
             this.layoutControl1.Size = new System.Drawing.Size(748, 523);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // cmbCat
+            // 
+            this.cmbCat.Location = new System.Drawing.Point(244, 36);
+            this.cmbCat.Name = "cmbCat";
+            this.cmbCat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCat.Size = new System.Drawing.Size(492, 20);
+            this.cmbCat.StyleController = this.layoutControl1;
+            this.cmbCat.TabIndex = 9;
+            this.cmbCat.SelectedIndexChanged += new System.EventHandler(this.cmbCat_SelectedIndexChanged);
+            // 
+            // cmbType
+            // 
+            this.cmbType.Location = new System.Drawing.Point(244, 12);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbType.Properties.Items.AddRange(new object[] {
+            "Без фильтра"});
+            this.cmbType.Size = new System.Drawing.Size(492, 20);
+            this.cmbType.StyleController = this.layoutControl1;
+            this.cmbType.TabIndex = 8;
+            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
             // rbtnType
             // 
@@ -88,10 +122,10 @@ namespace Pharmacy.Desktop.Module.Grids
             // 
             // chartControl1
             // 
-            this.chartControl1.Location = new System.Drawing.Point(171, 12);
+            this.chartControl1.Location = new System.Drawing.Point(171, 60);
             this.chartControl1.Name = "chartControl1";
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.Size = new System.Drawing.Size(565, 499);
+            this.chartControl1.Size = new System.Drawing.Size(565, 451);
             this.chartControl1.TabIndex = 5;
             // 
             // Root
@@ -101,7 +135,9 @@ namespace Pharmacy.Desktop.Module.Grids
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.layoutControlItem1,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(748, 523);
             this.Root.TextVisible = false;
@@ -109,9 +145,9 @@ namespace Pharmacy.Desktop.Module.Grids
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.chartControl1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(159, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(159, 48);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(569, 503);
+            this.layoutControlItem2.Size = new System.Drawing.Size(569, 455);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -123,7 +159,7 @@ namespace Pharmacy.Desktop.Module.Grids
             this.layoutControlItem1.Size = new System.Drawing.Size(159, 252);
             this.layoutControlItem1.Text = "Период";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(38, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(61, 13);
             // 
             // layoutControlItem3
             // 
@@ -133,7 +169,25 @@ namespace Pharmacy.Desktop.Module.Grids
             this.layoutControlItem3.Size = new System.Drawing.Size(159, 251);
             this.layoutControlItem3.Text = "Вид";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(38, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(61, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.cmbType;
+            this.layoutControlItem4.Location = new System.Drawing.Point(159, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(569, 24);
+            this.layoutControlItem4.Text = "Сортировка";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(61, 13);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.cmbCat;
+            this.layoutControlItem5.Location = new System.Drawing.Point(159, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(569, 24);
+            this.layoutControlItem5.Text = " ";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(61, 13);
             // 
             // ucStatByTime
             // 
@@ -144,6 +198,8 @@ namespace Pharmacy.Desktop.Module.Grids
             this.Size = new System.Drawing.Size(748, 523);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtnType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbtnTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
@@ -151,6 +207,8 @@ namespace Pharmacy.Desktop.Module.Grids
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,5 +223,9 @@ namespace Pharmacy.Desktop.Module.Grids
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.RadioGroup rbtnType;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbCat;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbType;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }
