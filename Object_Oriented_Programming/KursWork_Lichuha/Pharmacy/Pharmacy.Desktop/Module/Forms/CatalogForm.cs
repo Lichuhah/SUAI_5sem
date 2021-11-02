@@ -23,9 +23,17 @@ namespace Pharmacy.Desktop.Module.Forms
         List<WareHouseItem> warehouse = new List<WareHouseItem>();
         public WareHouseItem Item = null;
         public bool withCatalog = true;
+        public bool withWarehouse = true;
         public CatalogForm()
         {
             InitializeComponent();
+        }
+
+        public CatalogForm(bool withWar, bool withCat)
+        {
+            this.withCatalog = withCat;
+            this.withWarehouse = withWar;
+            InitializeComponent();          
         }
         private void loadData()
         {
@@ -78,6 +86,10 @@ namespace Pharmacy.Desktop.Module.Forms
             if (!withCatalog)
             {
                 xtraTabPage2.PageVisible = false;
+            }
+            if (!withWarehouse)
+            {
+                xtraTabPage1.PageVisible = false;
             }
         }
 

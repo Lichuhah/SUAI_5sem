@@ -37,7 +37,9 @@ namespace Pharmacy.Desktop.Module.Forms
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barBtnAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -48,14 +50,12 @@ namespace Pharmacy.Desktop.Module.Forms
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.txtName = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // barButtonItem1
@@ -99,6 +99,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl4.Location = new System.Drawing.Point(484, 24);
+            this.barDockControl4.Manager = null;
             this.barDockControl4.Size = new System.Drawing.Size(0, 52);
             // 
             // layoutControl1
@@ -112,6 +113,14 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControl1.TabIndex = 8;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(72, 12);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(400, 20);
+            this.txtName.StyleController = this.layoutControl1;
+            this.txtName.TabIndex = 4;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -121,6 +130,17 @@ namespace Pharmacy.Desktop.Module.Forms
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(484, 52);
             this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.txtName;
+            this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem1.CustomizationFormText = "Название";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(464, 32);
+            this.layoutControlItem1.Text = "Название";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 13);
             // 
             // barManager1
             // 
@@ -223,25 +243,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 52);
             // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(72, 12);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(400, 20);
-            this.txtName.StyleController = this.layoutControl1;
-            this.txtName.TabIndex = 4;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.txtName;
-            this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem1.CustomizationFormText = "Название";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(464, 32);
-            this.layoutControlItem1.Text = "Название";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 13);
-            // 
             // BrandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,14 +255,14 @@ namespace Pharmacy.Desktop.Module.Forms
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "BrandForm";
-            this.Text = "BrandForm";
+            this.Text = "Бренды";
             this.Load += new System.EventHandler(this.BrandForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

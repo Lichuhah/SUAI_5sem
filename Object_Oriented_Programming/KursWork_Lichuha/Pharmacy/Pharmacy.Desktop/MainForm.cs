@@ -159,5 +159,10 @@ namespace Pharmacy.Desktop
         {
             await Loaduc("ucStatByTime", "Pharmacy.Desktop.Module.Grids.ucStatByTime");
         }
+
+        private void ControlCashbox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

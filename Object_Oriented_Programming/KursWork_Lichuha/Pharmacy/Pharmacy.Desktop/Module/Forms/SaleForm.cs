@@ -44,7 +44,7 @@ namespace Pharmacy.Desktop.Module.Forms
                     gridControl1.DataSource = null;
                     gridControl1.DataSource = items;
                     gridControl1.Refresh();
-                    txtPrice.Value = txtPrice.Value + (decimal)form.Item.Price * (decimal)form.Item.Count;
+                    txtPrice.Value = txtPrice.Value + (decimal)form.Item.Price;
                 }
                 gridView1.Columns.ColumnByFieldName("Product").Visible = false;
                 gridView1.Columns.ColumnByFieldName("Sale").Visible = false;

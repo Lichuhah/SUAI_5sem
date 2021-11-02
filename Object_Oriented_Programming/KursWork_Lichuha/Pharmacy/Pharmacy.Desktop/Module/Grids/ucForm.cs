@@ -56,7 +56,7 @@ namespace Pharmacy.Desktop.Module
 
         private void btnViewElement_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            FormProduct item = ((List<FormProduct>)grid.DataSource)[gridView.FocusedRowHandle];
+            FormProduct item = (FormProduct)gridView.GetFocusedRow();
             FormForm form = new FormForm(item.ID);
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 loadData();
@@ -72,7 +72,7 @@ namespace Pharmacy.Desktop.Module
         private void btnDeleteElement_Click(object sender, EventArgs e)
         {
             FormProductManager manager = new FormProductManager();
-            if (manager.Delete(((List<FormProduct>)grid.DataSource)[gridView.FocusedRowHandle]))
+            if (manager.Delete(((FormProduct)gridView.GetFocusedRow())))
                 loadData();
 
         }

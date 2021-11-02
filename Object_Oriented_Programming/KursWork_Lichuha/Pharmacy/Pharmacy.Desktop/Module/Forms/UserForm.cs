@@ -76,10 +76,10 @@ namespace Pharmacy.Desktop.Module.Forms
 
         private void LoadPharmacy()
         {
-            PharmacyManager manager = new PharmacyManager();
-            Pharmacies = manager.All();
-            cmbPharmacy.Properties.Items.Clear();
-            cmbPharmacy.Properties.Items.AddRange(Pharmacies.Select(x => x.Address).ToList());
+            //PharmacyManager manager = new PharmacyManager();
+            //Pharmacies = manager.All();
+            //cmbPharmacy.Properties.Items.Clear();
+            //cmbPharmacy.Properties.Items.AddRange(Pharmacies.Select(x => x.Address).ToList());
         }
 
         private User saveData()
@@ -125,20 +125,20 @@ namespace Pharmacy.Desktop.Module.Forms
                 txtPas1.Text = User.Password;
                 txtPas2.Text = User.Password;
                 cmbRole.SelectedIndex = (int)User.Role;
-                cmbPharmacy.SelectedIndex = User.Pharmacy != null ? Pharmacies.FindIndex(x => x.Address == User.PharmacyAddress) : -1;
+               // cmbPharmacy.SelectedIndex = User.Pharmacy != null ? Pharmacies.FindIndex(x => x.Address == User.PharmacyAddress) : -1;
             }
         }
 
         private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbRole.SelectedIndex > 1)
-            {
-                cmbPharmacy.Enabled = true;
-            } else
-            {
-                cmbPharmacy.SelectedItem = null;
-                cmbPharmacy.Enabled = false;
-            }
+            //if (cmbRole.SelectedIndex > 1)
+            //{
+            //    cmbPharmacy.Enabled = true;
+            //} else
+            //{
+            //    cmbPharmacy.SelectedItem = null;
+            //    cmbPharmacy.Enabled = false;
+            //}
         }
     }
 }

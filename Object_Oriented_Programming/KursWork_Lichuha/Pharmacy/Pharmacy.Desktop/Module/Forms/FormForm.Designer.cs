@@ -232,7 +232,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FormForm";
-            this.Text = "FormForm";
+            this.Text = "Форма выпуска";
             this.Load += new System.EventHandler(this.FormForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

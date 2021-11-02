@@ -84,6 +84,7 @@ namespace Pharmacy.Desktop.Module.Grids
             {
                 case 0: Data = getByCount(); break;
                 case 1: Data = getByPrice(); break;
+                case 2: Data = getByCountItems(); break;
             }
             var a = getByCount();
             switch (FilterByTime){
@@ -136,12 +137,44 @@ namespace Pharmacy.Desktop.Module.Grids
             var listByMonth = Sales.GroupBy(x => x.Date.Month);
             foreach (var g in listByMonth)
             {
-                Month[g.Key] = g.Count();
+                Month[g.Key-1] = g.Count();
             }
 
             switch (FilterByTime)
             {
                 case 1: return Month; 
+                case 0:
+                    List<int> TimeOfYear = new List<int>();
+                    TimeOfYear.Add(Month[11] + Month[0] + Month[1]);
+                    TimeOfYear.Add(Month[2] + Month[3] + Month[4]);
+                    TimeOfYear.Add(Month[5] + Month[6] + Month[7]);
+                    TimeOfYear.Add(Month[8] + Month[9] + Month[10]);
+                    return TimeOfYear;
+                default: return Month;
+            }
+        }
+
+        public List<int> getByCountItems()
+        {
+            List<Sale> Sales = getSales();
+            List<int> Month = new List<int>();
+            for (int i = 0; i < 12; i++) { Month.Add(0); }
+            var listByMonth = Sales.GroupBy(x => x.Date.Month);
+            foreach (var g in listByMonth)
+            {
+                var items = g.Select(x => x.Items);
+                foreach (var item in items)
+                {
+                    foreach(var product in item)
+                    {
+                        Month[g.Key - 1] += product.Count;
+                    }
+                }
+            }
+
+            switch (FilterByTime)
+            {
+                case 1: return Month;
                 case 0:
                     List<int> TimeOfYear = new List<int>();
                     TimeOfYear.Add(Month[11] + Month[0] + Month[1]);
@@ -164,7 +197,7 @@ namespace Pharmacy.Desktop.Module.Grids
                 var prices = g.Select(x=>x.Price);
                 foreach(int price in prices)
                 {
-                    Month[g.Key] += price;
+                    Month[g.Key-1] += price;
                 }
             }
 
@@ -260,6 +293,11 @@ namespace Pharmacy.Desktop.Module.Grids
                 }
             }
             return Sales;
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CreateStatisctic();
         }
     }
 }

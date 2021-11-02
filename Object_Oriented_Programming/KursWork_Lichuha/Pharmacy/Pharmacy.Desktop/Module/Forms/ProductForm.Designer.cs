@@ -430,7 +430,7 @@ namespace Pharmacy.Desktop.Module
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "ProductForm";
-            this.Text = "ProductForm";
+            this.Text = "Продукт";
             this.Load += new System.EventHandler(this.ProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

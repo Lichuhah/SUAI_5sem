@@ -31,15 +31,19 @@ namespace Pharmacy.Desktop.Module.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleItemForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.btnEnrollment = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSelectProduct = new DevExpress.XtraEditors.SimpleButton();
             this.chRecipe = new DevExpress.XtraEditors.CheckEdit();
-            this.txtPrice = new DevExpress.XtraEditors.SpinEdit();
             this.txtCount = new DevExpress.XtraEditors.SpinEdit();
-            this.txtCategory = new DevExpress.XtraEditors.TextEdit();
+            this.txtPrice = new DevExpress.XtraEditors.SpinEdit();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtType = new DevExpress.XtraEditors.TextEdit();
-            this.txtForm = new DevExpress.XtraEditors.TextEdit();
+            this.txtCategory = new DevExpress.XtraEditors.TextEdit();
             this.txtBrand = new DevExpress.XtraEditors.TextEdit();
+            this.txtForm = new DevExpress.XtraEditors.TextEdit();
+            this.txtCountInReport = new DevExpress.XtraEditors.SpinEdit();
+            this.txtCountOnWarehouse = new DevExpress.XtraEditors.SpinEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -49,25 +53,23 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnSelectProduct = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtCountInReport = new DevExpress.XtraEditors.SpinEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtCountOnWarehouse = new DevExpress.XtraEditors.SpinEdit();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnEnrollment = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chRecipe.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountInReport.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountOnWarehouse.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
@@ -78,9 +80,7 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCountInReport.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCountOnWarehouse.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
@@ -107,27 +107,27 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // Root
+            // btnEnrollment
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2,
-            this.layoutControlItem1,
-            this.layoutControlItem3,
-            this.layoutControlItem15,
-            this.layoutControlItem10});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(522, 348);
-            this.Root.TextVisible = false;
+            this.btnEnrollment.Enabled = false;
+            this.btnEnrollment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEnrollment.ImageOptions.Image")));
+            this.btnEnrollment.Location = new System.Drawing.Point(12, 299);
+            this.btnEnrollment.Name = "btnEnrollment";
+            this.btnEnrollment.Size = new System.Drawing.Size(498, 36);
+            this.btnEnrollment.StyleController = this.layoutControl1;
+            this.btnEnrollment.TabIndex = 27;
+            this.btnEnrollment.Text = "Зачислить";
+            this.btnEnrollment.Click += new System.EventHandler(this.btnEnrollment_Click);
             // 
-            // txtName
+            // btnSelectProduct
             // 
-            this.txtName.Location = new System.Drawing.Point(114, 45);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(384, 20);
-            this.txtName.StyleController = this.layoutControl1;
-            this.txtName.TabIndex = 4;
+            this.btnSelectProduct.Location = new System.Drawing.Point(12, 249);
+            this.btnSelectProduct.Name = "btnSelectProduct";
+            this.btnSelectProduct.Size = new System.Drawing.Size(498, 22);
+            this.btnSelectProduct.StyleController = this.layoutControl1;
+            this.btnSelectProduct.TabIndex = 26;
+            this.btnSelectProduct.Text = "Выбрать продукт";
+            this.btnSelectProduct.Click += new System.EventHandler(this.btnSelectProduct_Click);
             // 
             // chRecipe
             // 
@@ -137,21 +137,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.chRecipe.Size = new System.Drawing.Size(384, 20);
             this.chRecipe.StyleController = this.layoutControl1;
             this.chRecipe.TabIndex = 10;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtPrice.Location = new System.Drawing.Point(114, 165);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtPrice.Size = new System.Drawing.Size(384, 20);
-            this.txtPrice.StyleController = this.layoutControl1;
-            this.txtPrice.TabIndex = 8;
             // 
             // txtCount
             // 
@@ -170,13 +155,28 @@ namespace Pharmacy.Desktop.Module.Forms
             this.txtCount.StyleController = this.layoutControl1;
             this.txtCount.TabIndex = 9;
             // 
-            // txtCategory
+            // txtPrice
             // 
-            this.txtCategory.Location = new System.Drawing.Point(114, 93);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(384, 20);
-            this.txtCategory.StyleController = this.layoutControl1;
-            this.txtCategory.TabIndex = 23;
+            this.txtPrice.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtPrice.Location = new System.Drawing.Point(114, 165);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtPrice.Size = new System.Drawing.Size(384, 20);
+            this.txtPrice.StyleController = this.layoutControl1;
+            this.txtPrice.TabIndex = 8;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(114, 45);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(384, 20);
+            this.txtName.StyleController = this.layoutControl1;
+            this.txtName.TabIndex = 4;
             // 
             // txtType
             // 
@@ -186,13 +186,13 @@ namespace Pharmacy.Desktop.Module.Forms
             this.txtType.StyleController = this.layoutControl1;
             this.txtType.TabIndex = 22;
             // 
-            // txtForm
+            // txtCategory
             // 
-            this.txtForm.Location = new System.Drawing.Point(114, 141);
-            this.txtForm.Name = "txtForm";
-            this.txtForm.Size = new System.Drawing.Size(384, 20);
-            this.txtForm.StyleController = this.layoutControl1;
-            this.txtForm.TabIndex = 25;
+            this.txtCategory.Location = new System.Drawing.Point(114, 93);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(384, 20);
+            this.txtCategory.StyleController = this.layoutControl1;
+            this.txtCategory.TabIndex = 23;
             // 
             // txtBrand
             // 
@@ -201,6 +201,73 @@ namespace Pharmacy.Desktop.Module.Forms
             this.txtBrand.Size = new System.Drawing.Size(384, 20);
             this.txtBrand.StyleController = this.layoutControl1;
             this.txtBrand.TabIndex = 24;
+            // 
+            // txtForm
+            // 
+            this.txtForm.Location = new System.Drawing.Point(114, 141);
+            this.txtForm.Name = "txtForm";
+            this.txtForm.Size = new System.Drawing.Size(384, 20);
+            this.txtForm.StyleController = this.layoutControl1;
+            this.txtForm.TabIndex = 25;
+            // 
+            // txtCountInReport
+            // 
+            this.txtCountInReport.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtCountInReport.Location = new System.Drawing.Point(102, 275);
+            this.txtCountInReport.Name = "txtCountInReport";
+            this.txtCountInReport.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtCountInReport.Properties.IsFloatValue = false;
+            this.txtCountInReport.Properties.MaskSettings.Set("mask", "N00");
+            this.txtCountInReport.Properties.MaxValue = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.txtCountInReport.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtCountInReport.Size = new System.Drawing.Size(156, 20);
+            this.txtCountInReport.StyleController = this.layoutControl1;
+            this.txtCountInReport.TabIndex = 16;
+            // 
+            // txtCountOnWarehouse
+            // 
+            this.txtCountOnWarehouse.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtCountOnWarehouse.Enabled = false;
+            this.txtCountOnWarehouse.Location = new System.Drawing.Point(352, 275);
+            this.txtCountOnWarehouse.Name = "txtCountOnWarehouse";
+            this.txtCountOnWarehouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtCountOnWarehouse.Properties.IsFloatValue = false;
+            this.txtCountOnWarehouse.Properties.MaskSettings.Set("mask", "N00");
+            this.txtCountOnWarehouse.Size = new System.Drawing.Size(158, 20);
+            this.txtCountOnWarehouse.StyleController = this.layoutControl1;
+            this.txtCountOnWarehouse.TabIndex = 21;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup2,
+            this.layoutControlItem1,
+            this.layoutControlItem3,
+            this.layoutControlItem15,
+            this.layoutControlItem10});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(522, 348);
+            this.Root.TextVisible = false;
             // 
             // layoutControlGroup2
             // 
@@ -309,16 +376,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem9.Text = "Форма выпуска";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // btnSelectProduct
-            // 
-            this.btnSelectProduct.Location = new System.Drawing.Point(12, 249);
-            this.btnSelectProduct.Name = "btnSelectProduct";
-            this.btnSelectProduct.Size = new System.Drawing.Size(498, 22);
-            this.btnSelectProduct.StyleController = this.layoutControl1;
-            this.btnSelectProduct.TabIndex = 26;
-            this.btnSelectProduct.Text = "Выбрать продукт";
-            this.btnSelectProduct.Click += new System.EventHandler(this.btnSelectProduct_Click);
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnSelectProduct;
@@ -327,23 +384,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem1.Size = new System.Drawing.Size(502, 26);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // txtCountInReport
-            // 
-            this.txtCountInReport.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtCountInReport.Location = new System.Drawing.Point(102, 275);
-            this.txtCountInReport.Name = "txtCountInReport";
-            this.txtCountInReport.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtCountInReport.Properties.IsFloatValue = false;
-            this.txtCountInReport.Properties.MaskSettings.Set("mask", "N00");
-            this.txtCountInReport.Size = new System.Drawing.Size(156, 20);
-            this.txtCountInReport.StyleController = this.layoutControl1;
-            this.txtCountInReport.TabIndex = 16;
             // 
             // layoutControlItem3
             // 
@@ -356,24 +396,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem3.Text = "Кол-во";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(78, 13);
             // 
-            // txtCountOnWarehouse
-            // 
-            this.txtCountOnWarehouse.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtCountOnWarehouse.Enabled = false;
-            this.txtCountOnWarehouse.Location = new System.Drawing.Point(352, 275);
-            this.txtCountOnWarehouse.Name = "txtCountOnWarehouse";
-            this.txtCountOnWarehouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtCountOnWarehouse.Properties.IsFloatValue = false;
-            this.txtCountOnWarehouse.Properties.MaskSettings.Set("mask", "N00");
-            this.txtCountOnWarehouse.Size = new System.Drawing.Size(158, 20);
-            this.txtCountOnWarehouse.StyleController = this.layoutControl1;
-            this.txtCountOnWarehouse.TabIndex = 21;
-            // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.txtCountOnWarehouse;
@@ -384,18 +406,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem15.Size = new System.Drawing.Size(252, 24);
             this.layoutControlItem15.Text = "На складе:";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(78, 13);
-            // 
-            // btnEnrollment
-            // 
-            this.btnEnrollment.Enabled = false;
-            this.btnEnrollment.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEnrollment.ImageOptions.Image")));
-            this.btnEnrollment.Location = new System.Drawing.Point(12, 299);
-            this.btnEnrollment.Name = "btnEnrollment";
-            this.btnEnrollment.Size = new System.Drawing.Size(498, 36);
-            this.btnEnrollment.StyleController = this.layoutControl1;
-            this.btnEnrollment.TabIndex = 27;
-            this.btnEnrollment.Text = "Зачислить";
-            this.btnEnrollment.Click += new System.EventHandler(this.btnEnrollment_Click);
             // 
             // layoutControlItem10
             // 
@@ -413,19 +423,21 @@ namespace Pharmacy.Desktop.Module.Forms
             this.ClientSize = new System.Drawing.Size(522, 348);
             this.Controls.Add(this.layoutControl1);
             this.Name = "SaleItemForm";
-            this.Text = "SaleItemForm";
+            this.Text = "Покупка";
             this.Load += new System.EventHandler(this.SaleItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chRecipe.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBrand.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtForm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountInReport.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountOnWarehouse.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
@@ -436,9 +448,7 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCountInReport.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCountOnWarehouse.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
