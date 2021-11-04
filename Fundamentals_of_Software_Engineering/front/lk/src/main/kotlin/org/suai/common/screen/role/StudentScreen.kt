@@ -56,10 +56,11 @@ fun StrudentScreen(student: MutableState<userModel?>) {
                 Row {   // Фильтры и поиск
                     var find by remember { mutableStateOf("") }
                     var entreFlag by remember { mutableStateOf(false) }
-                    findString(find, entreFlag)
+                    //findString(find, entreFlag)
                     if (entreFlag) {
                         logger.info { "Push enter" }
-                        entreFlag.value true
+                        entreFlag
+                        true
                     }
                 }
                 // отрисока списак задач
@@ -68,10 +69,11 @@ fun StrudentScreen(student: MutableState<userModel?>) {
     }
 }
 
-fun findString(string: String, ef : Boolean) {
+@Composable
+fun findString(string: MutableState<String>, ef : Boolean) {
     TextField(
-        value = string,
-        onValueChange = { string = it }
+        value = string.value,
+        onValueChange = { string.value = it }
     )
 }
 
