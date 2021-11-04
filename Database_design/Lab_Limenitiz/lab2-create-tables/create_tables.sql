@@ -1,4 +1,4 @@
-create table if not exists Clothes_test (
+create table if not exists Clothes (
     id_clothes int not null auto_increment primary key,
     nameClothes varchar(40) not null,
     dataCreate date not null,

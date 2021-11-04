@@ -19,4 +19,7 @@ merge into author as a
         update set a.firstNameAuthor = an.firstNameAuthor,
             a.secondNameAuthor = an.secondNameAuthor,
             a.thirdNameAuthor = an.thirdNameAuthor
+
+    when NOT MATCHED by SOURCE then
+        delete
 ;
