@@ -10,10 +10,6 @@ namespace Pharmacy.Domain.Managers.Products
         {
             return repository.All().Where(x=>x.IsDeleted!=true).ToList();
         }
-        public new bool Delete(Product data)
-        {
-            data.IsDeleted = true;
-            return repository.Save(data)!=null ? true : false;
-        }
+
     }
 }
