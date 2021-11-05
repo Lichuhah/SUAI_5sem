@@ -30,8 +30,7 @@ namespace Pharmacy.Desktop.Module.Forms
 
         private void btnSelectProduct_Click(object sender, EventArgs e)
         {
-            CatalogForm catalog = new CatalogForm();
-            catalog.withCatalog = false;
+            CatalogForm catalog = new CatalogForm(true, false);
             var result = catalog.ShowDialog();
             if (result == DialogResult.OK)
             {

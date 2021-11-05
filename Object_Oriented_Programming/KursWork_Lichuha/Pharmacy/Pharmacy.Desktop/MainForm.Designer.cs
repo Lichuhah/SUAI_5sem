@@ -48,6 +48,8 @@ namespace Pharmacy.Desktop
             this.ControlCashbox = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlNewSale = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ControlCashBoxList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.controlStat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.controlStatTime = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -83,7 +85,8 @@ namespace Pharmacy.Desktop
             this.ControlCatalog,
             this.ControlAdmins,
             this.ControlWarehouse,
-            this.ControlCashbox});
+            this.ControlCashbox,
+            this.controlStat});
             this.Control.Location = new System.Drawing.Point(0, 51);
             this.Control.Name = "Control";
             this.Control.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
@@ -171,6 +174,7 @@ namespace Pharmacy.Desktop
             this.ControlWarehouseItems,
             this.ControlWarehouseReport,
             this.ControleWarehouseChanges});
+            this.ControlWarehouse.Expanded = true;
             this.ControlWarehouse.Name = "ControlWarehouse";
             this.ControlWarehouse.Text = "Склад";
             // 
@@ -202,6 +206,7 @@ namespace Pharmacy.Desktop
             this.ControlCashBoxList});
             this.ControlCashbox.Name = "ControlCashbox";
             this.ControlCashbox.Text = "Касса";
+            this.ControlCashbox.Click += new System.EventHandler(this.ControlCashbox_Click);
             // 
             // ControlNewSale
             // 
@@ -216,6 +221,20 @@ namespace Pharmacy.Desktop
             this.ControlCashBoxList.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.ControlCashBoxList.Text = "Отчетность";
             this.ControlCashBoxList.Click += new System.EventHandler(this.ControlCashBoxList_Click);
+            // 
+            // controlStat
+            // 
+            this.controlStat.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.controlStatTime});
+            this.controlStat.Name = "controlStat";
+            this.controlStat.Text = "Статистика";
+            // 
+            // controlStatTime
+            // 
+            this.controlStatTime.Name = "controlStatTime";
+            this.controlStatTime.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.controlStatTime.Text = "Общая";
+            this.controlStatTime.Click += new System.EventHandler(this.controlStatTime_Click);
             // 
             // fluentDesignFormControl
             // 
@@ -342,7 +361,7 @@ namespace Pharmacy.Desktop
             this.FluentDesignFormControl = this.fluentDesignFormControl;
             this.Name = "MainForm";
             this.NavigationControl = this.Control;
-            this.Text = "FluentDesignForm";
+            this.Text = "Меню";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Control)).EndInit();
@@ -387,5 +406,7 @@ namespace Pharmacy.Desktop
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barLogout;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement controlStat;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement controlStatTime;
     }
 }

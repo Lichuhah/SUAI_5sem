@@ -51,7 +51,10 @@ namespace Pharmacy.Desktop.Module.Grids
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            grid.DataSource = null;
+            var manager = new SaleManager();
+            Sales = manager.All();
+            grid.DataSource = Sales;
         }
 
         private void btnViewElement_Click(object sender, EventArgs e)
@@ -66,7 +69,8 @@ namespace Pharmacy.Desktop.Module.Grids
 
         private void gridView_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
-            gridItems.DataSource = Sales[gridView.FocusedRowHandle].Items;
+            if(gridView.GetFocusedRow()!=null)
+            gridItems.DataSource = Sales.Find(x=>x.ID==((Sale)gridView.GetFocusedRow()).ID).Items;
         }
     }
 }

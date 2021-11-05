@@ -42,7 +42,6 @@ namespace Pharmacy.Desktop.Module.Forms
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.cmbPharmacy = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbRole = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtPas1 = new DevExpress.XtraEditors.TextEdit();
             this.txtLogin = new DevExpress.XtraEditors.TextEdit();
@@ -53,12 +52,10 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPharmacy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbRole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPas1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).BeginInit();
@@ -69,7 +66,6 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,7 +150,7 @@ namespace Pharmacy.Desktop.Module.Forms
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 187);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 166);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(492, 0);
             // 
@@ -164,7 +160,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 163);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 142);
             // 
             // barDockControlRight
             // 
@@ -172,11 +168,10 @@ namespace Pharmacy.Desktop.Module.Forms
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(492, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 163);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 142);
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.cmbPharmacy);
             this.layoutControl1.Controls.Add(this.cmbRole);
             this.layoutControl1.Controls.Add(this.txtPas1);
             this.layoutControl1.Controls.Add(this.txtLogin);
@@ -186,22 +181,9 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControl1.Location = new System.Drawing.Point(0, 24);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(492, 163);
+            this.layoutControl1.Size = new System.Drawing.Size(492, 142);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // cmbPharmacy
-            // 
-            this.cmbPharmacy.Enabled = false;
-            this.cmbPharmacy.Location = new System.Drawing.Point(118, 132);
-            this.cmbPharmacy.MenuManager = this.barManager1;
-            this.cmbPharmacy.Name = "cmbPharmacy";
-            this.cmbPharmacy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbPharmacy.Size = new System.Drawing.Size(345, 20);
-            this.cmbPharmacy.StyleController = this.layoutControl1;
-            this.cmbPharmacy.TabIndex = 8;
-            this.cmbPharmacy.Visible = false;
             // 
             // cmbRole
             // 
@@ -215,7 +197,7 @@ namespace Pharmacy.Desktop.Module.Forms
             "Менеджер",
             "Кассир",
             "Работник склада"});
-            this.cmbRole.Size = new System.Drawing.Size(345, 20);
+            this.cmbRole.Size = new System.Drawing.Size(362, 20);
             this.cmbRole.StyleController = this.layoutControl1;
             this.cmbRole.TabIndex = 7;
             this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbRole_SelectedIndexChanged);
@@ -225,7 +207,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.txtPas1.Location = new System.Drawing.Point(118, 60);
             this.txtPas1.MenuManager = this.barManager1;
             this.txtPas1.Name = "txtPas1";
-            this.txtPas1.Size = new System.Drawing.Size(345, 20);
+            this.txtPas1.Size = new System.Drawing.Size(362, 20);
             this.txtPas1.StyleController = this.layoutControl1;
             this.txtPas1.TabIndex = 6;
             // 
@@ -234,7 +216,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.txtLogin.Location = new System.Drawing.Point(118, 36);
             this.txtLogin.MenuManager = this.barManager1;
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(345, 20);
+            this.txtLogin.Size = new System.Drawing.Size(362, 20);
             this.txtLogin.StyleController = this.layoutControl1;
             this.txtLogin.TabIndex = 5;
             // 
@@ -243,7 +225,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.txtName.Location = new System.Drawing.Point(118, 12);
             this.txtName.MenuManager = this.barManager1;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(345, 20);
+            this.txtName.Size = new System.Drawing.Size(362, 20);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 4;
             // 
@@ -251,7 +233,7 @@ namespace Pharmacy.Desktop.Module.Forms
             // 
             this.txtPas2.Location = new System.Drawing.Point(118, 84);
             this.txtPas2.Name = "txtPas2";
-            this.txtPas2.Size = new System.Drawing.Size(345, 20);
+            this.txtPas2.Size = new System.Drawing.Size(362, 20);
             this.txtPas2.StyleController = this.layoutControl1;
             this.txtPas2.TabIndex = 6;
             // 
@@ -264,10 +246,9 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem4,
-            this.layoutControlItem5,
             this.layoutControlItem6});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(475, 164);
+            this.Root.Size = new System.Drawing.Size(492, 142);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -276,7 +257,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem1.CustomizationFormText = "Имя";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(455, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(472, 24);
             this.layoutControlItem1.Text = "Имя";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -285,7 +266,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem2.Control = this.txtLogin;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(455, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(472, 24);
             this.layoutControlItem2.Text = "Логин";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -294,7 +275,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem3.Control = this.txtPas1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(455, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(472, 24);
             this.layoutControlItem3.Text = "Пароль";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -303,19 +284,9 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem4.Control = this.cmbRole;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(455, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(472, 26);
             this.layoutControlItem4.Text = "Роль";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(94, 13);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.cmbPharmacy;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(455, 24);
-            this.layoutControlItem5.Text = "Аптека";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(94, 13);
-            this.layoutControlItem5.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem6
             // 
@@ -324,7 +295,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.layoutControlItem6.CustomizationFormText = "Пароль";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(455, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(472, 24);
             this.layoutControlItem6.Text = "Повторите пароль";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(94, 13);
             // 
@@ -332,19 +303,18 @@ namespace Pharmacy.Desktop.Module.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 187);
+            this.ClientSize = new System.Drawing.Size(492, 166);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "UserForm";
-            this.Text = "UserForm";
+            this.Text = "Пользователь";
             this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPharmacy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbRole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPas1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).EndInit();
@@ -355,7 +325,6 @@ namespace Pharmacy.Desktop.Module.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -376,7 +345,6 @@ namespace Pharmacy.Desktop.Module.Forms
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbPharmacy;
         private DevExpress.XtraEditors.ComboBoxEdit cmbRole;
         private DevExpress.XtraEditors.TextEdit txtPas1;
         private DevExpress.XtraEditors.TextEdit txtLogin;
@@ -385,7 +353,6 @@ namespace Pharmacy.Desktop.Module.Forms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.TextEdit txtPas2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }

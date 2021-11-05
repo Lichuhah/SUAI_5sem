@@ -57,7 +57,7 @@ namespace Pharmacy.Desktop.Module
         }
         private void btnViewElement_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            TypeProduct item = ((List<TypeProduct>)grid.DataSource)[gridView.FocusedRowHandle];
+            TypeProduct item = (TypeProduct)gridView.GetFocusedRow();
             TypeForm form = new TypeForm(item.ID);
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 loadData();
@@ -73,7 +73,7 @@ namespace Pharmacy.Desktop.Module
         private void btnDeleteElement_Click(object sender, EventArgs e)
         {
             TypeProductManager manager = new TypeProductManager();
-            if (manager.Delete(((List<TypeProduct>)grid.DataSource)[gridView.FocusedRowHandle]))
+            if (manager.Delete((TypeProduct)gridView.GetFocusedRow()))
                 loadData();
 
         }

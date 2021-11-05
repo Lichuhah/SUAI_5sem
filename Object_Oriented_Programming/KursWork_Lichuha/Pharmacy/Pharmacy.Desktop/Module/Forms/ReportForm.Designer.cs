@@ -530,7 +530,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.ClientSize = new System.Drawing.Size(612, 440);
             this.Controls.Add(this.layoutControl1);
             this.Name = "ReportForm";
-            this.Text = "ReportForm";
+            this.Text = "Новое зачисление/списание";
             this.Load += new System.EventHandler(this.ReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

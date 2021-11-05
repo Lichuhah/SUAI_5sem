@@ -17,10 +17,11 @@ namespace Pharmacy.Domain.Models
         public virtual string Password { get; set; }
         [DisplayName("Роль")]
         public virtual UserRole Role { get; set; }
-        [DisplayName("Аптека")]
+        [Browsable(false)]
         public virtual string PharmacyAddress { 
             get { return Pharmacy != null ? Pharmacy.Address : null; }
         }
+        [Browsable(false)]
         public virtual PharmacyModel Pharmacy { get; set; }
     }
 }

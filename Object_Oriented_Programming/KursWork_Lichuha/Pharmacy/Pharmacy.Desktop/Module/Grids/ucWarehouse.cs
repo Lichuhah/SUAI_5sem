@@ -1,6 +1,7 @@
 ﻿using DevExpress.DXperience.Demos;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
+using Pharmacy.Desktop.Module.Forms;
 using Pharmacy.Domain.Managers.Warehouse;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,8 @@ namespace Pharmacy.Desktop.Module.Grids
 
         private void barBtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            ReportForm form = new ReportForm();
+            form.ShowDialog();
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

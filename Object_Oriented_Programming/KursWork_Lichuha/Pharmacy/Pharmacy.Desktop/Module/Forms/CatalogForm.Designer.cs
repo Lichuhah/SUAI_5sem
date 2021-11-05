@@ -268,7 +268,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.ClientSize = new System.Drawing.Size(660, 406);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "CatalogForm";
-            this.Text = "CatalogForm";
+            this.Text = "Продукция";
             this.Load += new System.EventHandler(this.CatalogForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);

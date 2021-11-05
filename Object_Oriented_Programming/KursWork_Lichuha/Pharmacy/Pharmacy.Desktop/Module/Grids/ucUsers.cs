@@ -65,7 +65,7 @@ namespace Pharmacy.Desktop.Module
         private void btnDeleteElement_Click(object sender, EventArgs e)
         {
             UserManager manager = new UserManager();
-            if (manager.Delete(((List<User>)grid.DataSource)[gridView.FocusedRowHandle]))
+            if (manager.Delete((User)gridView.GetFocusedRow()))
                 loadData();
 
         }
@@ -77,7 +77,7 @@ namespace Pharmacy.Desktop.Module
 
         private void btnViewElement_Click(object sender, EventArgs e)
         {
-            User user = ((List<User>)grid.DataSource)[gridView.FocusedRowHandle];
+            User user = (User)gridView.GetFocusedRow();
             UserForm form = new UserForm(user.ID);
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 loadData();

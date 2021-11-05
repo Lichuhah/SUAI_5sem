@@ -11,5 +11,8 @@ namespace Pharmacy.Domain.Models.Products
 
         [DisplayName("Единица измеоения")]
         public virtual string Unit { get; set; }
+
+        [Browsable(false)]
+        public virtual bool IsDeleted { get; set; }
     }
 }

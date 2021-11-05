@@ -202,7 +202,7 @@ namespace Pharmacy.Desktop.Module.Forms
             this.ClientSize = new System.Drawing.Size(625, 481);
             this.Controls.Add(this.layoutControl1);
             this.Name = "SaleForm";
-            this.Text = "SaleForm";
+            this.Text = "Чек";
             this.Load += new System.EventHandler(this.SaleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

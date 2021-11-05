@@ -9,16 +9,15 @@ namespace KursWork
 {
     public class DepartamentManager
     {
-        public DepartamentManager()
+        public DepartamentManager(Workbook ObjWorkBook)
         {
             Departaments = new List<Departament>();
+            this.ObjWorkBook = ObjWorkBook;
         }
         public List<Departament> Departaments { get; set; }
-
+        Workbook ObjWorkBook;
         public void Load()
         {
-            Application ObjExcel = new Application();
-            Workbook ObjWorkBook = ObjExcel.Workbooks.Open(@"D:\Study\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsx", 0, true, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
             Worksheet ObjWorkSheet = (Worksheet)ObjWorkBook.Sheets[2];
             for (int i = 5; i < 9; i++)
             {
@@ -29,13 +28,10 @@ namespace KursWork
                 departament.MaxCount = Convert.ToInt32(range.Value);
                 Departaments.Add(departament);
             }
-            ObjExcel.Quit();
         }
 
         public void Save()
         {
-            Application ObjExcel = new Application();
-            Workbook ObjWorkBook = ObjExcel.Workbooks.Open(@"D:\Study\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsx", 0, false, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
             Worksheet ObjWorkSheet = (Worksheet)ObjWorkBook.Sheets[2];
             for (int i = 5; i < 9; i++)
             {
@@ -46,7 +42,6 @@ namespace KursWork
                 range2.Value = departament.MaxCount;
             }
             ObjWorkBook.Save();
-            ObjExcel.Quit();
         }
 
     }

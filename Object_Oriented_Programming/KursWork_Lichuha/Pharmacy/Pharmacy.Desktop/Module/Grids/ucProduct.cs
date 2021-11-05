@@ -5,6 +5,8 @@ using DevExpress.DXperience.Demos;
 using DevExpress.XtraGrid.Columns;
 using Pharmacy.Domain.Models.Products;
 using System.Collections.Generic;
+using Pharmacy.Domain.Managers.Warehouse;
+using System.Linq;
 
 namespace Pharmacy.Desktop.Module
 {
@@ -52,7 +54,7 @@ namespace Pharmacy.Desktop.Module
 
         private void btnViewElement_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            Product product = ((List<Product>)grid.DataSource)[gridView.FocusedRowHandle];
+            Product product = (Product)gridView.GetFocusedRow();
             ProductForm form = new ProductForm(product.ID);
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 loadData();
@@ -67,9 +69,19 @@ namespace Pharmacy.Desktop.Module
 
         private void btnDeleteElement_Click(object sender, EventArgs e)
         {
-            ProductManager manager = new ProductManager();
-            if(manager.Delete(((List<Product>)grid.DataSource)[gridView.FocusedRowHandle])) 
-                loadData();
+            Product item = (Product)gridView.GetFocusedRow();
+            var warManager = new WareHouseItemManager();
+            var list = warManager.All();
+            if (list.Where(x => x.Product.ID == item.ID).Any())
+            {
+                XtraMessageBox.Show("На складе еще имеется данный товар");
+            }
+            else
+            {
+                ProductManager manager = new ProductManager();
+                if (manager.Delete(item))
+                    loadData();
+            }
             
         }
 

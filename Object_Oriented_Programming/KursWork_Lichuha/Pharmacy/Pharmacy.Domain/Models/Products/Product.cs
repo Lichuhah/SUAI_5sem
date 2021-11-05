@@ -4,6 +4,9 @@ namespace Pharmacy.Domain.Models.Products
 {
     public class Product : BaseNamedEntity
     {
+        [DisplayName("Тип")]
+        public virtual string TypeName { get { return Category != null &&Category.Type != null ? Category.Type.Name : null; } }
+
         [DisplayName("Название категории")]
         public virtual string CategoryName { get { return Category != null ? Category.Name : null; } }
 
