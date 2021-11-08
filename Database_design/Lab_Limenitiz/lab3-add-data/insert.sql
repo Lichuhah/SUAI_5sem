@@ -12,7 +12,8 @@ insert into performance (id_performance, namePerformance, datePerformance)
 insert into author (id_author, firstNameAuthor)
     values (1, 'Имя 1'),
            (2, 'Имя 2'),
-           (3, 'Имя 3');
+           (3, 'Имя 3'),
+           (4, 'Имя 4');
 
 
 insert into clothes (id_clothes, nameClothes, dataCreate, sizeClothes)
