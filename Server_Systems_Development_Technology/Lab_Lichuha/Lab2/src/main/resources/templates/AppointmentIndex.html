@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Pharmacy Application</title>
+</head>
+<body>
+<center>
+    <h1>Appointments Management</h1>
+    <h2>
+        <a th:href="@{/appointments/get}">Add New Appointment</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{/}">Main menu</a>
+    </h2>
+</center>
+<div align="center">
+    <form>
+    <table border="1" cellpadding="5">
+        <caption><h2>List of Appointment</h2></caption>
+        <tr>
+            <th>Name Doctor</th>
+            <th>Name Patient</th>
+            <th>Info</th>
+        </tr>
+        <tbody>
+        <tr th:each="app : ${listApp}">
+                <td th:text="${app.doc.name}" /></td>
+                <td th:text="${app.pat.name}" /></td>
+                <td th:text="${app.info}" /></td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button th:with="url = @{/appointments/delete{id}(id=${app.id})}" th:onclick="sendDelete([[${url}]])">DeleteJS</button>
+                </td>
+
+        </tr>
+        </tbody>
+    </table>
+    </form>
+</div>
+</body>
+</html>
+
+
+<script th:inline="javascript">
+    function sendDelete(url) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("DELETE", url, true);
+        xhttp.onload = function () {
+            let responseURL = xhttp.responseURL;
+            console.log("Redirecting to:", responseURL);
+            window.location.replace("/appointments/");
+        };
+        xhttp.send();
+    }
+</script>

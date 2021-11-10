@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Pharmacy Application</title>
+</head>
+<body>
+<center>
+    <h1>Doctors Management</h1>
+    <h2>
+        <a th:href="@{/doctors/get-1}">Add New Doctor</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{/doctors}"></a>
+        &nbsp;
+        <a th:href="@{/}">Main menu</a>
+    </h2>
+</center>
+<div align="center">
+    <form>
+    <table border="1" cellpadding="5">
+        <caption><h2>List of Doctors</h2></caption>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Middle Name</th>
+            <th>Cabinet</th>
+            <th>Speciality</th>
+        </tr>
+        <tr th:each="doctor : ${listDoctor}">
+                <td th:text="${doctor.name}"></td>
+                <td th:text="${doctor.surname}"></td>
+                <td th:text="${doctor.midname}"></td>
+                <td th:text="${doctor.cabinet}"></td>
+                <td th:text="${doctor.speciality}"></td>
+                <td>
+                    <button th:formaction="@{/doctors/get{id}(id=${doctor.id})}">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button th:with="url = @{/doctors/delete{id}(id=${doctor.id})}" th:onclick="sendDelete([[${url}]])">DeleteJS</button>
+                </td>
+        </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>
+
+<script th:inline="javascript">
+    function sendDelete(url) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("DELETE", url, true);
+        xhttp.onload = function () {
+            let responseURL = xhttp.responseURL;
+            console.log("Redirecting to:", responseURL);
+            window.location.replace("/doctors/");
+        };
+        xhttp.send();
+    }
+</script>

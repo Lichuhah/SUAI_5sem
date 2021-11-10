@@ -12,5 +12,5 @@ CREATE PROCEDURE del_area
 		IF NOT EXISTS (SELECT * FROM Area WHERE Area.ID_Line=@lineDelId)
 			DELETE FROM Line WHERE Line.ID=@lineDelId
 	 END
-	 ELSE PRINT 'На участке зарегестрированы здания'
+	 ELSE PRINT 'Error'
 	 END

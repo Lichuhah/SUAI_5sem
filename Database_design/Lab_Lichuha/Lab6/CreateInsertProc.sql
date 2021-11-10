@@ -12,6 +12,6 @@ CREATE PROCEDURE ins_area
 		IF NOT EXISTS (SELECT * FROM Line WHERE Line.Number=@lineNum)
 			 INSERT INTO Line VALUES (@lineNum)
 
-		SET @id_line_new = (SELECT TOP 1 Line.ID FROM Line WHERE Line.Number=@lineNum)
-		INSERT INTO Area VALUES (@areaNum, @id_line_new, @size, @price, @price)
+		SET @id_line_new = (SELECT TOP 1 Line.ID FROM Line ORDER BY ID DESC)
+		INSERT INTO Area VALUES (@areaNum, @id_line_new, @size, @price)
      END

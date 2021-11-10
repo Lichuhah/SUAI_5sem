@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Pharmacy Application</title>
+</head>
+<body>
+<center>
+    <h1>Doctor Management</h1>
+    <h2>&nbsp;&nbsp;&nbsp;
+        <a th:href="@{/doctors}">List All Doctors</a>
+        &nbsp;
+        <a th:href="@{/}">Main menu</a>
+    </h2>
+</center>
+<div align="center">
+    <form action ="#" th:object="${doctor}" method="post">
+    <table border="1" cellpadding="5">
+        <caption>
+            <h2 th:if="${doctor.id != null}">Edit Doctor</h2>
+            <h2 th:if="${doctor.id == null}">Add Doctor</h2>
+        </caption>
+            <input type="hidden" name="id" th:value="${doctor.id}"/>
+        <tr>
+            <th>Name: </th>
+            <td>
+                <input type="text" name="name" size="45" th:value="${doctor.name}" />
+            </td>
+        </tr>
+        <tr>
+            <th>Surname: </th>
+            <td>
+                <input type="text" name="surname" size="45" th:value="${doctor.surname}" />
+            </td>
+        </tr>
+        <tr>
+            <th>Middle Name: </th>
+            <td>
+                <input type="text" name="midname" size="45" th:value="${doctor.midname}" />
+            </td>
+        </tr>
+        <tr>
+            <th>Cabinet: </th>
+            <td>
+                <input type="number" name="cabinet" size="45" th:value="${doctor.cabinet}" />
+            </td>
+        </tr>
+        <tr>
+            <th>Speciality: </th>
+            <td>
+                <input type="text" name="speciality" size="45" th:value="${doctor.speciality}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button th:if="${doctor.id==null}" type="submit" value="Add" th:formaction="@{post}" >Добавить</button>
+                <button th:if="${doctor.id!=null}" type="submit" value="Save" th:formaction="@{edit{id}(id=${doctor.id})}" th:method="put">Сохранить</button>
+                <button th:with="url = @{/doctors/edit{id}(id=${doctor.id})}" th:onclick="sendDelete([[${url}]],[[${doctor}]])">DeleteJS</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>
+
+<script th:inline="javascript">
+    function sendDelete(url, data) {
+        console.log(url);
+        console.log(data);
+        var json = JSON.stringify(data);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("PUT", url, true);
+        xhttp.setRequestHeader('Content-type','application/json; charset=utf-8');
+        xhttp.onload = function () {
+            let responseURL = xhttp.responseURL;
+            console.log("Redirecting to:", responseURL);
+            //window.location.replace("/doctors/");
+        };
+        xhttp.send(json);
+    }
+</script>

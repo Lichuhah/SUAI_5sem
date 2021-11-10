@@ -23,8 +23,9 @@ CREATE PROCEDURE infoGard
 
 	 SELECT * FROM #GardInfo1
 
-	 SELECT AVG (CountAreas) as 'Среднее кол-во участков',AVG(CountBuilds) as 'Среднее кол-во строений'FROM #GardInfo1
+	 SELECT AVG (CONVERT(float, CountAreas)) as 'Average count areas',AVG(CONVERT(float, CountBuilds)) as 'Average count builds' FROM #GardInfo1
 
 	 DROP TABLE #GardInfo1
 
 	 END
+	 GO
