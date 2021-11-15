@@ -1,4 +1,4 @@
-package com.example.demo.controller
+package org.trsis.lab3.lab3.controller
 
 import com.example.demo.data.Storage
 import com.example.demo.data.objFactory
