@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        refresh();
+    })
+
+    function getPat(idGet){
+        window.location.href='/patients/view'+idGet;
+    }
+
+    function refresh(){
+        $.get('patients/all',function (data){
+            console.log(data);
+            let table = "<table border='1'>";
+            table = `${table}<caption><h2>List of Patients</h2></caption>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Middle Name</th>
+        </tr>`;
+            for(i=0; i<data.length; i++){
+                //table=table+"<tr><td>"+data[i].name+"</td><td>"+data[i].surname+"</td><td><button onclick='deleteDoc("+data[i].id+")'>DELETE</button></td></tr>";
+                table = `${table}<tr>
+                <td>${data[i].name}</td>
+                <td>${data[i].surname}</td>
+                <td>${data[i].midname}</td>
+                <td>
+                    <button onclick='getPat(${data[i].id})'>Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick='deletePat(${// "                    <button th:formaction=\"@{/doctors/get{id}(id=${doctor.id})}\">Edit</button>\n" +
+                    data[i].id})'>Delete</button>
+                </td>
+        </tr>`;
+            }
+
+            table = table + "</table>";
+
+            $("#test_patient").html(table);
+        })
+    }
+
+    function deletePat(idDel){
+        $.ajax({
+            url:'patients/delete'+idDel,
+            type: "DELETE",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (){
+                refresh();
+            },
+            error: function (error){
+                console.log(error);
+            }
+        })
+    }
+</script>
+
+<body>
+<center>
+    <h1>Patient Management</h1>
+    <h2>
+        <a href="@{/patients/view-1}">Add New Patient</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="@{/patients}"></a>
+        &nbsp;
+        <a href="@{/}">Main menu</a>
+    </h2>
+</center>
+<div align="center" id="test_patient">
+    <form>
+        <input type="">
+    </form>
+</div>
+</body>
+</html>
