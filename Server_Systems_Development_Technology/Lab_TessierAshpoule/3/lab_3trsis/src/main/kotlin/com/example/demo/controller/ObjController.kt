@@ -13,9 +13,10 @@ class ObjController {
     fun addObj(
         @RequestParam("name") name: String,
         @RequestParam("count") count: Int,
-        @RequestParam("roomId") roomId: Int) {
+        @RequestParam("roomId") roomId: Int
+    ) {
         val obj = objFactory(name, count)
-        if ( obj != null ) {
+        if (obj != null) {
             Storage.data.roomList
                 .filter { it.id == roomId }
                 .forEach { it.put(obj) }
@@ -23,8 +24,7 @@ class ObjController {
             ResponseEntity
                 .ok()
                 .body("successfully")
-        }
-        else
+        } else
             ResponseEntity
                 .badRequest()
                 .body("incorrect data")
@@ -35,16 +35,17 @@ class ObjController {
     fun putObj(
         @RequestParam("objName") objName: String,
         @RequestParam("roomId") roomId: Int,
-        @RequestParam("count") count: Int): ResponseEntity<String> {
+        @RequestParam("count") count: Int
+    ): ResponseEntity<String> {
         var f = false
-        for ( room in Storage.data.roomList)
-            if ( room.id == roomId )
-                for ( obj in room.listObj )
-                    if ( obj.name == objName ) {
+        for (room in Storage.data.roomList)
+            if (room.id == roomId)
+                for (obj in room.listObj)
+                    if (obj.name == objName) {
                         f = true
                         obj.count = count
                     }
-        return if ( f )
+        return if (f)
             ResponseEntity
                 .ok()
                 .body("successfully")
@@ -58,20 +59,21 @@ class ObjController {
     @DeleteMapping("/delete")
     fun deleteObj(
         @RequestParam("objName") objName: String,
-        @RequestParam("roomId") roomId: Int): ResponseEntity<String> {
+        @RequestParam("roomId") roomId: Int
+    ): ResponseEntity<String> {
         var f = false
-        for ( room in Storage.data.roomList)
-            if ( room.id == roomId )
-                for ( i in 0 until room.listObj.size )
-                    if ( room.listObj[i].name == objName ) {
+        for (room in Storage.data.roomList)
+            if (room.id == roomId)
+                for (i in 0 until room.listObj.size)
+                    if (room.listObj[i].name == objName) {
                         f = true
                         room.listObj.removeAt(i)
                     }
-        return if ( f )
+        return if (f)
             ResponseEntity
                 .ok()
                 .body("successfully")
-            else
+        else
             ResponseEntity
                 .badRequest()
                 .body("error")
