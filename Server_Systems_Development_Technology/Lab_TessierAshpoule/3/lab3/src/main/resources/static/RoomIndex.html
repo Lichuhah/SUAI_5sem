@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        refresh();
+    })
+
+    function getRoom(idGet){
+        window.location.href='/room/view'+idGet;
+    }
+
+    function refresh(){
+        $.get('room/all',function (data){
+            console.log(data);
+            let table = "<table border='1'>";
+        table = `${table}<caption><h2>Room list</h2></caption>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>`;
+            for( i = 0; i < data.length; i++){
+                table = `${table}<tr>
+                <td>${data[i].id}</td>
+                <td>${data[i].name}</td>
+                <td>
+                    <button onclick='getRoom(${data[i].id})'>
+                        Edit
+                    </button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick='deleteRoom(${// "                    <button th:formaction=\"@{/doctors/get{id}(id=${doctor.id})}\">Edit</button>\n" +
+                    data[i].id})'>
+                        Delete
+                    </button>
+                </td>
+        </tr>`;
+        }
+        table = table + "</table>";
+        $("#test_doctor").html(table);
+    })
+    }
+
+    function deleteRoom(idDel){
+        $.ajax({
+            url:'room/delete'+idDel,
+            type: "DELETE",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (){
+                refresh();
+            },
+            error: function (){
+                console.log("");
+            }
+        })
+    }
+</script>
+
+<body>
+<center>
+    <h1>Room</h1>
+    <h2>
+        <a href="@{/room/view-1}">Add Room</a>
+        <a href="@{/ri}"></a>
+        <a href="@{/}">
+            Main menu
+        </a>
+    </h2>
+</center>
+<div align="center" id="test_doctor">
+<form>
+    <input type="">
+</form>
+</div>
+</body>
+</html>

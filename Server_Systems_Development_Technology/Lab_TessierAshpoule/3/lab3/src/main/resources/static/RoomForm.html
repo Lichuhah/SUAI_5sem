@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    var roomId = 11//[[${roomId}]];
+    console.log(roomId);
+    $(document).ready(function (){
+       if(roomId!==-1){
+           getData()
+       };
+    })
+
+    function getData(){
+        $.ajax({
+            url:'/room/get'+roomId,
+            type: "GET",
+            dataType: "json",
+            success: function (result){
+                $("#txtId").val(roomId);
+                $("#txtName").val(result.name);
+            },
+            error: function (){
+            }
+        })
+    }
+
+    function saveData() {
+        $.ajax({
+            url: "/room/add/",
+            type: "post",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            traditional: true,
+            success: function (data) {
+                roomId = data.body;
+                getData();
+            },
+            error: function (error) {
+                console.log(error);
+            },
+            data: JSON.stringify({
+                id: $("#txtId").val(),
+                name: $("#txtName").val()
+            })
+        })
+    }
+</script>
+
+<body>
+<div align="center" id ="formroom"></div>
+ <form id="#form">
+     <table border="1" cellpadding="5" align="center">
+        <caption>
+            <h2>Room</h2>
+            </caption>
+            <tr><th>Id: </th><td>
+                <input type="text" name="surname" size="45" id="txtId" />
+            </td></tr><tr>
+            <th>Name: </th><td>
+                <input type="text" name="name" size="45" id="txtName" required="required"/>
+            </td></tr><tr><td colspan="2" align="center">
+                <button type="button" value="save" onclick='saveData()'>Save</button>
+        </table>
+ </form>
+</body>
+</html>
