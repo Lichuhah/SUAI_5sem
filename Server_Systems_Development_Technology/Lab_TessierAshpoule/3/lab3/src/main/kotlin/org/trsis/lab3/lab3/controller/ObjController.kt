@@ -6,19 +6,16 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/obj")
 class ObjController {
     /** добавление объекта в комнату */
-    @PostMapping("/add")
-    fun addObj(
-        @RequestParam("name") name: String,
-        @RequestParam("count") count: Int,
-        @RequestParam("roomId") roomId: Int
-    ) {
-        val obj = objFactory(name, count)
-        if (obj != null) {
+    @RequestMapping(value = ["obj/add"], method = [RequestMethod.POST])
+    fun addObj(@RequestBody body: String): ResponseEntity<String> {
+        val obj = objFactory(
+            body.substringAfter("""e":"""").substringBefore("""","id":""""),
+            body.substringAfter("""","id":"""").substringBefore("""","roomId":"""").toInt())
+        return if (obj != null) {
             Storage.data.roomList
-                .filter { it.id == roomId }
+                .filter { it.id == body.substringAfter(""","roomId":"""").substringBefore(""""}""").toInt() }
                 .forEach { it.put(obj) }
 
             ResponseEntity
@@ -31,17 +28,16 @@ class ObjController {
     }
 
     /** Изменение количества объектов */
-    @PutMapping("/put")
-    fun putObj(
-        @RequestParam("objName") objName: String,
-        @RequestParam("roomId") roomId: Int,
-        @RequestParam("count") count: Int
-    ): ResponseEntity<String> {
+    @RequestMapping(value = ["obj/put"], method = [RequestMethod.PUT])
+    fun putObj(@RequestBody body: String): ResponseEntity<String> {
+        val name = body.substringAfter("""{"Name":"""").substringBefore("""","roomId":"""")
+        val roomId = body.substringAfter("""","roomId":"""").substringBefore("""","count":"""").toInt()
+        val count = body.substringAfter("""","count":"""").substringBefore(""""}""").toInt()
         var f = false
         for (room in Storage.data.roomList)
             if (room.id == roomId)
                 for (obj in room.listObj)
-                    if (obj.name == objName) {
+                    if (obj.name == name ) {
                         f = true
                         obj.count = count
                     }
@@ -56,11 +52,10 @@ class ObjController {
     }
 
     /** Удаление объекта */
-    @DeleteMapping("/delete")
-    fun deleteObj(
-        @RequestParam("objName") objName: String,
-        @RequestParam("roomId") roomId: Int
-    ): ResponseEntity<String> {
+    @RequestMapping(value = ["obj/delete"], method = [RequestMethod.DELETE])
+    fun deleteObj(@RequestBody body: String ): ResponseEntity<String> {
+        val objName = body.substringAfter("""{"Name":"""").substringBefore("""","roomId":"""")
+        val roomId = body.substringAfter("""","roomId":"""").substringBefore(""""}""").toInt()
         var f = false
         for (room in Storage.data.roomList)
             if (room.id == roomId)

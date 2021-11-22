@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    function AddRoom() {
+        $.ajax({
+            url: "/room/add",
+            type: "post",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            traditional: true,
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (error) {
+                console.log(error);
+            },
+            data: JSON.stringify({
+                name: $("#txtName").val(),
+                id: $("#txtId").val()
+            })
+        })
+    }
+</script>
+
+<body>
+<div align="center" id ="roomadd"></div>
+<form id="#form">
+    <table border="1" cellpadding="5" align="center">
+        <caption>
+            <h2>Room</h2>
+        </caption>
+        <tr>
+            <th>Name: </th>
+            <td>
+                <input type="text" name="name" size="45" id="txtName" required="required"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Id: </th>
+            <td>
+                <input type="number" name="roomId" size="45" id="txtId" required="required"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button type="button" value="add" onclick='AddRoom()'>Add
+                </button>
+    </table>
+</form>
+<a href="/">Menu</a>
+</body>
+</html>

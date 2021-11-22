@@ -23,7 +23,6 @@ object Storage {
         }
     }
 
-
     /** удаление комнаты **/
     fun deleteRoom(id: Int): Boolean {
         for (i in 0 until data.roomList.size) {
