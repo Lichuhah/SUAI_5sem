@@ -118,6 +118,8 @@ select firstNameAuthor, a.id_author
 # -----------------------------------------------------------------------------
 # except
 
+/*
+
 (select firstNameAuthor, a.id_author
     from clothes_author ca
         join author a
@@ -151,6 +153,8 @@ except
     where
         lower(p.namePerformance) like lower('%Золушка%')
 );
+
+*/
 
 # -----------------------------------------------------------------------------
 # left join
