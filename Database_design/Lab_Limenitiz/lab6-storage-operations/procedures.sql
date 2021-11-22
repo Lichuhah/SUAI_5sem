@@ -9,59 +9,39 @@
 #       - затем вставляем в дочернюю
 
 
-# вставляем одежду;
-# если (существует автор):
-#       связываем с ним одежду;
-# иначе:
-#       добавляем автора;
-#       связываем с ним одежду;
-
 delimiter //
 
-create procedure insert_clothes (name_clothes varchar(20), date_create date, size_clothes int,
-                                    name_author varchar(20)) begin
-    declare id_author_new int;
-    declare id_clothes_new int;
+create procedure insert_concrete_detail (name_type varchar(20), color_detail varchar(20)) begin
 
-    insert into clothes (nameClothes, dataCreate, sizeClothes)
-            values (name_clothes, date_create, size_clothes);
-    set id_clothes_new = last_insert_id();
+    declare type_id_new int;
 
-    if exists(select a.id_author from author a where a.firstNameAuthor = name_author) then
-        select a.id_author into id_author_new from author a where a.firstNameAuthor = name_author;
-        insert into clothes_author(id_clothes, id_author)
-                values (id_clothes_new, id_author_new);
+    if exists(select * from type_detail where nameType = name_type) then
+        select td.id_type_detail into type_id_new from type_detail td where nameType = name_type;
     else
         begin
-            insert into author (firstNameAuthor)
-                    values (name_author);
-            set id_author_new = last_insert_id();
-
-            insert into clothes_author(id_clothes, id_author)
-                    values (id_clothes_new, id_author_new);
+            insert into type_detail(nameType)
+                values (name_type);
+            set type_id_new = last_insert_id();
         end;
     end if;
+
+    insert into concrete_detail (id_type_detail, colorDetail)
+        values (type_id_new, color_detail);
 end; //
 
 delimiter ;
 
 # ------------------------------------------------------------------------------------------------
-call insert_clothes('test1',
-                     '2021-11-21',
-                     100,
-                    'Имя 1');
+call insert_concrete_detail('Не существующий тип', 'Белый');
+call insert_concrete_detail('Брюки', 'Розовый');
 
-call insert_clothes('test2',
-                     '2021-11-21',
-                     100,
-                    'Имя 4');
 
-select a.id_author, a.firstNameAuthor, c.id_clothes, c.nameClothes
-    from clothes_author ca
-        join author a on a.id_author = ca.id_author
-        join clothes c on c.id_clothes = ca.id_clothes
-    where nameClothes like 'test%';
-
+# details list
+select cd.id_concrete_detail, cd.colorDetail, td.id_type_detail, td.nameType
+from concrete_detail cd
+    right join type_detail td
+    on cd.id_type_detail = td.id_type_detail
+group by cd.id_concrete_detail;
 # ================================================================================================
 # 2
 # — удаление с очисткой справочников
