@@ -1,4 +1,4 @@
-package suai.trsis2021.lab3.controller;
+package suai.trsis2021.lab4.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

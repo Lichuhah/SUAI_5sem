@@ -1,7 +1,7 @@
-package suai.trsis2021.lab3.model;
+package suai.trsis2021.lab4.model;
 
 import lombok.*;
-import suai.trsis2021.lab3.entity.CostEntity;
+import suai.trsis2021.lab4.entity.CostEntity;
 
 public class Cost {
 

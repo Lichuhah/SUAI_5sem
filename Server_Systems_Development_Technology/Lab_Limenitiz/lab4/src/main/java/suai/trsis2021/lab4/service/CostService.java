@@ -1,12 +1,12 @@
-package suai.trsis2021.lab3.service;
+package suai.trsis2021.lab4.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import suai.trsis2021.lab3.entity.CostEntity;
-import suai.trsis2021.lab3.exceptions.CostNotFoundException;
-import suai.trsis2021.lab3.model.Cost;
-import suai.trsis2021.lab3.repository.CostRepository;
+import suai.trsis2021.lab4.entity.CostEntity;
+import suai.trsis2021.lab4.exceptions.CostNotFoundException;
+import suai.trsis2021.lab4.model.Cost;
+import suai.trsis2021.lab4.repository.CostRepository;
 
 import java.util.LinkedList;
 import java.util.List;

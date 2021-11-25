@@ -1,15 +1,14 @@
-package suai.trsis2021.lab3.controller;
+package suai.trsis2021.lab4.controller;
 
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import suai.trsis2021.lab3.entity.CostEntity;
-import suai.trsis2021.lab3.exceptions.CostNotFoundException;
-import suai.trsis2021.lab3.service.CostService;
+import suai.trsis2021.lab4.entity.CostEntity;
+import suai.trsis2021.lab4.exceptions.CostNotFoundException;
+import suai.trsis2021.lab4.service.CostService;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.Arrays;
 
 @RestController

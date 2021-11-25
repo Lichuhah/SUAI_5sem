@@ -1,4 +1,4 @@
-package suai.trsis2021.lab3.exceptions;
+package suai.trsis2021.lab4.exceptions;
 
 public class CostNotFoundException extends Exception{
     public CostNotFoundException(String message) {

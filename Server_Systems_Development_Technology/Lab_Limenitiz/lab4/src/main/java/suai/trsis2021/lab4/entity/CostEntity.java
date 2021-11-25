@@ -1,4 +1,4 @@
-package suai.trsis2021.lab3.entity;
+package suai.trsis2021.lab4.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;
