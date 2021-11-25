@@ -1,4 +1,4 @@
-package com.example.lab2_3;
+package com.example.lab4;
 
 import java.util.Date;
 

@@ -1,8 +1,16 @@
-package com.example.lab2_3;
+package com.example.lab4;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
 import java.util.Date;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+@Entity
+@Table(name = "Patient")
 public class Patient {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer id;
     public String name;
     public String surname;

@@ -5,8 +5,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<form th:action="@{/logout}" method="post">
+  <input type="submit" value="Logout" />
+</form>
 <center>
-  <h1>Поликлиника имени плохого кода"</h1>
+  <h1>Поликлиника имени плохого кода</h1>
+  <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
   <h2>
   </h2>
   <table border="1" cellpadding="5">

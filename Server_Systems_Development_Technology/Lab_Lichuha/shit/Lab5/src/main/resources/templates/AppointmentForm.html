@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<script type="text/javascript">
+
+    $(document).ready(function (){
+        getDocs();
+        getPats();
+    })
+    function getDocs(){
+       $.get('/doctors/all', function (data){
+           var select = document.getElementById('iddoc');
+           $(select).html('');
+           for(i=0; i<data.length; i++){
+               $(select).append('<option value=' + data[i].id + '>' + data[i].name + '</option>');
+           }
+        })
+    }
+
+    function getPats(){
+        $.get('/patients/all', function (data){
+            var select = document.getElementById('idpat');
+            $(select).html('');
+            for(i=0; i<data.length; i++){
+                $(select).append('<option value=' + data[i].id + '>' + data[i].name + '</option>');
+            }
+        })
+    }
+
+
+
+    function saveData() {
+        console.log("aa");
+            $.ajax({
+                url: "/appointments/post/",
+                dataType: "json",
+                contentType: "application/json",
+                type: "POST",
+                cache: false,
+                data: JSON.stringify({
+                    idpat: $("#idpat").val(),
+                    iddoc: $("#iddoc").val(),
+                    info: $("#txtInfo").val()
+                }),
+                success: function () {
+                    console.log("bbb");
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            })
+    }
+</script>
+
+<body>
+<div align="center" id ="formdoc"></div>
+<h1>App Management</h1>
+<h2>
+    &nbsp;&nbsp;&nbsp;
+    <a th:href="@{/appointments}"></a>
+    &nbsp;
+    <a th:href="@{/}">Main menu</a>
+</h2>
+<form>
+    <table border="1" cellpadding="5" align="center">
+        <caption>
+            <h2>Appointment</h2>
+        </caption>
+        <tr>
+            <th>Doctor: </th>
+            <td>
+                <select size=1 name="iddoc" id="iddoc" required="required"></select>
+            </td>
+        </tr>
+        <tr>
+            <th>Patient: </th>
+            <td>
+                <select size=1 name="idpat" id="idpat" required="required"></select>
+            </td>
+        </tr>
+        <tr>
+            <th>Middle Name: </th>
+            <td>
+                <input type="text" name="info" size="45" id="txtInfo" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button type="button" value="save" onclick='saveData()'>Save</button>
+    </table>
+</form>
+</body>
+</html>

@@ -1,25 +1,15 @@
-CREATE TRIGGER build_before_update
-ON Building
+CREATE TRIGGER before_update
+ON Area
 INSTEAD OF UPDATE
 AS 
 
-DECLARE @IdNewType int
-SELECT @IdNewType = ID_TypeBuilding FROM inserted
-DECLARE @IdNewNumber int
-SELECT @IdNewNumber = Number_Area FROM inserted
+DECLARE @num int = 0
+WHILE(1 = 1) BEGIN
+SELECT @num = MIN(Number) FROM deleted 
+WHERE Number > @num
+IF @num IS NULL BREAK
+INSERT INTO Area_log SELECT * FROM deleted WHERE Number=@num
+END
 
-IF (NOT EXISTS (SELECT * FROM TypeBuilding WHERE TypeBuilding.ID IN (SELECT ID_TypeBuilding FROM inserted)) AND EXISTS (SELECT * FROM inserted WHERE ID_TypeBuilding IS NOT NULL))
-	PRINT 'ER1'
-ELSE 
-	IF NOT EXISTS (SELECT * FROM Area WHERE (Area.Number IN (SELECT Number_Area FROM inserted)))
-	PRINT 'ER2'
-ELSE 
-	BEGIN
-	UPDATE Building SET 
-	Number_Area = inserted.Number_Area,
-	ID_TypeBuilding = inserted.ID_TypeBuilding,
-	Price = inserted.Price,
-	Size = inserted.Size
-	FROM inserted
-	WHERE Building.ID = inserted.ID
-	END
+UPDATE ta SET ta.ID_Line=tb.ID_Line, ta.Size=tb.Size, ta.FullPrice=tb.FullPrice
+FROM Area as ta INNER JOIN inserted as tb ON ta.Number = tb.Number

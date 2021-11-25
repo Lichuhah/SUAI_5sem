@@ -1,6 +1,15 @@
-package com.example.lab2_3;
+package com.example.lab4;
+import lombok.*;
 
+import java.util.Date;
+import javax.persistence.*;
+
+@Entity
+@Data
+@Table(name = "Doctor")
 public class Doctor {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer id;
     public String name;
     public String surname;

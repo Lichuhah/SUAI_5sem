@@ -16,7 +16,7 @@ public class SQLCon {
     }
 
     public static Connection getSqlConnection() throws SQLException {
-        String connectionString = "jdbc:sqlserver://127.0.0.1\\SQLEXPRESS;databaseName=PolyclinicDB;username=sa;password=test";
+        String connectionString = "jdbc:sqlserver://127.0.0.1\\SQLEXPRESS;databaseName=PolyclinicDB;username=sa;password=sa";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {

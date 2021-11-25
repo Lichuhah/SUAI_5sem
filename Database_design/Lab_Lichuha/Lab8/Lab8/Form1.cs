@@ -1,11 +1,11 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Lab8.Models;
-using Microsoft.Data.SqlClient;
 using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -14,13 +14,14 @@ namespace Lab8
 {
     public partial class Form1 : Form
     {
-        string stringConnection = "Data Source=DESKTOP-FC16M2F;Initial Catalog=GardeningDB;User ID=sa;Password=1";
+        string stringConnection = @"Data Source=LAPTOP-9J4TS557\SQLEXPRESS;Initial Catalog=Gardening2DB;User ID=sa;Password=sa";
         public Form1()
         {
             InitializeComponent();
+            toolStripComboBox1.SelectedIndex = 0;
         }
 
-        public void RefreshButtonClick(object sender, System.EventArgs e)
+        public void RefreshButtonClick(object sender, EventArgs e)
         {
             dgv.DataSource = null;
             switch (toolStripComboBox1.SelectedItem.ToString())
@@ -54,11 +55,12 @@ namespace Lab8
             connection.Open();
 
             SqlCommand command = new SqlCommand("SELECT Building.Size, Building.Price, TypeBuilding.Name FROM Building JOIN TypeBuilding ON Building.ID_TypeBuilding=TypeBuilding.ID", connection);
-            SqlDataReader dataReader = command.ExecuteReader();         
-            if(dataReader.HasRows) {
+            SqlDataReader dataReader = command.ExecuteReader();
+            if (dataReader.HasRows)
+            {
                 DataTable dt = new DataTable();
                 dt.Load(dataReader);
-                dgv.DataSource = dt; 
+                dgv.DataSource = dt;
             };
         }
 
@@ -72,7 +74,7 @@ namespace Lab8
 
             SqlCommand command = new SqlCommand("SELECT * FROM Building JOIN TypeBuilding ON Building.ID_TypeBuilding=TypeBuilding.ID", connection);
             SqlDataReader dataReader = command.ExecuteReader();
-            if(dataReader.HasRows)
+            if (dataReader.HasRows)
             {
                 List<Building> list = new List<Building>();
                 while (dataReader.Read())
@@ -90,7 +92,7 @@ namespace Lab8
                 dgv.DataSource = list;
                 dgv.Columns["ID"].Visible = false;
                 dgv.Columns["Type"].Visible = false;
-            }      
+            }
         }
 
         /// <summary>

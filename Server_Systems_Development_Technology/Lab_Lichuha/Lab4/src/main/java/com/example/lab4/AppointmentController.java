@@ -1,4 +1,4 @@
-package com.example.lab2_3;
+package com.example.lab4;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,21 +1,34 @@
-package com.example.lab2_3;
+package com.example.lab4;
 
+import com.example.lab4.DAOHib.DoctorDAOHib;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import javax.persistence.criteria.CriteriaQuery;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
+
+import org.hibernate.*;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 @RestController
 public class DoctorController {
     DoctorDAO doctorDAO = new DoctorDAO();
-
+    @Autowired
+    DoctorDAOHib doctorDAOHib;
     @RequestMapping(value = "doctors/all", method = RequestMethod.GET)
     public List<Doctor> all() throws SQLException{
         List<Doctor> list = doctorDAO.All();
-        return list;
+        List<Doctor> list1 = (List<Doctor>) doctorDAOHib.findAll();
+        return list1;
     }
 
     @GetMapping(value = "doctors/get{id}")
