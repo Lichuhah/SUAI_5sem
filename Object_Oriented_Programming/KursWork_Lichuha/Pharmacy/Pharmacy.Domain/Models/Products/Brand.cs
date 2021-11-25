@@ -1,4 +1,6 @@
-﻿namespace Pharmacy.Domain.Models.Products
+﻿using System.ComponentModel;
+
+namespace Pharmacy.Domain.Models.Products
 {
     public class Brand : BaseNamedEntity
     {

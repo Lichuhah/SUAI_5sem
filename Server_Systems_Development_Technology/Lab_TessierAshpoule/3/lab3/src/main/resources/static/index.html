@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        refresh();
+    })
+
+    function refresh(){
+        $.get('room/all',function (data){
+            console.log(data);
+            $("#test_doctor").html(data);
+        })
+    }
+</script>
+
+<body>
+<center>
+    <h1>Room</h1>
+    <h2>
+        <a href="/roomAdd">Add New Room</a>
+        <br>
+        <a href="/roomDelete">Delete Room</a>
+        <br>
+        <a href="/objAdd">Add Obj</a>
+        <br>
+        <a href="/objEdit">Edit Obj</a>
+        <br>
+        <a href="/objDelete">Delete Obj</a>
+        <br>
+
+    </h2>
+</center>
+<div align="center" id="test_doctor">
+    <form>
+        <input type="">
+    </form>
+</div>
+</body>
+</html>

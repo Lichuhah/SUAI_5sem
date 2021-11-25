@@ -8,7 +8,7 @@ object Storage {
 
     /** добавление комнаты на склад
      * true - успешное добавлени**/
-    fun addRoom(name: String, id: Int) : Boolean {
+    fun addRoom(name: String, id: Int): Boolean {
         if (name.isNotEmpty() && id >= 0) {
             for (r in data.roomList)
                 if (r.name == name || r.id == id) {
@@ -27,7 +27,7 @@ object Storage {
     /** удаление комнаты **/
     fun deleteRoom(id: Int): Boolean {
         for (i in 0 until data.roomList.size) {
-            if ( data.roomList[i].id == id ) {
+            if (data.roomList[i].id == id) {
                 data.roomList.removeAt(i)
                 return true
             }

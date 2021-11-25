@@ -174,7 +174,6 @@ namespace Pharmacy.Desktop
             this.ControlWarehouseItems,
             this.ControlWarehouseReport,
             this.ControleWarehouseChanges});
-            this.ControlWarehouse.Expanded = true;
             this.ControlWarehouse.Name = "ControlWarehouse";
             this.ControlWarehouse.Text = "Склад";
             // 
