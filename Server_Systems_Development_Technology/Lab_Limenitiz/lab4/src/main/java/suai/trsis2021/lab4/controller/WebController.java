@@ -22,14 +22,24 @@ public class WebController {
         return new RedirectView("/home-page");
     }
 
+    @RequestMapping("/login")
+    public String login(){
+        return "LoginPage";
+    }
 
     @GetMapping("/home-page")
     public String homePage() {
         return "HomePage";
     }
 
-    @GetMapping("/table-view")
-    public String getList(){
-        return "TableView";
+    @GetMapping("/full-access-pane")
+    public String getAdminPage(){
+        return "FullAccessPane";
     }
+
+    @GetMapping("/read-access-pane")
+    public String getReadPage() {
+        return "ReadAccessPane";
+    }
+
 }

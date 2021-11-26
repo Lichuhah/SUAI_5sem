@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Costs Management (lab3)</title>
+    <title>Costs Management</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
@@ -198,8 +198,6 @@
                     "       <th>Category</th>\n" +
                     "       <th>Customer</th>\n" +
                     "       <th>Count</th>\n" +
-                    "       <th></th>\n" +
-                    "       <th></th>\n" +
                     "   </tr>";
 
                 for(let i=0; i<data.length; i++) {
@@ -211,13 +209,6 @@
                         "    <td>" + data[i].category + "</td>\n" +
                         "    <td>" + data[i].customer + "</td>\n" +
                         "    <td>" + data[i].count + "</td>\n" +
-                        "    <td>\n" +
-                        "        <button class='btn red_btn' onclick='deleteCost(" + data[i].id + ")'>Delete</button>\n" +
-                        "    </td>\n" +
-                        "    <td>\n" +
-                        // "        <br>" +
-                        "        <button class='btn orange_btn' onclick='editCost(" + data[i].id + ")'>Edit</button>\n" +
-                        "    </td>\n" +
                         "</tr>";
                 }
 
@@ -230,95 +221,14 @@
             }
         });
     }
-
-    function addCost() {
-        $.ajax({
-            url: "/costs/add/",
-            dataType: "json",
-            contentType: "application/json",
-            type: "POST",
-            async: false,
-            cache: false,
-            data: JSON.stringify({
-                name: $("#fiendName").val(),
-                price: $("#fieldPrice").val(),
-                category: $("#fieldCategory").val(),
-                customer: $("#fieldCustomer").val()
-            }),
-            success: function () {
-                refresh();
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    }
-
-    function deleteCost(idCost){
-        $.ajax({
-            url:'costs/delete/'+ idCost,
-            type: "DELETE",
-            async: false,
-            cache: false,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (){
-                refresh();
-            },
-            error: function (error){
-                console.log(error);
-            }
-        })
-    }
-
-    function editCost(idCost){
-        $.ajax({
-            url: "/costs/put/" + idCost,
-            dataType: "json",
-            contentType: "application/json",
-            type: "PUT",
-            async: false,
-            cache: false,
-            data: JSON.stringify({
-                id: idCost,
-                name: $("#fiendName").val(),
-                price: $("#fieldPrice").val(),
-                category: $("#fieldCategory").val(),
-                customer: $("#fieldCustomer").val()
-            }),
-            success: function (){
-                refresh();
-            },
-            error: function (error){
-                console.log(error);
-            }
-        })
-    }
-
+    
 </script>
 
 <body>
-    <center>
-        <h1>Costs Management</h1>
-        <div>
-            <form>
-                <table class="input_form" border="1" cellpadding="5" align="center">
-                    <tr><th>Name</th> <td>
-                        <input type="text" name="name" id="fiendName"> </td></tr>
-                    <tr><th>Price</th> <td> 
-                        <input type="text" name="price" id="fieldPrice"> </td></tr>
-                    <tr><th>Category</th> <td>
-                        <input type="text" name="category" id="fieldCategory"> </td></tr>
-                    <tr><th>Customer</th> <td>
-                        <input type="text" name="customer" id="fieldCustomer"> </td> </tr>
-                </table>
-            </form>
-        </div>
-        <button class="right btn green_btn" type="button" onclick='addCost()'>Add</button>
-        <br>
-        <br>
-        <div id='costs_table'></div>
-    </center>
+<center>
+    <h1>Costs Management</h1>
+    <div id='costs_table'></div>
+</center>
 
 </body>
 </html>
