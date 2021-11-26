@@ -26,7 +26,7 @@ namespace KursWork
             try
             {
                 ObjExcel = new Microsoft.Office.Interop.Excel.Application();
-                ObjWorkBook = ObjExcel.Workbooks.Open(@"C:\Users\belov\Desktop\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsm", 0, false, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+                ObjWorkBook = ObjExcel.Workbooks.Open(@"D:\Study\SUAI_5sem\Applied_Optimization_Models\Lab_Lichuha\KursWork\KursWork2.xlsm", 0, false, 5, "", "", false, XlPlatform.xlWindows, "", true, false, 0, true, false, false);
             } catch (Exception e)
             {
                 MessageBox.Show(e.Message);
