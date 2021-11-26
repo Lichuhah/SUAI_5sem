@@ -42,4 +42,9 @@ public class WebController {
         return "ReadAccessPane";
     }
 
+    @GetMapping("/forbidden-error")
+    public String getForbiddenPage() {
+        return "ForbiddenPage";
+    }
+
 }

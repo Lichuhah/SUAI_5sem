@@ -1,23 +1,68 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+
 <head>
-  <title>Login page</title>
+    <title>Spring Security Example </title>
 </head>
+
+<style>
+    div.error{
+        color: #000000;
+        background-color: palevioletred;
+        text-align: center;
+    }
+    div.logout{
+        color: #000000;
+        background-color: palegreen;
+        text-align: center;
+    }
+
+</style>
+
+
 <body>
 
+<div th:include="Logout"></div>
+<a th:href="@{/}" >Home</a>
+
+<a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+
+<div style="
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%);
+">
+    <div class="error" th:if="${param.error}">
+        Invalid username and password.
+    </div>
+
+    <div class="logout" th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <div><label> User Name : <input type="text" name="username"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+    </form>
+
+<!--    <table th:action="@{/login}" class="input_form" border="1" cellpadding="5" align="center">-->
+<!--        <tr><th>User Name : </th> <td>-->
+<!--            <input type="text" name="name"> </td></tr>-->
+<!--        <tr><th>Password</th> <td>-->
+<!--            <input type="password" name="password"> </td></tr>-->
+<!--    </table>-->
+<!--    <div><input type="submit" value="Sign In"/></div>-->
 
 
-<center>
-  <h1>Login page</h1>
-<!--  <p th:if="${loginError}" class="error">Wrong user or password</p>-->
-<!--  <form th:action="@{/LoginPage.html}" method="post">-->
-    <label for="username">Username</label>:
-    <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
-    <label for="password">Password</label>:
-    <input type="password" id="password" name="password" /> <br />
-    <input type="submit" value="Log in" />
-  </form>
-</center>
+</div>
 
 </body>
+
+
 </html>
