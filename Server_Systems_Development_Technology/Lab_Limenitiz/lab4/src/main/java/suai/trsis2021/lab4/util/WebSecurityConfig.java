@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Arrays;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -25,7 +27,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/home-page").permitAll()
                 .antMatchers("/read-access-pane").hasRole("USER")
                 .antMatchers("/full-access-pane").hasRole("ADMIN")
-//                .anyRequest().not().authenticated()
             .and()
                 .formLogin()
                     .loginPage("/login")
@@ -35,14 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
             .and()
                 .exceptionHandling().accessDeniedPage("/forbidden-error");
-//        .authorizeRequests()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin().permitAll()
-//                .and()
-//                .logout().permitAll();
-
-//        ;
     }
 
 
