@@ -28,8 +28,6 @@
 <div th:include="Logout"></div>
 <a th:href="@{/}" >Home</a>
 
-<a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
-
 <div style="
 position: absolute;
 top: 50%;
@@ -50,15 +48,6 @@ transform: translate(-50%, -50%);
         <div><label> Password: <input type="password" name="password"/> </label></div>
             <div><input type="submit" value="Sign In"/></div>
     </form>
-
-<!--    <table th:action="@{/login}" class="input_form" border="1" cellpadding="5" align="center">-->
-<!--        <tr><th>User Name : </th> <td>-->
-<!--            <input type="text" name="name"> </td></tr>-->
-<!--        <tr><th>Password</th> <td>-->
-<!--            <input type="password" name="password"> </td></tr>-->
-<!--    </table>-->
-<!--    <div><input type="submit" value="Sign In"/></div>-->
-
 
 </div>
 

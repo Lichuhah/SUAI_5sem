@@ -75,7 +75,7 @@ delimiter ;
 # ------------------------------------------------------------------------------------------------
 call delete_type_detail(1);
 call delete_type_detail(2);
-call delete_type_detail(3);
+call delete_type_detail(21);
 
 # details list
 select cd.id_concrete_detail, cd.colorDetail, td.id_type_detail, td.nameType
@@ -174,7 +174,8 @@ create procedure authors_statistic() begin
                 on c.id_clothes = ca.id_clothes
         group by id_author)q);
 
-    update stat s set diff_count_clothes_author = s.count_clothes_author - s.avg_count_clothes_author;
+    update stat s set diff_count_clothes_author = s.count_clothes_author - s.avg_count_clothes_author
+    where id_stat > 0;
 
     select distinct
            stat.id_author,
@@ -190,6 +191,6 @@ delimiter ;
 
 # ------------------------------------------------------------------------------------------------
 call authors_statistic();
-set sql_safe_updates = 1;
+set sql_safe_updates = 0;
 
 
