@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Costs Management</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        .input_form{
+            width: 40%;
+        }
+
+        .input_form_fields{
+            width: 97%;
+        }
+
+        button.btn{
+            width:100%;
+            height:100%;
+            min-width:30px;
+            max-width:200px;
+            min-height:30px;
+            max-height:30px;
+
+            color: black;
+            background-color: white;
+            border-color: black;
+            border-width: 1px;
+            border-radius: 7px;
+            font-size: 20px;
+        }
+
+        button.green_btn{
+            width: 10%;
+            height: 10%;
+            color: black;
+            background-color: palegreen;
+            border-color: seagreen;
+        }
+
+        button.green_btn:hover{
+            border: none;
+            color: gray;
+        }
+
+        button.red_btn{
+            width:100%;
+            height:10%;
+
+            color: white;
+            background-color: palevioletred;
+            border-color: darkred;
+        }
+
+        button.red_btn:hover{
+            border: none;
+            color: black;
+        }
+
+        button.orange_btn{
+            width:100%;
+            height:10%;
+
+            color: white;
+            background-color: darkorange;
+            border-color: orangered;
+        }
+
+        button.orange_btn:hover{
+            border: none;
+            color: black;
+        }
+
+        table {
+            background: #f5f5f5;
+            border-collapse: separate;
+            box-shadow: inset 0 1px 0 #fff;
+            font-size: 20px;
+            /*line-height: 24px;*/
+            margin: 30px auto;
+            text-align: left;
+            width: 90%;
+        }
+
+        th {
+            background: lightgray;
+            border-left: 1px solid #555;
+            border-right: 1px solid #777;
+            border-top: 1px solid #555;
+            border-bottom: 1px solid #333;
+            box-shadow: inset 0 1px 0 #999;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 15px;
+            position: relative;
+        }
+
+        th:after {
+            background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+            content: '';
+            display: block;
+            height: 25%;
+            left: 0;
+            margin: 1px 0 0 0;
+            position: absolute;
+            top: 25%;
+            width: 100%;
+        }
+
+        th:first-child {
+            border-left: 1px solid #777;
+            box-shadow: inset 1px 1px 0 #999;
+        }
+
+        th:last-child {
+            box-shadow: inset -1px 1px 0 #999;
+        }
+
+        td {
+            border-right: 1px solid #fff;
+            border-left: 1px solid #e8e8e8;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 5px 5px;
+            line-height: 5px;
+            position: relative;
+            transition: all 300ms;
+        }
+
+        td:first-child {
+            box-shadow: inset 1px 0 0 #fff;
+        }
+
+        td:last-child {
+            border-right: 1px solid #e8e8e8;
+            box-shadow: inset -1px 0 0 #fff;
+        }
+
+        tr {
+        }
+
+        tr:nth-child(odd) td {
+            background: #f1f1f1;
+        }
+
+        tr:last-of-type td {
+            box-shadow: inset 0 -1px 0 #fff;
+        }
+
+        tr:last-of-type td:first-child {
+            box-shadow: inset 1px -1px 0 #fff;
+        }
+
+        tr:last-of-type td:last-child {
+            box-shadow: inset -1px -1px 0 #fff;
+        }
+
+        /*tbody:hover td {*/
+        /*    color: transparent;*/
+        /*    text-shadow: 0 0 3px #aaa;*/
+        /*}*/
+
+        /*tbody:hover tr:hover td {*/
+        /*    color: #444;*/
+        /*    text-shadow: 0 1px 0 #fff;*/
+        /*}*/
+
+    </style>
+
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        refresh();
+    })
+
+    function refresh(){
+        draw_table();
+    }
+
+    function draw_table(){
+        $.ajax({
+            url: "costs/get/all",
+            dataType: "json",
+            contentType: "application/json",
+            type: "GET",
+            async: false,
+            cache: false,
+            success: function (data) {
+                let $costs = $('#costs_table')
+
+                let table = "<table border='1'>";
+                table +=
+                    "   <tr>\n" +
+                    "       <th>id</th>\n" +
+                    "       <th>Name</th>\n" +
+                    "       <th>Price</th>\n" +
+                    "       <th>Category</th>\n" +
+                    "       <th>Customer</th>\n" +
+                    "       <th>Count</th>\n" +
+                    "       <th></th>\n" +
+                    "       <th></th>\n" +
+                    "   </tr>";
+
+                for(let i=0; i<data.length; i++) {
+                    table +=
+                        "<tr>\n" +
+                        "    <td>" + data[i].id + "</td>\n" +
+                        "    <td>" + data[i].name + "</td>\n" +
+                        "    <td>" + data[i].price + "</td>\n" +
+                        "    <td>" + data[i].category + "</td>\n" +
+                        "    <td>" + data[i].customer + "</td>\n" +
+                        "    <td>" + data[i].count + "</td>\n" +
+                        "    <td>\n" +
+                        "        <button class='btn red_btn' onclick='deleteCost(" + data[i].id + ")'>Delete</button>\n" +
+                        "    </td>\n" +
+                        "    <td>\n" +
+                        // "        <br>" +
+                        "        <button class='btn orange_btn' onclick='editCost(" + data[i].id + ")'>Edit</button>\n" +
+                        "    </td>\n" +
+                        "</tr>";
+                }
+
+                table += "</table>";
+
+                $costs.html(table);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function addCost() {
+        $.ajax({
+            url: "/costs/add/",
+            dataType: "json",
+            contentType: "application/json",
+            type: "POST",
+            async: false,
+            cache: false,
+            data: JSON.stringify({
+                name: $("#fiendName").val(),
+                price: $("#fieldPrice").val(),
+                category: $("#fieldCategory").val(),
+                customer: $("#fieldCustomer").val()
+            }),
+            success: function () {
+                refresh();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function deleteCost(idCost){
+        $.ajax({
+            url:'costs/delete/'+ idCost,
+            type: "DELETE",
+            async: false,
+            cache: false,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (){
+                refresh();
+            },
+            error: function (error){
+                console.log(error);
+            }
+        })
+    }
+
+    function editCost(idCost){
+        $.ajax({
+            url: "/costs/put/" + idCost,
+            dataType: "json",
+            contentType: "application/json",
+            type: "PUT",
+            async: false,
+            cache: false,
+            data: JSON.stringify({
+                id: idCost,
+                name: $("#fiendName").val(),
+                price: $("#fieldPrice").val(),
+                category: $("#fieldCategory").val(),
+                customer: $("#fieldCustomer").val()
+            }),
+            success: function (){
+                refresh();
+            },
+            error: function (error){
+                console.log(error);
+            }
+        })
+    }
+
+</script>
+
+<body>
+
+<div th:include="Logout"></div>
+
+    <div style="text-align: center;">
+        <h1>Costs Management</h1>
+        <div>
+            <form>
+                <table class="input_form" border="1" cellpadding="5" align="center">
+                    <tr><th>Name</th> <td>
+                        <input class="input_form_fields" type="text" name="name" id="fiendName"> </td></tr>
+                    <tr><th>Price</th> <td>
+                        <input class="input_form_fields" type="text" name="price" id="fieldPrice"> </td></tr>
+                    <tr><th>Category</th> <td>
+                        <input class="input_form_fields" type="text" name="category" id="fieldCategory"> </td></tr>
+                    <tr><th>Customer</th> <td>
+                        <input class="input_form_fields" type="text" name="customer" id="fieldCustomer"> </td> </tr>
+                </table>
+            </form>
+        </div>
+        <button class="right btn green_btn" type="button" onclick='addCost()'>Add</button>
+        <br>
+        <br>
+        <div id='costs_table'></div>
+    </div>
+
+</body>
+</html>
