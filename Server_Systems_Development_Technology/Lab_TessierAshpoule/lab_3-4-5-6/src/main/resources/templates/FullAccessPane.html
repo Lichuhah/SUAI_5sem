@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Costs Management</title>
+    <title>Складской учет</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
@@ -180,14 +180,14 @@
 
     function draw_table(){
         $.ajax({
-            url: "costs/get/all",
+            url: "items/get/all",
             dataType: "json",
             contentType: "application/json",
             type: "GET",
             async: false,
             cache: false,
             success: function (data) {
-                let $costs = $('#costs_table')
+                let $items = $('#costs_table')
 
                 let table = "<table border='1'>";
                 table +=
@@ -223,7 +223,7 @@
 
                 table += "</table>";
 
-                $costs.html(table);
+                $items.html(table);
             },
             error: function (error) {
                 console.log(error);
@@ -233,7 +233,7 @@
 
     function addCost() {
         $.ajax({
-            url: "/costs/add/",
+            url: "/items/add/",
             dataType: "json",
             contentType: "application/json",
             type: "POST",
@@ -256,7 +256,7 @@
 
     function deleteCost(idCost){
         $.ajax({
-            url:'costs/delete/'+ idCost,
+            url:'items/delete/'+ idCost,
             type: "DELETE",
             async: false,
             cache: false,
@@ -273,7 +273,7 @@
 
     function editCost(idCost){
         $.ajax({
-            url: "/costs/put/" + idCost,
+            url: "/items/put/" + idCost,
             dataType: "json",
             contentType: "application/json",
             type: "PUT",

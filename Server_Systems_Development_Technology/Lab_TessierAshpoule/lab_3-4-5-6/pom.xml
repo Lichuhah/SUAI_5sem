@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>suai.trsis2021</groupId>
-	<artifactId>lab4</artifactId>
+	<artifactId>labs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>lab4</name>
+	<name>labs</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
