@@ -5,10 +5,10 @@
 <body>
 
 <form th:action="@{/logout}" method="post">
-    <label  th:if="${#request.userPrincipal != null}" th:inline="text">
-        You authorize as [[${#httpServletRequest.remoteUser}]]!
-        <input type="submit" value="Sign Out"/>
-    </label>
+    <div th:if="${#request.userPrincipal != null}" th:inline="text">
+        Вы вошли как: [[${#httpServletRequest.remoteUser}]]
+        <input type="submit" value="Выйти"/>
+    </div>
 </form>
 </body>
 </html>

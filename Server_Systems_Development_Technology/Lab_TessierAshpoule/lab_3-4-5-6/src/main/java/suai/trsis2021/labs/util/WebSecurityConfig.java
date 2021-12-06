@@ -20,8 +20,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
             .authorizeRequests()
                 .antMatchers("/", "/home-page").permitAll()
-                .antMatchers("/read-access-pane").hasRole("USER")
-                .antMatchers("/full-access-pane").hasRole("ADMIN")
+                .antMatchers("/read-pane").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/crud-pane").hasRole("ADMIN")
             .and()
                 .formLogin()
                     .loginPage("/login")
@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                     .permitAll()
             .and()
-                .exceptionHandling().accessDeniedPage("/forbidden-error");
+                .exceptionHandling().accessDeniedPage("/forbidden-page");
     }
 
 

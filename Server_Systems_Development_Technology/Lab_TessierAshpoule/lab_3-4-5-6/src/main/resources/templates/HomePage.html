@@ -2,35 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
->
+      lang="ru">
 
 <head>
-  <title>Home Page</title>
+  <title>Home</title>
 </head>
 
 <div th:include="Logout"></div>
 
-<div id="particles-js">
-    <div class="container" style="padding-left: 60px;">
-      <div class="row top">
-        <div class="twelve column">
-          <h1>Family items</h1>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="one-half column">
-          <div class="pens pulled">
-            <h1>Pages</h1>
-            <ul>
-              <li><a href="full-access-pane">Admin pane</a></li>
-              <li><a href="read-access-pane">Read pane </a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div>
+    <h3>Pages</h3>
+    <ul>
+        <li>
+            <a href="login">Авторизация </a></li>
+        <li sec:authorize="hasRole('ADMIN')">
+            <a href="crud-pane">Панель администратора</a></li>
+<!--        <li sec:authorize="hasRole('USER')">-->
+        <li sec:authorize="hasAnyRole('USER', 'ADMIN')">
+            <a href="read-pane">Панель пользователя </a></li>
+    </ul>
+</div>
 
 </html>
 

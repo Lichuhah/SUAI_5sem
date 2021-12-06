@@ -10,7 +10,7 @@ public class WebController {
 
     @GetMapping("")
     public RedirectView redirect(){
-        return new RedirectView("/home-page");
+        return new RedirectView("/home");
     }
 
     @RequestMapping("/login")
@@ -18,22 +18,22 @@ public class WebController {
         return "LoginPage";
     }
 
-    @GetMapping("/home-page")
+    @GetMapping("/home")
     public String homePage() {
         return "HomePage";
     }
 
-    @GetMapping("/full-access-pane")
+    @GetMapping("/crud-pane")
     public String getAdminPage(){
-        return "FullAccessPane";
+        return "CrudPane";
     }
 
-    @GetMapping("/read-access-pane")
+    @GetMapping("/read-pane")
     public String getReadPage() {
-        return "ReadAccessPane";
+        return "ReadPane";
     }
 
-    @GetMapping("/forbidden-error")
+    @GetMapping("/forbidden-page")
     public String getForbiddenPage() {
         return "ForbiddenPage";
     }
