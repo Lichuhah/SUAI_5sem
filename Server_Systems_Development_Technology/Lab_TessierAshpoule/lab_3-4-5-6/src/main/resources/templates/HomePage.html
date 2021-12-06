@@ -17,7 +17,6 @@
             <a href="login">Авторизация </a></li>
         <li sec:authorize="hasRole('ADMIN')">
             <a href="crud-pane">Панель администратора</a></li>
-<!--        <li sec:authorize="hasRole('USER')">-->
         <li sec:authorize="hasAnyRole('USER', 'ADMIN')">
             <a href="read-pane">Панель пользователя </a></li>
     </ul>
