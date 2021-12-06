@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Логин</title>
+</head>
+
+<style>
+    div.error{
+        color: #000000;
+        background-color: rgba(219, 112, 147, 0.67);
+        text-align: center;
+        border-radius: 15px;
+    }
+    div.logout{
+        color: #000000;
+        background-color: rgba(152, 251, 152, 0.67);
+        text-align: center;
+        border-radius: 15px;
+    }
+
+</style>
+
+
+<body>
+
+<div th:include="Logout"></div>
+<a href="/" >Home</a>
+
+<div style="
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%);
+">
+    <div class="error" th:if="${param.error}">
+        Неверное имя пользователя или пароль.
+    </div>
+
+    <div class="logout" th:if="${param.logout}">
+        Вы вышли из учетной записи.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <table border="0" cellpadding="5">
+            <tr><th align="right"> Имя пользователя :</th> <td>
+                <input type="text" name="username"> </td></tr>
+            <tr><th align="right"> Пароль : </th> <td>
+                <input type="password" name="password"> </td></tr>
+            <tr><th> </th> <td align="right" >
+                <input type="submit" value="Войти"/> </td></tr>
+        </table>
+    </form>
+</div>
+
+</body>
+
+
+</html>
