@@ -61,9 +61,12 @@ object ExcelReader {
 
         for ((k,v) in data)
             when ( k ) {
-                1 -> for (i in 1..6) ProgrammerRepository.data.add(v[i].toString().toInt())
-                2 -> for (i in 1..6) ExpensesRepository.data.add(v[i].toString().toDouble())
-                3 -> for (i in 1..6) IncomeRepository.data.add(v[i].toString().toDouble())
+                1 -> for (i in 1..6) ProgrammerRepository.data.add(v[i]
+                    .toString().toInt())
+                2 -> for (i in 1..6) ExpensesRepository.data.add(v[i]
+                    .toString().replace(',', '.').toDouble())
+                3 -> for (i in 1..6) IncomeRepository.data.add(v[i]
+                    .toString().replace(',', '.').toDouble())
                 else -> {}
              }
 

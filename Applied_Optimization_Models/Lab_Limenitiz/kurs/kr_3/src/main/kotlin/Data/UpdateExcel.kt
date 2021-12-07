@@ -21,15 +21,15 @@ object UpdateExcel {
 
         val programmer: Row = sheet.getRow(1)
         for (i in 0 until ProgrammerRepository.data.size)
-            programmer.getCell(1+i).setCellValue(ProgrammerRepository.data[i].toString())
+            programmer.getCell(1+i).setCellValue(ProgrammerRepository.data[i].toDouble())
 
         val expenses: Row = sheet.getRow(2)
         for (i in 0 until ExpensesRepository.data.size)
-            expenses.getCell(1+i).setCellValue(ExpensesRepository.data[i].toString())
+            expenses.getCell(1+i).setCellValue(ExpensesRepository.data[i])
 
         val income: Row = sheet.getRow(3)
         for (i in 0 until IncomeRepository.data.size)
-            income.getCell(1+i).setCellValue(IncomeRepository.data[i].toString())
+            income.getCell(1+i).setCellValue(IncomeRepository.data[i])
 
         try {
             val out = FileOutputStream(File("calc.xlsx"))
