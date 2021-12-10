@@ -388,3 +388,7 @@ mvnw*
 Design_of_Software_Systems/Lab_Limenitiz/lab1/prev_vers/
 Computer_architecture_and_systems/lab_description/ЭВМ
 Fundamentals_of_Software_Engineering/ttt.todo
+
+.gradle
+build
+gradle
