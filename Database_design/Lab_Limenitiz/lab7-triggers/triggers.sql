@@ -3,28 +3,37 @@
 # целостность, остальные могут иметь другое назначение из 3 предложенных. Вычислимые поля
 # можно добавить при необходимости
 
+SET FOREIGN_KEY_CHECKS=0; -- to disable them
+SET FOREIGN_KEY_CHECKS=1; -- to re-enable them
+
 use database_design_course;
 
-drop trigger if exists tr10;
 drop trigger if exists tr11;
 drop trigger if exists tr12;
-drop table if exists author_log;
 drop trigger if exists tr21;
 drop trigger if exists tr22;
-drop trigger if exists tr32;
 drop trigger if exists tr31;
+drop trigger if exists tr32;
+drop table if exists author_log;
 
 # ======================================================
 # delete
 # ------------------------------------------------------
 # delete before
-create trigger tr10
+create trigger tr11
     before delete on author
         for each row begin
             delete from clothes_author
                 where clothes_author.id_author = OLD.id_author;
         end;
-
+# ------------------------------------------------------
+# delete after
+create trigger tr12
+    after delete on concrete_detail
+        for each row begin
+            delete from type_detail
+                where type_detail.id_type_detail = OLD.id_type_detail;
+        end;
 # ======================================================
 # update
 # ------------------------------------------------------
@@ -101,7 +110,6 @@ create trigger tr32
 # tests
 # ------------------------------------------------------
 # test delete before
-# test delete after
 delete from author where id_author = 1;
 
 select a.id_author, a.firstNameAuthor, c.nameClothes
@@ -110,6 +118,14 @@ from clothes_author
         on c.id_clothes = clothes_author.id_clothes
     right outer join author a
         on a.id_author = clothes_author.id_author;
+# ------------------------------------------------------
+# test delete after
+delete from concrete_detail cd where id_concrete_detail < 4;
+
+select td.id_type_detail, td.nameType, cd.colorDetail, cd.id_concrete_detail
+    from concrete_detail cd
+        right outer join type_detail td
+            on td.id_type_detail = cd.id_type_detail;
 # ------------------------------------------------------
 # test update before
 update author
