@@ -4,9 +4,8 @@ spring:
       ddl-auto: update
     show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/trsis_lab2db
+    url: jdbc:mysql://localhost:3306/trsisdb
     username: root_user
     password: root_user
 
 
-#    ?useUnicode=true

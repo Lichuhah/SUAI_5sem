@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/main.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+    <head>
+<body ng-app="EmployeeManagement" ng-controller="EmployeeController">
+<h3>
+    Служба безобасности предприятия
+</h3>
+<form ng-submit="submitEmployee()">
+    <table border="0">
+        <tr>
+            <td>Id</td>
+            <td>{{employeeForm.empId}}</td>
+        </tr>
+        <tr>
+            <td>Имя</td>
+            <td><input type="text" ng-model="employeeForm.empName" /></td>
+        </tr>
+        <tr>
+            <td>Фамилия</td>
+            <td><input type="text" ng-model="employeeForm.empSurname"  /></td>
+        </tr>
+        <tr>
+            <td>Должность</td>
+            <td><input type="text" ng-model="employeeForm.position"  /></td>
+        </tr>
+        <tr>
+            <td>Уровень доступа</td>
+            <td><input type="text" ng-model="employeeForm.priority"  /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Submit" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<a class="create-button" ng-click="createEmployee()">Create Employee</a>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Должность</th>
+        <th>Уровень доступа</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <!-- $scope.employees -->
+    <tr ng-repeat="employee in employees">
+        <td> {{ employee.empId }}</td>
+        <td> {{ employee.empName }}</td>
+        <td >{{ employee.empSurname }}</td>
+        <td >{{ employee.position }}</td>
+        <td >{{ employee.priority }}</td>
+        <td>
+            <a ng-click="editEmployee(employee)" class="edit-button">Edit</a>
+        </td>
+        <td>
+            <a ng-click="deleteEmployee(employee)" class="delete-button">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
