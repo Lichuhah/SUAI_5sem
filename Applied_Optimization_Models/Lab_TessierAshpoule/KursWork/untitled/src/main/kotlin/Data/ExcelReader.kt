@@ -2,18 +2,17 @@ package Data
 
 import manager.LineManager
 import manager.ProductManager
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.ss.usermodel.*
-import org.apache.poi.ss.util.NumberToTextConverter;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.util.NumberToTextConverter
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import repository.LineRepository
 import repository.ProductRepository
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.File
+import java.io.FileInputStream
+import java.util.ArrayList
+import java.util.HashMap
 
 object ExcelReader {
     // Чтение файла

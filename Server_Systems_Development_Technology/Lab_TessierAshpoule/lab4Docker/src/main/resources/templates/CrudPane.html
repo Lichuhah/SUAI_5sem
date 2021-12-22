@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Складской учет</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        refresh();
+    })
+
+    function refresh(){
+        draw_table();
+    }
+
+    function draw_table(){
+        $.ajax({
+            url: "items/get/all",
+            dataType: "json",
+            contentType: "application/json",
+            type: "GET",
+            async: false,
+            cache: false,
+            success: function (data) {
+                let $items = $('#items_table')
+
+                let table = "<table border='1'>";
+                table +=
+                    "   <tr>\n" +
+                    "       <th>id</th>\n" +
+                    "       <th>Секция</th>\n" +
+                    "       <th>Название товара</th>\n" +
+                    "       <th>Дата добавления</th>\n" +
+                    "       <th>Срок хранения</th>\n" +
+                    "       <th>Стоимость хранения</th>\n" +
+                    "       <th>Количество</th>\n" +
+                    "       <th></th>\n" +
+                    "       <th></th>\n" +
+                    "   </tr>";
+
+                for(let i=0; i<data.length; i++) {
+                    table +=
+                        "<tr>\n" +
+                        "    <td>" + data[i].id + "</td>\n" +
+                        "    <td>" + data[i].section + "</td>\n" +
+                        "    <td>" + data[i].name + "</td>\n" +
+                        "    <td>" + data[i].dateAdd + "</td>\n" +
+                        "    <td>" + data[i].storageTime + "</td>\n" +
+                        "    <td>" + data[i].storagePrice + "</td>\n" +
+                        "    <td>" + data[i].count + "</td>\n" +
+                        "    <td>\n" +
+                        "        <button onclick='deleteCost(" + data[i].id + ")'>Delete</button>\n" +
+                        "    </td>\n" +
+                        "    <td>\n" +
+                        // "        <br>" +
+                        "        <button onclick='editCost(" + data[i].id + ")'>Edit</button>\n" +
+                        "    </td>\n" +
+                        "</tr>";
+                }
+
+                table += "</table>";
+
+                $items.html(table);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function addCost() {
+        $.ajax({
+            url: "items/add/",
+            dataType: "json",
+            contentType: "application/json",
+            type: "POST",
+            async: false,
+            cache: false,
+            data: JSON.stringify({
+                section: $("#fieldSection").val(),
+                name: $("#fiendName").val(),
+                dateAdd: $("#fieldDateAdd").val(),
+                storageTime: $("#fieldStorageTime").val(),
+                storagePrice: $("#fieldStoragePrice").val()
+            }),
+            success: function () {
+                refresh();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function deleteCost(idCost){
+        $.ajax({
+            url:'items/delete/'+ idCost,
+            type: "DELETE",
+            async: false,
+            cache: false,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (){
+                refresh();
+            },
+            error: function (error){
+                console.log(error);
+            }
+        })
+    }
+
+    function editCost(idCost){
+        $.ajax({
+            url: "/items/put/" + idCost,
+            dataType: "json",
+            contentType: "application/json",
+            type: "PUT",
+            async: false,
+            cache: false,
+            data: JSON.stringify({
+                id: idCost,
+                section: $("#fieldSection").val(),
+                name: $("#fiendName").val(),
+                dateAdd: $("#fieldDateAdd").val(),
+                storageTime: $("#fieldStorageTime").val(),
+                storagePrice: $("#fieldStoragePrice").val()
+            }),
+            success: function (){
+                refresh();
+            },
+            error: function (error){
+                console.log(error);
+            }
+        })
+    }
+
+</script>
+
+<body>
+
+    <div th:include="Logout"></div>
+
+        <h1>Складской учет</h1>
+        <div>
+            <form>
+                <table border="1" cellpadding="5">
+                    <tr><th>Секция</th> <td>
+                        <input type="text" name="section" id="fieldSection"> </td></tr>
+                    <tr><th>Название товара</th> <td>
+                        <input type="text" name="name" id="fiendName"> </td></tr>
+                    <tr><th>Дата добавления</th> <td>
+                        <input type="date" name="date_add" id="fieldDateAdd"> </td></tr>
+                    <tr><th>Срок хранения</th> <td>
+                        <input type="number" name="storage_time" id="fieldStorageTime"> </td> </tr>
+                    <tr><th>Стоимость хранения</th> <td>
+                        <input type="number" name="storage_price" id="fieldStoragePrice"> </td> </tr>
+                </table>
+            </form>
+        </div>
+        <button type="button" onclick='addCost()'>Добавить</button>
+        <br>
+        <br>
+        <div id="items_table"></div>
+
+</body>
+</html>
