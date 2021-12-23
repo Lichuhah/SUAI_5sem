@@ -16,6 +16,15 @@ drop trigger if exists tr31;
 drop trigger if exists tr32;
 drop table if exists author_log;
 
+# ------------------------------------------------------
+create table if not exists author_log(
+    id int not null auto_increment primary key,
+    id_author int not null,
+    firstNameAuthor varchar(40) default null,
+    secondNameAuthor varchar(40) default null,
+    thirdNameAuthor varchar(40) default null
+);
+
 # ======================================================
 # delete
 # ------------------------------------------------------
@@ -31,19 +40,16 @@ create trigger tr11
 create trigger tr12
     after delete on concrete_detail
         for each row begin
-            delete from type_detail
-                where type_detail.id_type_detail = OLD.id_type_detail;
+            if not exists(select * from concrete_detail cd
+                where cd.id_type_detail = OLD.id_type_detail) then
+
+                    delete from type_detail
+                        where type_detail.id_type_detail = OLD.id_type_detail;
+
+            end if;
         end;
 # ======================================================
 # update
-# ------------------------------------------------------
-create table if not exists author_log(
-    id int not null auto_increment primary key,
-    id_author int not null,
-    firstNameAuthor varchar(40) default null,
-    secondNameAuthor varchar(40) default null,
-    thirdNameAuthor varchar(40) default null
-);
 # ------------------------------------------------------
 # update before
 create trigger tr21
@@ -59,15 +65,19 @@ create trigger tr21
 # ------------------------------------------------------
 # update after
 create trigger tr22
-    after update on author
+    after update on type_detail
         for each row begin
-            insert into author_log
-                (id_author, firstNameAuthor,
-                 secondNameAuthor, thirdNameAuthor)
-                values
-                (NEW.id_author, concat('<after upd> ', NEW.firstNameAuthor),
-                 NEW.secondNameAuthor, NEW.thirdNameAuthor);
+            if (OLD.id_type_detail != NEW.id_type_detail) then
+                update concrete_detail
+                    set id_type_detail = NEW.id_type_detail
+                    where id_type_detail = OLD.id_type_detail;
+            end if;
         end;
+# declare fkc int;
+# set fkc=@@foreign_key_checks;
+# set @@foreign_key_checks=0;
+# -- обработка
+# set @@foreign_key_checks=fkc;
 # ======================================================
 # insert
 # ------------------------------------------------------
@@ -120,7 +130,9 @@ from clothes_author
         on a.id_author = clothes_author.id_author;
 # ------------------------------------------------------
 # test delete after
-delete from concrete_detail cd where id_concrete_detail < 4;
+delete from concrete_detail cd where id_concrete_detail = 1;
+delete from concrete_detail cd where id_concrete_detail = 2;
+delete from concrete_detail cd where id_concrete_detail = 3;
 
 select td.id_type_detail, td.nameType, cd.colorDetail, cd.id_concrete_detail
     from concrete_detail cd
@@ -134,10 +146,14 @@ update author
 select * from author_log;
 # ------------------------------------------------------
 # test update after
-update author
-    set firstNameAuthor = 'test trigger update2'
-    where author.id_author = last_insert_id();
-select * from author_log;
+update type_detail
+    set id_type_detail = 300
+    where id_type_detail = 3;
+
+select td.id_type_detail, td.nameType, cd.colorDetail
+    from concrete_detail cd
+        join type_detail td
+            on td.id_type_detail = cd.id_type_detail;
 # ------------------------------------------------------
 # test insert before
 insert into concrete_detail (id_type_detail, colorDetail)
