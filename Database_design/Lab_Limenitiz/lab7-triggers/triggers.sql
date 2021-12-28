@@ -24,68 +24,15 @@ create table if not exists author_log(
     secondNameAuthor varchar(40) default null,
     thirdNameAuthor varchar(40) default null
 );
-
 # ======================================================
-# delete
 # ------------------------------------------------------
-# delete before
-create trigger tr11
-    before delete on author
-        for each row begin
-            delete from clothes_author
-                where clothes_author.id_author = OLD.id_author;
-        end;
-# ------------------------------------------------------
-# delete after
-create trigger tr12
-    after delete on concrete_detail
-        for each row begin
-            if not exists(select * from concrete_detail cd
-                where cd.id_type_detail = OLD.id_type_detail) then
+# before insert
 
-                    delete from type_detail
-                        where type_detail.id_type_detail = OLD.id_type_detail;
-
-            end if;
-        end;
-# ======================================================
-# update
-# ------------------------------------------------------
-# update before
-create trigger tr21
-    before update on author
-        for each row begin
-            insert into author_log
-                (id_author, firstNameAuthor,
-                 secondNameAuthor, thirdNameAuthor)
-                values
-                (OLD.id_author, concat('<before upd> ', OLD.firstNameAuthor),
-                 OLD.secondNameAuthor, OLD.thirdNameAuthor);
-        end;
-# ------------------------------------------------------
-# update after
-create trigger tr22
-    after update on type_detail
-        for each row begin
-            if (OLD.id_type_detail != NEW.id_type_detail) then
-                update concrete_detail
-                    set id_type_detail = NEW.id_type_detail
-                    where id_type_detail = OLD.id_type_detail;
-            end if;
-        end;
-# declare fkc int;
-# set fkc=@@foreign_key_checks;
-# set @@foreign_key_checks=0;
-# -- обработка
-# set @@foreign_key_checks=fkc;
-# ======================================================
-# insert
-# ------------------------------------------------------
-# insert before
-
-# Если такого типа нет
-#   добавляет "неизвестный тип"
-#   либо связывает с "неизвестный тип"
+# Если (такого типа нет):
+#   добавляет "неизвестный тип";
+#   связывает с "неизвестный тип";
+# Либо:
+#   связывает с "неизвестный тип";
 
 create trigger tr31
     before insert on concrete_detail
@@ -104,7 +51,10 @@ create trigger tr31
             end if;
         end;
 # ------------------------------------------------------
-# insert after
+# after insert
+
+# logging
+
 create trigger tr32
     after insert on author
         for each row begin
@@ -115,11 +65,94 @@ create trigger tr32
                 (NEW.id_author, concat('<insert trg> ', NEW.firstNameAuthor),
                  NEW.secondNameAuthor, NEW.thirdNameAuthor);
         end;
+# ======================================================
+# ------------------------------------------------------
+# before delete
+
+# При удалении автора удаляет все его связи с одеждой
+
+create trigger tr11
+    before delete on author
+        for each row begin
+            delete from clothes_author
+                where clothes_author.id_author = OLD.id_author;
+        end;
+# ------------------------------------------------------
+# after delete
+
+# Если при удалении конкретной детали
+#   тип, которому она принадлежала стал избыточным
+#   (никому не принадлежащим, ни с чем не связанным)
+#
+# удаляет этот тип
+
+create trigger tr12
+    after delete on concrete_detail
+        for each row begin
+            if not exists(select * from concrete_detail cd
+                where cd.id_type_detail = OLD.id_type_detail) then
+
+                    delete from type_detail
+                        where type_detail.id_type_detail = OLD.id_type_detail;
+
+            end if;
+        end;
+# ======================================================
+# ------------------------------------------------------
+# before update
+
+# Каскадное обновление первичного ключа
+
+create trigger tr21
+    before update on type_detail
+        for each row begin
+            declare fkc int;
+            set fkc=@@foreign_key_checks;
+            set @@foreign_key_checks=0;
+
+            if (OLD.id_type_detail != NEW.id_type_detail) then
+                update concrete_detail
+                    set id_type_detail = NEW.id_type_detail
+                    where id_type_detail = OLD.id_type_detail;
+            end if;
+
+            set @@foreign_key_checks=fkc;
+        end;
+# ------------------------------------------------------
+# after update
+
+# logging
+
+create trigger tr22
+    after update on author
+        for each row begin
+            insert into author_log
+                (id_author, firstNameAuthor,
+                 secondNameAuthor, thirdNameAuthor)
+                values
+                (OLD.id_author, concat('<before upd> ', OLD.firstNameAuthor),
+                 OLD.secondNameAuthor, OLD.thirdNameAuthor);
+        end;
+
 
 # ######################################################
 # tests
 # ------------------------------------------------------
-# test delete before
+# test before insert
+insert into concrete_detail (id_type_detail, colorDetail)
+    values (1000, 'test trigger insert before');
+
+select td.id_type_detail, td.nameType, cd.colorDetail
+    from concrete_detail cd
+        left outer join type_detail td
+            on td.id_type_detail = cd.id_type_detail;
+# ------------------------------------------------------
+# test after insert
+insert into author (firstNameAuthor)
+    values ('test trigger insert');
+select * from author_log;
+# ------------------------------------------------------
+# test before delete
 delete from author where id_author = 1;
 
 select a.id_author, a.firstNameAuthor, c.nameClothes
@@ -129,7 +162,7 @@ from clothes_author
     right outer join author a
         on a.id_author = clothes_author.id_author;
 # ------------------------------------------------------
-# test delete after
+# test after delete
 delete from concrete_detail cd where id_concrete_detail = 1;
 delete from concrete_detail cd where id_concrete_detail = 2;
 delete from concrete_detail cd where id_concrete_detail = 3;
@@ -139,13 +172,7 @@ select td.id_type_detail, td.nameType, cd.colorDetail, cd.id_concrete_detail
         right outer join type_detail td
             on td.id_type_detail = cd.id_type_detail;
 # ------------------------------------------------------
-# test update before
-update author
-    set firstNameAuthor = 'test trigger update'
-    where author.id_author = last_insert_id();
-select * from author_log;
-# ------------------------------------------------------
-# test update after
+# test before update
 update type_detail
     set id_type_detail = 300
     where id_type_detail = 3;
@@ -155,17 +182,9 @@ select td.id_type_detail, td.nameType, cd.colorDetail
         join type_detail td
             on td.id_type_detail = cd.id_type_detail;
 # ------------------------------------------------------
-# test insert before
-insert into concrete_detail (id_type_detail, colorDetail)
-    values (null, 'test trigger insert');
-
-select td.id_type_detail, td.nameType, cd.colorDetail
-    from concrete_detail cd
-        left outer join type_detail td
-            on td.id_type_detail = cd.id_type_detail;
-# ------------------------------------------------------
-# test insert after
-insert into author (firstNameAuthor)
-    values ('test trigger insert');
+# test after update
+update author
+    set firstNameAuthor = 'test trigger update'
+    where author.id_author = 2;
 select * from author_log;
 

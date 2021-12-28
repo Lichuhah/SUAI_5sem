@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"> 
+    <head>
+
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+
+        <title>Birja in our university</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular-1.7.5.min.js"></script>
+        <script src="js/Birja.js"></script>
+
+    </head>
+    <body ng-app="Birja" ng-controller="BirjaController">
+        
+        <h1>Международная биржа</h1>
+
+        <div ng-controller="getBirjas" ng-show="birjaList.length > 0">
+            <table id="birjaTable" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th><h2>ID </h2></th>
+                        <th><h2>Наименование компании </h2></th>
+                        <th><h2>Количество акций </h2></th>
+                        <th><h2>Цена за акцию </h2></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="classBirja in birjaList" id="{{classBirja.id}}">
+                        <td>{{classBirja.id}}</td>
+                        <td>{{classBirja.nameCompany}}</td>
+                        <td>{{classBirja.kolActives}}</td>
+                        <td>{{classBirja.priceActive}}</td>
+                        <td><!--<input type="button" value="Редактировать"/>--></td>
+                        <td><input type="button" value="Удалить" ng-click="deleteBirja(classBirja.id)"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-danger" role="alert" ng-show="errormessage">{{errormessage}}</div>
+
+        <div>
+            <form role="form" ng-submit="addBirja()">
+                <div class="form-group">
+                    <label for="inputnameCompany">Наименование организации</label>
+                    <input type="string" class="form-control" id="inputnameCompany" name="inputnameCompany"  placeholder="Имя" ng-model="inputnameCompany"> </input>
+                </div>
+                <div class="form-group">
+                    <label for="inputkolActives">Количество акций</label>
+                    <input type="number" class="form-control" id="inputkolActives" name="inputkolActives" ng-model="inputkolActives" placeholder="Количество"></input>
+                </div>
+                <div class="form-group">
+                    <label for="inputpriceActive">Цена за акцию</label>
+                    <input type="float" class="form-control" id="inputpriceActive" name="inputpriceActive" ng-model="inputpriceActive" placeholder="Цена"></input>
+                </div>
+                <button type="submit" class="btn btn-default">Добавить</button>
+            </form>
+        </div>
+    </body>
+</html>
